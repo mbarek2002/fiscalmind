@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: fiscalmind-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fiscalmind
+      POSTGRES_USER: fiscalmind
+      POSTGRES_PASSWORD: fiscalmind
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant:v1.11.5
+    container_name: fiscalmind-qdrant
+    restart: unless-stopped
+    ports:
+      - "6335:6333"
+      - "6336:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  neo4j:
+    image: neo4j:5.23-community
+    container_name: fiscalmind-neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/fiscalmind123
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1G
+      NEO4J_server_memory_pagecache_size: 512m
+      NEO4J_dbms_default__database: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/var/lib/neo4j/import
+
+  minio:
+    image: minio/minio:latest
+    container_name: fiscalmind-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: fiscalmind
+      MINIO_ROOT_PASSWORD: fiscalmind123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  postgres_data:
+  qdrant_storage:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  minio_data:
