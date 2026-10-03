@@ -14,7 +14,10 @@ def retrieve_legal_candidates(question: str, language: str = "fr", top_k: int = 
 		RetrievedChunk(
 			article_id=row["article_id"],
 			loi=row["loi"],
-			numero_article=int(row["numero_article"]),
+			# numero_article is None for chunks produced by the markdown-header chunking
+			# pipeline (article-number detection is deferred to a later LLM pass, not done at
+			# chunking time) — fall back to 0 rather than crashing on int(None).
+			numero_article=int(row["numero_article"]) if row.get("numero_article") is not None else 0,
 			statut=row["statut"],
 			langue=row["langue"],
 			extrait=row["extrait"],
