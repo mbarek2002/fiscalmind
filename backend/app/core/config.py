@@ -27,10 +27,14 @@ class Settings(BaseSettings):
 	qdrant_url: str | None = None
 	qdrant_api_key: str | None = None
 	qdrant_collection_loi: str = "loi_finance"
-	qdrant_vector_size: int = 64
+	qdrant_collection_jurisprudence: str = "jurisprudence"
+	# BGE-M3's native dense output size — do not shrink this; it used to be artificially
+	# truncated to 64, which silently destroyed embedding quality for every provider.
+	qdrant_vector_size: int = 1024
 	reranker_provider: str = "local"
 	local_reranker_model_name: str = "BAAI/bge-reranker-v2-m3"
 	reranker_candidate_multiplier: int = 3
+	max_verification_retries: int = 2
 	embedding_provider: str = "local"
 	local_embedding_model_name: str = "BAAI/bge-m3"
 	openai_embedding_model: str = "text-embedding-3-large"

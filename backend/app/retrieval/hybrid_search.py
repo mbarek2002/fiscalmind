@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from difflib import SequenceMatcher
 
 
 @dataclass
@@ -18,21 +17,20 @@ class RetrievedChunk:
 	fused_score: float = 0.0
 
 
+@dataclass
+class JurisprudenceChunk:
+	case_id: str
+	reference: str
+	resume: str
+	langue: str
+	categorie: str
+	dense_score: float = 0.0
+	sparse_score: float = 0.0
+	fused_score: float = 0.0
+
+
 def tokenize(text: str) -> set[str]:
 	return {part.strip(".,;:!?()[]{}\"'\n\t").lower() for part in text.split() if part.strip()}
-
-
-def lexical_score(query: str, chunk_text: str) -> float:
-	q_tokens = tokenize(query)
-	d_tokens = tokenize(chunk_text)
-	if not q_tokens or not d_tokens:
-		return 0.0
-	intersection = len(q_tokens.intersection(d_tokens))
-	return intersection / max(len(q_tokens), 1)
-
-
-def dense_similarity(query: str, chunk_text: str) -> float:
-	return SequenceMatcher(None, query.lower(), chunk_text.lower()).ratio()
 
 
 def deterministic_embedding(text: str, vector_size: int) -> list[float]:

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import re
+import uuid
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -10,14 +11,15 @@ import boto3
 from botocore.exceptions import ClientError
 from neo4j import GraphDatabase
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
+from qdrant_client.models import Distance, PointStruct, SparseVector, SparseVectorParams, VectorParams
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from backend.app.core.config import get_settings
 from backend.app.db.session import AsyncSessionLocal
 from backend.app.llm.factory import get_embedding_client
+from backend.app.llm.interfaces import EmbeddingResult
 from backend.app.models.db_models import DocumentMetadata
-from backend.app.models.enums import DocumentSourceType, DocumentStatus
+from backend.app.models.enums import DocumentSourceType, DocumentStatus, IngestionStatus
 from backend.app.retrieval.hybrid_search import deterministic_embedding
 
 
@@ -68,7 +70,7 @@ def _upload_to_minio(client, bucket_name: str, object_key: str, file_path: Path)
 	return f"s3://{bucket_name}/{object_key}"
 
 
-def _index_in_qdrant(document: DocumentMetadata, text: str) -> None:
+def index_chunk_in_qdrant(chunk_id: str, document: DocumentMetadata, text: str, *, numero_article: int | None = None) -> None:
 	settings = get_settings()
 	if not settings.qdrant_url:
 		return
@@ -78,26 +80,38 @@ def _index_in_qdrant(document: DocumentMetadata, text: str) -> None:
 	if not client.collection_exists(collection_name):
 		client.create_collection(
 			collection_name=collection_name,
-			vectors_config=VectorParams(size=settings.qdrant_vector_size, distance=Distance.COSINE),
+			vectors_config={"dense": VectorParams(size=settings.qdrant_vector_size, distance=Distance.COSINE)},
+			sparse_vectors_config={"sparse": SparseVectorParams()},
 		)
 
 	try:
-		vector = get_embedding_client().embed_text(text)
+		embedding = get_embedding_client().embed_hybrid(text)
 	except Exception as exc:
 		if settings.provider_strict_mode_enabled:
 			raise RuntimeError(
 				"Embedding provider is unavailable during ingestion while strict provider mode is enabled"
 			) from exc
-		vector = deterministic_embedding(text, settings.qdrant_vector_size)
+		embedding = EmbeddingResult(dense=deterministic_embedding(text, settings.qdrant_vector_size), sparse=None)
+
+	vector: dict[str, object] = {"dense": embedding.dense}
+	if embedding.sparse:
+		vector["sparse"] = SparseVector(indices=list(embedding.sparse.keys()), values=list(embedding.sparse.values()))
+
+	# Qdrant point IDs must be an unsigned integer or a UUID — not an arbitrary string like our
+	# "source_file::chunkN" chunk_id. Derive a deterministic UUID so re-indexing the same chunk
+	# upserts the same point instead of creating a duplicate. The original string is kept in the
+	# payload as id_chunk for display/debugging.
+	point_id = str(uuid.uuid5(uuid.NAMESPACE_OID, chunk_id))
+
 	point = PointStruct(
-		id=document.id,
+		id=point_id,
 		vector=vector,
 		payload={
-			"id_chunk": document.id,
+			"id_chunk": chunk_id,
 			"document_id": document.id,
 			"loi": document.titre,
 			"annee_loi": document.annee_loi,
-			"numero_article": document.numero_article,
+			"numero_article": numero_article if numero_article is not None else document.numero_article,
 			"langue": document.langue,
 			"statut": document.statut.value,
 			"categorie_infraction": document.categorie_infraction,
@@ -105,6 +119,10 @@ def _index_in_qdrant(document: DocumentMetadata, text: str) -> None:
 		},
 	)
 	client.upsert(collection_name=collection_name, points=[point])
+
+
+def _index_in_qdrant(document: DocumentMetadata, text: str) -> None:
+	index_chunk_in_qdrant(document.id, document, text)
 
 
 def _index_in_neo4j(document: DocumentMetadata) -> None:
@@ -149,6 +167,8 @@ async def _persist_document_metadata(
 	numero_article: int | None,
 	langue: str,
 	storage_path: str,
+	original_filename: str,
+	size_bytes: int,
 ) -> DocumentMetadata:
 	document = DocumentMetadata(
 		source_type=source_type,
@@ -161,6 +181,10 @@ async def _persist_document_metadata(
 		categorie_infraction=["non_classe"],
 		storage_path=storage_path,
 		anonymized=source_type == DocumentSourceType.jurisprudence,
+		original_filename=original_filename,
+		size_bytes=size_bytes,
+		ingestion_status=IngestionStatus.indexed,
+		chunk_count=1,
 	)
 	session.add(document)
 	await session.commit()
@@ -209,6 +233,8 @@ async def ingest_source_directory(source_dir: str, source_type: str = "loi") -> 
 					numero_article=numero_article,
 					langue=langue,
 					storage_path=storage_path,
+					original_filename=file_path.name,
+					size_bytes=file_path.stat().st_size,
 				)
 
 				_index_in_qdrant(document, text)

@@ -1,22 +1,34 @@
 from __future__ import annotations
 
 from backend.app.core.config import Settings
-from backend.app.llm.interfaces import BaseEmbeddingClient
-from backend.app.llm.utils import normalize_vector_size
+from backend.app.llm.interfaces import BaseEmbeddingClient, EmbeddingResult
 
 
 class LocalEmbeddingClient(BaseEmbeddingClient):
 	def __init__(self, settings: Settings) -> None:
 		super().__init__(settings)
 		try:
-			from sentence_transformers import SentenceTransformer
+			from FlagEmbedding import BGEM3FlagModel
 		except Exception as exc:  # pragma: no cover - optional runtime dependency
 			raise RuntimeError(
-				"sentence-transformers is required for local embeddings. Install dependencies from requirements.txt"
+				"FlagEmbedding is required for local BGE-M3 embeddings (dense+sparse). "
+				"Install dependencies from requirements.txt"
 			) from exc
 
-		self._model = SentenceTransformer(settings.local_embedding_model_name)
+		self._model = BGEM3FlagModel(settings.local_embedding_model_name, use_fp16=True)
 
 	def embed_text(self, text: str) -> list[float]:
-		vector = self._model.encode(text or "", normalize_embeddings=True).tolist()
-		return normalize_vector_size([float(v) for v in vector], self.settings.qdrant_vector_size)
+		return self.embed_hybrid(text).dense
+
+	def embed_hybrid(self, text: str) -> EmbeddingResult:
+		output = self._model.encode(
+			[text or ""],
+			return_dense=True,
+			return_sparse=True,
+			return_colbert_vecs=False,
+		)
+		dense = [float(v) for v in output["dense_vecs"][0]]
+		# lexical_weights keys are token ids as strings (e.g. "24241"), values are np.float16 —
+		# both need converting to plain Python types for Qdrant's SparseVector / JSON encoding.
+		sparse = {int(token_id): float(weight) for token_id, weight in output["lexical_weights"][0].items()}
+		return EmbeddingResult(dense=dense, sparse=sparse)
