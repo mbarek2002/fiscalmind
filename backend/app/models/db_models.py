@@ -1,11 +1,20 @@
 from datetime import UTC, date, datetime
 from uuid import uuid4
 
-from sqlalchemy import JSON, Boolean, Date, DateTime, Enum, ForeignKey, Integer, String, Text, event
+from sqlalchemy import JSON, Boolean, Date, DateTime, Enum, Float, ForeignKey, Integer, String, Text, event
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.app.db.session import Base
-from backend.app.models.enums import DocumentSourceType, DocumentStatus, UserRole
+from backend.app.models.enums import (
+	CitationType,
+	DocumentSourceType,
+	DocumentStatus,
+	FinancialDocumentStatus,
+	FinancialSourceType,
+	FinancialSubmissionStatus,
+	IngestionStatus,
+	UserRole,
+)
 
 
 class TimestampMixin:
@@ -27,9 +36,113 @@ class User(Base, TimestampMixin):
 	role: Mapped[UserRole] = mapped_column(Enum(UserRole), default=UserRole.citoyen, nullable=False, index=True)
 	is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 	preferred_lang: Mapped[str] = mapped_column(String(5), default="fr", nullable=False)
+	company_id: Mapped[str | None] = mapped_column(
+		String(36), ForeignKey("companies.id", ondelete="SET NULL"), nullable=True, index=True
+	)
 
 	query_logs: Mapped[list["QueryLog"]] = relationship(back_populates="user")
 	audit_logs: Mapped[list["AuditLog"]] = relationship(back_populates="user")
+	company: Mapped["Company | None"] = relationship(back_populates="users", foreign_keys=[company_id])
+
+
+class Company(Base, TimestampMixin):
+	__tablename__ = "companies"
+
+	id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+	name: Mapped[str] = mapped_column(String(255), nullable=False)
+	matricule_fiscal: Mapped[str] = mapped_column(String(50), unique=True, nullable=False, index=True)
+	secteur_activite: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	created_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
+
+	users: Mapped[list["User"]] = relationship(back_populates="company", foreign_keys=[User.company_id])
+	submissions: Mapped[list["FinancialSubmission"]] = relationship(
+		back_populates="company", cascade="all, delete-orphan"
+	)
+
+
+class FinancialSubmission(Base, TimestampMixin):
+	__tablename__ = "financial_submissions"
+
+	id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+	company_id: Mapped[str] = mapped_column(
+		String(36), ForeignKey("companies.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	submitted_by: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
+	source_type: Mapped[FinancialSourceType] = mapped_column(Enum(FinancialSourceType), nullable=False)
+	free_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+	structured_data: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	status: Mapped[FinancialSubmissionStatus] = mapped_column(
+		Enum(FinancialSubmissionStatus), default=FinancialSubmissionStatus.pending, nullable=False, index=True
+	)
+	final_summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+	verification_status: Mapped[str | None] = mapped_column(String(30), nullable=True)
+	disclaimer: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+	company: Mapped["Company"] = relationship(back_populates="submissions")
+	documents: Mapped[list["FinancialDocument"]] = relationship(
+		back_populates="submission", cascade="all, delete-orphan"
+	)
+	findings: Mapped[list["InfractionFinding"]] = relationship(
+		back_populates="submission", cascade="all, delete-orphan"
+	)
+
+
+class FinancialDocument(Base, TimestampMixin):
+	__tablename__ = "financial_documents"
+
+	id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+	submission_id: Mapped[str] = mapped_column(
+		String(36), ForeignKey("financial_submissions.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	original_filename: Mapped[str] = mapped_column(String(500), nullable=False)
+	storage_path: Mapped[str] = mapped_column(String(1000), nullable=False)
+	mime_type: Mapped[str | None] = mapped_column(String(100), nullable=True)
+	size_bytes: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+	extraction_status: Mapped[FinancialDocumentStatus] = mapped_column(
+		Enum(FinancialDocumentStatus), default=FinancialDocumentStatus.uploaded, nullable=False
+	)
+	extracted_data: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+	extraction_error: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+	submission: Mapped["FinancialSubmission"] = relationship(back_populates="documents")
+
+
+class InfractionFinding(Base):
+	__tablename__ = "infraction_findings"
+
+	id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+	submission_id: Mapped[str] = mapped_column(
+		String(36), ForeignKey("financial_submissions.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	categorie_infraction: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
+	description: Mapped[str] = mapped_column(Text, nullable=False)
+	severite: Mapped[str | None] = mapped_column(String(20), nullable=True)
+	confidence_score: Mapped[float | None] = mapped_column(Float, nullable=True)
+	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))
+
+	submission: Mapped["FinancialSubmission"] = relationship(back_populates="findings")
+	citations: Mapped[list["InfractionCitation"]] = relationship(
+		back_populates="finding", cascade="all, delete-orphan"
+	)
+
+
+class InfractionCitation(Base):
+	__tablename__ = "infraction_citations"
+
+	id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid4()))
+	finding_id: Mapped[str] = mapped_column(
+		String(36), ForeignKey("infraction_findings.id", ondelete="CASCADE"), nullable=False, index=True
+	)
+	citation_type: Mapped[CitationType] = mapped_column(Enum(CitationType), nullable=False)
+	ref_id: Mapped[str] = mapped_column(String(100), nullable=False)
+	loi: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	numero_article: Mapped[int | None] = mapped_column(Integer, nullable=True)
+	reference: Mapped[str | None] = mapped_column(String(255), nullable=True)
+	statut: Mapped[str | None] = mapped_column(String(50), nullable=True)
+	langue: Mapped[str | None] = mapped_column(String(5), nullable=True)
+	extrait: Mapped[str] = mapped_column(Text, nullable=False)
+
+	finding: Mapped["InfractionFinding"] = relationship(back_populates="citations")
 
 
 class DocumentMetadata(Base, TimestampMixin):
@@ -48,6 +161,13 @@ class DocumentMetadata(Base, TimestampMixin):
 	categorie_infraction: Mapped[list[str]] = mapped_column(JSON, default=list)
 	storage_path: Mapped[str] = mapped_column(String(1000), nullable=False)
 	anonymized: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+	original_filename: Mapped[str] = mapped_column(String(500), nullable=False)
+	size_bytes: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+	ingestion_status: Mapped[IngestionStatus] = mapped_column(
+		Enum(IngestionStatus), default=IngestionStatus.uploaded, nullable=False, index=True
+	)
+	chunk_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+	ingestion_error: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
 class QueryLog(Base):
