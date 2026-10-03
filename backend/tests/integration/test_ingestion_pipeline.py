@@ -34,7 +34,7 @@ class _FakeQdrantClient:
 	def upsert(self, collection_name: str, points: list) -> None:
 		self._points = points
 
-	def search(self, collection_name: str, query_vector: list[float], query_filter, limit: int):
+	def query_points(self, collection_name: str, query, query_filter=None, prefetch=None, using=None, limit: int = 10, with_payload: bool = True):
 		class _Point:
 			def __init__(self) -> None:
 				self.score = 0.85
@@ -48,7 +48,10 @@ class _FakeQdrantClient:
 					"categorie_infraction": ["fraude_fiscale_tva"],
 				}
 
-		return [_Point()]
+		class _Response:
+			points = [_Point()]
+
+		return _Response()
 
 
 @pytest.mark.asyncio
@@ -71,10 +74,22 @@ async def test_ingestion_persists_document_metadata(tmp_path, monkeypatch):
 		assert any(row.numero_article == 12 and row.annee_loi == 2024 for row in rows)
 
 
+class _FakeEmbeddingClient:
+	def embed_text(self, text: str) -> list[float]:
+		return [0.1, 0.2, 0.3]
+
+	def embed_hybrid(self, text: str):  # noqa: ANN201
+		from backend.app.llm.interfaces import EmbeddingResult
+
+		return EmbeddingResult(dense=[0.1, 0.2, 0.3], sparse=None)
+
+
 def test_qdrant_real_search_shape(monkeypatch):
 	from backend.app.retrieval import qdrant_client as qdrant_module
 
 	monkeypatch.setattr(qdrant_module, "QdrantClient", _FakeQdrantClient)
+	# Avoid pulling down the real local embedding model (BGE-M3, multi-GB) over the network.
+	monkeypatch.setattr(qdrant_module, "get_embedding_client", lambda: _FakeEmbeddingClient())
 
 	results = search_qdrant_hybrid("Quelle est la sanction TVA ?", language="fr", top_k=1)
 	assert len(results) == 1

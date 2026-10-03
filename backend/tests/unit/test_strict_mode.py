@@ -21,6 +21,9 @@ class _FailingEmbeddingClient:
 	def embed_text(self, _text: str) -> list[float]:
 		raise RuntimeError("embedding down")
 
+	def embed_hybrid(self, _text: str):  # noqa: ANN201
+		raise RuntimeError("embedding down")
+
 
 class _FailingLLMClient:
 	def generate(self, prompt: str, system_prompt: str | None = None) -> str:
@@ -33,9 +36,14 @@ class _Point:
 		self.score = score
 
 
+class _QueryPointsResponse:
+	def __init__(self, points: list[_Point]) -> None:
+		self.points = points
+
+
 class _DummyQdrantClient:
 	last_query_vector: list[float] | None = None
-	last_upsert_vector: list[float] | None = None
+	last_upsert_vector: object | None = None
 
 	def __init__(self, url: str, api_key: str | None = None) -> None:
 		self.url = url
@@ -47,22 +55,24 @@ class _DummyQdrantClient:
 	def create_collection(self, *args, **kwargs) -> None:  # noqa: ANN002,ANN003
 		return None
 
-	def search(self, collection_name: str, query_vector: list[float], query_filter, limit: int):  # noqa: ANN001
-		_DummyQdrantClient.last_query_vector = query_vector
-		return [
-			_Point(
-				payload={
-					"id_chunk": "lf2023_art45_fr",
-					"loi": "Loi de Finance 2023",
-					"numero_article": 45,
-					"statut": "en_vigueur",
-					"langue": "fr",
-					"texte": "Sanction TVA ...",
-					"categorie_infraction": ["fraude_fiscale_tva"],
-				},
-				score=0.9,
-			)
-		]
+	def query_points(self, collection_name: str, query, query_filter=None, prefetch=None, using=None, limit: int = 10, with_payload: bool = True):  # noqa: ANN001
+		_DummyQdrantClient.last_query_vector = query
+		return _QueryPointsResponse(
+			[
+				_Point(
+					payload={
+						"id_chunk": "lf2023_art45_fr",
+						"loi": "Loi de Finance 2023",
+						"numero_article": 45,
+						"statut": "en_vigueur",
+						"langue": "fr",
+						"texte": "Sanction TVA ...",
+						"categorie_infraction": ["fraude_fiscale_tva"],
+					},
+					score=0.9,
+				)
+			]
+		)
 
 	def upsert(self, collection_name: str, points: list) -> None:  # noqa: ANN001
 		_DummyQdrantClient.last_upsert_vector = points[0].vector
@@ -159,7 +169,7 @@ def test_ingestion_non_strict_falls_back_to_deterministic_embedding(monkeypatch:
 
 	pipeline_mod._index_in_qdrant(_build_document(), "texte indexe")
 
-	assert _DummyQdrantClient.last_upsert_vector == [0.1, 0.9]
+	assert _DummyQdrantClient.last_upsert_vector == {"dense": [0.1, 0.9]}
 
 
 def test_ingestion_strict_raises_when_embedding_provider_fails(monkeypatch: pytest.MonkeyPatch) -> None:
