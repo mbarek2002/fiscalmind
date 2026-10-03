@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+
+from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
 
 
-ARTICLE_MARKER_FR = re.compile(r"(?m)^\s*Article\s+(?:premier|\d+)\b", re.IGNORECASE)
-ARTICLE_MARKER_AR = re.compile(r"(?m)^\s*الفصل(?:\s+عدد)?\s*\d*")
 ARABIC_CHAR_PATTERN = re.compile(r"[؀-ۿݐ-ݿ]")
 
 DEFAULT_MAX_CHARS = 1200
 DEFAULT_OVERLAP_CHARS = 150
+
+# Legal-article-boundary precision (Article N / الفصل N not always matching these generic
+# markdown header levels) is deliberately out of scope here — deferred to a later LLM pass
+# over the chunked text, not handled during chunking itself.
+HEADERS_TO_SPLIT_ON = [("#", "H1"), ("##", "H2"), ("###", "H3"), ("####", "H4")]
 
 
 @dataclass
@@ -20,6 +25,9 @@ class Chunk:
 	text: str
 	langue: str
 	numero_article: int | None = None
+	# Header hierarchy above this chunk, e.g. {"H1": "TITRE III", "H4": "Article 81"} — as
+	# produced by MarkdownHeaderTextSplitter's metadata, otherwise discarded.
+	headers: dict[str, str] = field(default_factory=dict)
 
 
 def detect_language(text: str) -> str:
@@ -29,59 +37,6 @@ def detect_language(text: str) -> str:
 		return "fr"
 	arabic_letters = [c for c in letters if ARABIC_CHAR_PATTERN.match(c)]
 	return "ar" if len(arabic_letters) / len(letters) > 0.5 else "fr"
-
-
-def _find_article_boundaries(text: str) -> list[tuple[int, int | None]]:
-	boundaries: list[tuple[int, int | None]] = []
-	for pattern in (ARTICLE_MARKER_FR, ARTICLE_MARKER_AR):
-		for match in pattern.finditer(text):
-			number_match = re.search(r"\d+", match.group())
-			number = int(number_match.group()) if number_match else None
-			boundaries.append((match.start(), number))
-	boundaries.sort(key=lambda item: item[0])
-	return boundaries
-
-
-def split_into_articles(text: str) -> list[tuple[int | None, str]]:
-	"""Split on 'Article N' / 'الفصل N' markers; a single segment if none are found."""
-	boundaries = _find_article_boundaries(text)
-	if not boundaries:
-		return [(None, text)]
-
-	segments: list[tuple[int | None, str]] = []
-	preamble = text[: boundaries[0][0]].strip()
-	if preamble:
-		segments.append((None, preamble))
-
-	for index, (start, number) in enumerate(boundaries):
-		end = boundaries[index + 1][0] if index + 1 < len(boundaries) else len(text)
-		segment_text = text[start:end].strip()
-		if segment_text:
-			segments.append((number, segment_text))
-
-	return segments
-
-
-def _sliding_window(text: str, *, max_chars: int, overlap_chars: int) -> list[str]:
-	if len(text) <= max_chars:
-		return [text] if text else []
-
-	windows: list[str] = []
-	start = 0
-	while start < len(text):
-		end = min(start + max_chars, len(text))
-		if end < len(text):
-			boundary = text.rfind(" ", start, end)
-			if boundary > start:
-				end = boundary
-		window = text[start:end].strip()
-		if window:
-			windows.append(window)
-		if end >= len(text):
-			break
-		start = max(end - overlap_chars, start + 1)
-
-	return windows
 
 
 def chunk_document(
@@ -95,11 +50,18 @@ def chunk_document(
 		return []
 
 	langue = detect_language(text)
+
+	header_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=HEADERS_TO_SPLIT_ON, strip_headers=False)
+	sections = header_splitter.split_text(text)
+
+	recursive_splitter = RecursiveCharacterTextSplitter(chunk_size=max_chars, chunk_overlap=overlap_chars)
+
 	chunks: list[Chunk] = []
 	chunk_index = 0
-
-	for numero_article, segment_text in split_into_articles(text):
-		for window in _sliding_window(segment_text, max_chars=max_chars, overlap_chars=overlap_chars):
+	for section in sections:
+		for window in recursive_splitter.split_text(section.page_content):
+			if not window.strip():
+				continue
 			chunks.append(
 				Chunk(
 					chunk_id=f"{source_file}::chunk{chunk_index}",
@@ -107,7 +69,7 @@ def chunk_document(
 					chunk_index=chunk_index,
 					text=window,
 					langue=langue,
-					numero_article=numero_article,
+					headers=dict(section.metadata),
 				)
 			)
 			chunk_index += 1
