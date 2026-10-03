@@ -2,10 +2,19 @@
 
 ## 1. Objectif du projet
 
-Concevoir un système multi-agents (RAG hybride) capable d'aider **avocats**, **juges** et **citoyens** à comprendre les sanctions et implications légales liées aux infractions relevant de la **loi de finance tunisienne**, en s'appuyant sur :
-- le corpus des lois de finance (textes officiels, par année),
-- un corpus de jurisprudence / affaires passées collectées,
-- un raisonnement multi-agents capable de qualifier les faits, retrouver les textes pertinents, retrouver des cas similaires, et produire une réponse fiable, sourcée et vérifiée.
+Concevoir un système multi-agents (RAG hybride) destiné à une **société/entreprise** : celle-ci fournit toutes les informations sur sa situation financière actuelle, et le système analyse cette situation pour identifier les **manquements et sanctions fiscales** dans lesquels la société pourrait être impliquée et la **législation fiscale applicable**, en s'appuyant sur :
+- le corpus des textes fiscaux tunisiens (codes permanents, lois de finance annuelles, notes communes de la DGI),
+- un raisonnement multi-agents capable de qualifier les faits (issus des données financières soumises), retrouver les textes pertinents, et produire une réponse fiable, sourcée et vérifiée.
+
+> **Précision de cadrage (2026-09-09)** : ce document décrivait initialement un assistant de questions-réponses juridiques pour avocats/juges/citoyens. Le cas d'usage réel confirmé est un outil de **détection d'infraction/conformité pour une société**, qui reste alimenté par le même moteur hybrid RAG. Les avocats/juges/citoyens restent des profils secondaires possibles (voir section 7.5) mais l'entrée principale du système est la situation financière d'une entreprise, pas une question libre d'un particulier.
+
+> **Resserrement de périmètre — données réelles (2026-10-02)** : après inventaire et lecture du corpus réellement disponible (1189 documents, voir `QUESTIONS_SITUATION_FINANCIERE.md`), le périmètre est resserré au **droit fiscal tunisien** (CDPF, Code IRPP/IS, Code TVA, Code de la Fiscalité Locale, Code des Droits d'Enregistrement et de Timbre, Lois de Finance, Notes communes DGI). Les catégories initialement prévues en section 6 (contrebande douanière, blanchiment d'argent, abus de biens sociaux, infractions de change, corruption marchés publics) sont **hors périmètre actuel** : aucun document source (Code des Douanes, loi anti-blanchiment, code pénal) n'existe dans le corpus collecté. De même, **aucune jurisprudence** (décision de justice) n'a été collectée à ce jour — le corpus est 100% législatif/réglementaire/administratif (lois, codes, circulaires). L'agent Recherche Jurisprudence, la collection Qdrant `jurisprudence` et le nœud Neo4j `Jurisprudence` décrits plus bas restent architecturalement prévus pour une **Phase 2** mais ne sont alimentés par aucune donnée actuellement — toute réponse du système doit se fonder uniquement sur les textes légaux/administratifs, pas sur des cas jugés inexistants dans la base.
+
+### 1.0 Entrée des données de la société
+La société peut soumettre sa situation financière par trois modes combinables :
+- **Documents à uploader** (PDF/Excel/DOCX : bilans, déclarations fiscales, journaux comptables, etc.), traités par le pipeline d'ingestion au même titre que les lois/jurisprudence (section 4).
+- **Formulaire structuré** (champs précis : chiffre d'affaires, TVA collectée/déduite, charges, etc.).
+- **Description en langage libre** dans le chat, qualifiée par l'agent Qualification (section 7.3).
 
 **Périmètre strict (Phase 1)** : loi de finance uniquement (pas le code pénal général, sauf lien direct avec une infraction financière).
 
@@ -27,7 +36,7 @@ flowchart TD
 - **Fiscal** = une branche des finances publiques, centrée sur l'impôt (qui paie, combien, contrôle, infractions et sanctions — porté par des codes permanents comme le CDPF, le Code de l'IRPP/IS, le Code de la TVA).
 - **Loi de Finance** = l'instrument juridique annuel qui organise le budget et qui, au passage, modifie souvent les règles fiscales (taux, exonérations). Elle touche donc à la fois au budgétaire et au fiscal, sans se confondre avec aucun des deux.
 
-**Décision actuelle** : le périmètre du projet reste défini autour de la **loi de finance** (au sens large, tel que décrit dans ce document) — cette clarification est consignée pour référence et pourra guider un futur resserrement du périmètre vers le sous-domaine fiscal (CDPF en particulier) si nécessaire.
+**Décision actuelle (resserrée le 2026-10-02)** : le périmètre du projet est désormais le **sous-domaine fiscal** (impôts : IRPP, IS, TVA, fiscalité locale, droits d'enregistrement — contrôle, procédures, infractions et sanctions portées par le CDPF), conformément aux documents réellement collectés. Le budgétaire au sens large (mécanique de la loi de finance hors volet fiscal), la comptabilité publique et la dette publique restent hors périmètre faute de corpus dédié.
 
 ### 1.2 Diagramme de cas d'utilisation
 
@@ -248,18 +257,22 @@ Ce principe est cohérent avec le schéma déjà défini (`date_entree_vigueur`,
 
 ---
 
-## 6. Taxonomie des infractions financières (exemple de départ, à valider/enrichir avec un juriste)
+## 6. Taxonomie des manquements et sanctions fiscales (resserrée le 2026-10-02, basée sur le corpus réel — voir `QUESTIONS_SITUATION_FINANCIERE.md`)
 
-- Fraude fiscale (TVA, IS, IRPP)
-- Évasion fiscale / dissimulation d'assiette
-- Contrebande douanière
-- Blanchiment d'argent lié aux finances publiques
-- Non-déclaration / déclaration inexacte de revenus
-- Abus de biens sociaux
-- Infractions aux règles de change
-- Corruption liée aux marchés publics / finances publiques
+Catégories couvertes par un document source réel (CDPF, Code IRPP/IS) :
+
+- Retard de paiement de l'impôt (déclaré spontanément ou constaté par contrôle fiscal) — Art. 81-82 CDPF
+- Minoration du chiffre d'affaires ≥ 30% / manœuvres de fraude fiscale (TVA, IS, IRPP) — Art. 82 CDPF
+- Défaut ou insuffisance de retenue à la source — Art. 83 CDPF
+- Paiement en espèces de montants ≥ 5 000 dinars — Art. 83 ter CDPF
+- Transfert de revenus/bénéfices non conforme (prix de transfert) — Art. 84 bis, renvoi Art. 112 CDPF
+- Défaut d'acquittement du droit de timbre — Art. 84 CDPF
+- Défaut de dépôt de déclaration fiscale → taxation d'office — Art. 47-51 bis CDPF
+- Dépassement du seuil de chiffre d'affaires du régime forfaitaire (100 000 dinars) — Art. 44 bis Code IRPP/IS
 
 Chaque catégorie est reliée aux articles concernés via la relation `APPARTIENT_A` dans le graphe, et sert de filtre de recherche.
+
+**Catégories hors périmètre actuel (aucun document source dans le corpus collecté)** : contrebande douanière (pas de Code des Douanes), blanchiment d'argent (pas de loi anti-blanchiment), abus de biens sociaux (droit pénal/des sociétés, non collecté), infractions aux règles de change (non collecté), corruption liée aux marchés publics (code pénal/loi anti-corruption, non collecté). Elles ne doivent pas être proposées par l'agent Qualification tant qu'aucun texte source ne les étaye — un futur élargissement nécessite d'abord de collecter ces corpus.
 
 ---
 

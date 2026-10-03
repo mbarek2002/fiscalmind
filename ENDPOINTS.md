@@ -1,6 +1,8 @@
 # Spécification des endpoints API
 
-Ce document liste l'ensemble des endpoints REST nécessaires au projet, regroupés par domaine fonctionnel. Base URL : `/api/v1`. Authentification : Bearer JWT (sauf `/auth/login` et `/health`). Rôles : `citoyen`, `avocat`, `juge`, `admin`.
+Ce document liste l'ensemble des endpoints REST nécessaires au projet, regroupés par domaine fonctionnel. Base URL : `/api/v1`. Authentification : Bearer JWT (sauf `/auth/login` et `/health`). Rôles : `citoyen`, `avocat`, `juge`, `admin`, `entreprise`.
+
+> **Rôle principal (2026-09-09)** : `entreprise` est le rôle central du système — voir [ARCHITECTURE.md — section 1](./ARCHITECTURE.md#1-objectif-du-projet). Les sections 3bis et 3ter ci-dessous (`/companies`, `/financial-submissions`) portent le cas d'usage réel. Les sections 3, 5, 6 (`/query`, `/articles`, `/jurisprudence`) restent documentées pour les profils secondaires avocat/juge/citoyen.
 
 Référence croisée : implémentation prévue dans `backend/app/api/v1/endpoints/` (voir [STRUCTURE.md](./STRUCTURE.md)).
 
@@ -83,6 +85,64 @@ Cœur du système : déclenche le graphe multi-agents (LangGraph).
   ],
   "verification_status": "validated",
   "disclaimer": "Cette réponse ne constitue pas un avis juridique officiel."
+}
+```
+
+---
+
+## 3bis. Sociétés (`/companies`)
+
+**Implémenté** (2026-09-09) dans `backend/app/api/v1/endpoints/companies.py`.
+
+| Méthode | Endpoint | Rôles | Description |
+|---|---|---|---|
+| POST | `/companies` | `entreprise`, `admin` | Enregistre une société (nom, matricule fiscal, secteur) et la rattache au compte courant si `entreprise`. |
+| GET | `/companies/me` | `entreprise` | Société rattachée au compte courant. |
+| GET | `/companies/{company_id}` | `admin` | Détail d'une société. |
+
+**Exemple `POST /companies`**
+```json
+// Requête
+{ "name": "ACME Tunisie SA", "matricule_fiscal": "1234567A", "secteur_activite": "commerce" }
+
+// Réponse
+{ "id": "c_1", "name": "ACME Tunisie SA", "matricule_fiscal": "1234567A", "secteur_activite": "commerce", "created_at": "2026-09-09T10:00:00Z" }
+```
+
+---
+
+## 3ter. Situation financière et détection d'infraction (`/financial-submissions`)
+
+**Implémenté** (2026-09-09) dans `backend/app/api/v1/endpoints/financial_submissions.py`. C'est le cœur du cas d'usage réel : une société soumet sa situation financière (documents, formulaire structuré, texte libre, ou une combinaison) et reçoit les infractions détectées + la législation applicable, sourcées par le hybrid RAG.
+
+| Méthode | Endpoint | Rôles | Description |
+|---|---|---|---|
+| POST | `/financial-submissions` | `entreprise` | Crée une soumission (`source_type` + `free_text` et/ou `structured_data`) pour la société du compte courant. |
+| POST | `/financial-submissions/{id}/documents` | `entreprise` (propriétaire) | Upload d'un document financier (PDF/Excel/DOCX) attaché à la soumission ; bascule `source_type` à `mixte` si un autre mode était déjà utilisé. |
+| GET | `/financial-submissions` | `entreprise` (ses propres soumissions), `admin` (toutes) | Historique des soumissions avec documents et constats. |
+| GET | `/financial-submissions/{id}` | `entreprise` (propriétaire), `admin` | Détail d'une soumission (statut, documents, `infraction_findings` + citations). |
+| POST | `/financial-submissions/{id}/analyze` | `entreprise` (propriétaire), `admin` | Déclenche l'analyse. |
+
+> ⚠️ **Non implémenté** : `POST /financial-submissions/{id}/analyze` ne fait actuellement que passer le statut à `analyzing` — le câblage vers le pipeline multi-agents (Qualification → recherche légale/jurisprudence → synthèse → vérificateur, section 7 d'ARCHITECTURE.md) pour produire réellement les `infraction_findings` est une étape suivante distincte, pas encore réalisée.
+
+**Exemple `POST /financial-submissions`**
+```json
+// Requête
+{
+  "source_type": "formulaire",
+  "structured_data": { "chiffre_affaires": 850000, "tva_collectee": 130000, "tva_deduite": 95000 }
+}
+
+// Réponse
+{
+  "id": "fs_1",
+  "company_id": "c_1",
+  "source_type": "formulaire",
+  "status": "pending",
+  "structured_data": { "chiffre_affaires": 850000, "tva_collectee": 130000, "tva_deduite": 95000 },
+  "documents": [],
+  "findings": [],
+  "created_at": "2026-09-09T10:05:00Z"
 }
 ```
 
@@ -173,10 +233,11 @@ Accès direct au corpus indexé, indépendamment du raisonnement multi-agents (u
 
 | Rôle | Endpoints accessibles |
 |---|---|
+| **entreprise** (rôle principal) | `/auth/*` (self), `/users/me`, `/companies` (création + `/me`), `/financial-submissions/*` (ses propres soumissions), `/taxonomy/categories` |
 | **citoyen** | `/auth/*` (self), `/users/me`, `/query`, `/query/history`, `/query/{id}`, `/query/{id}/feedback`, `/taxonomy/categories` |
-| **avocat** | tout ce qui précède + `/articles/*`, `/jurisprudence/*` |
+| **avocat** | tout ce qui précède (profil citoyen) + `/articles/*`, `/jurisprudence/*` |
 | **juge** | mêmes accès qu'avocat (le format de réponse `/query` diffère, pas les permissions d'accès) |
-| **admin** | accès complet à tous les endpoints, y compris `/documents/*`, `/ingestion/*`, `/eval/*`, `/audit-logs/*`, `/health/dependencies`, gestion `/users` et `/taxonomy` |
+| **admin** | accès complet à tous les endpoints, y compris `/documents/*`, `/ingestion/*`, `/eval/*`, `/audit-logs/*`, `/health/dependencies`, gestion `/users`/`/taxonomy`/`/companies`/`/financial-submissions` (toutes sociétés) |
 
 ---
 

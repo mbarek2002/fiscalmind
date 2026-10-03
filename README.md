@@ -1,8 +1,10 @@
 # Agentic Hybrid RAG — Loi de Finance Tunisienne
 
-Système multi-agents (RAG hybride) destiné à aider **avocats**, **juges** et **citoyens** à comprendre les sanctions et implications légales liées aux infractions relevant de la **loi de finance tunisienne**, en s'appuyant sur le corpus des lois de finance et sur des affaires/jurisprudence collectées.
+Système multi-agents (RAG hybride) destiné à une **société/entreprise** : celle-ci fournit sa situation financière actuelle (documents à uploader, formulaire structuré, ou description libre — les trois modes sont combinables), et le système l'analyse à la lumière du corpus fiscal tunisien collecté (codes permanents, lois de finance, notes communes DGI) pour identifier les **manquements/sanctions fiscales** et la **législation applicable** à sa situation.
 
-> ⚠️ Ce système est une aide à la compréhension juridique. Il ne remplace en aucun cas un avis juridique officiel.
+> **Périmètre resserré (2026-10-02)** : voir [QUESTIONS_SITUATION_FINANCIERE.md](./QUESTIONS_SITUATION_FINANCIERE.md) pour le détail des questions couvertes par les données réellement collectées. Le corpus actuel est 100% fiscal et ne contient aucune jurisprudence — voir [ARCHITECTURE.md §1](./ARCHITECTURE.md#1-objectif-du-projet).
+
+> ⚠️ Ce système est une aide à la compréhension juridique et à la détection de conformité. Il ne remplace en aucun cas un avis juridique officiel.
 
 ## Documentation
 
@@ -13,9 +15,9 @@ Système multi-agents (RAG hybride) destiné à aider **avocats**, **juges** et 
 
 ## Périmètre
 
-- **Domaine** : loi de finance tunisienne (Phase 1) — voir [ARCHITECTURE.md — section 1.1](./ARCHITECTURE.md#11-clarification--composition-du-domaine-finance) pour la clarification de la composition du domaine "finance" (budgétaire, fiscal, comptabilité publique, dette publique) et sa relation avec le sous-domaine fiscal.
+- **Domaine** : droit fiscal tunisien (IRPP, IS, TVA, fiscalité locale, droits d'enregistrement — contrôle, procédures, infractions et sanctions du CDPF). Voir [ARCHITECTURE.md — section 1.1](./ARCHITECTURE.md#11-clarification--composition-du-domaine-finance) pour la clarification de la composition du domaine "finance" et l'historique du resserrement de périmètre vers le fiscal.
 - **Langues** : arabe et français (corpus bilingue aligné article par article)
-- **Utilisateurs** : avocats, juges, citoyens — même moteur, sortie adaptée au profil
+- **Utilisateur principal** : la société/entreprise soumettant sa situation financière (avocats, juges, citoyens restent des profils secondaires possibles, à préciser — même moteur, sortie adaptée au profil)
 - **Hybrid RAG** : recherche dense (BGE-M3) + sparse (BM25) + graphe de connaissances (Neo4j)
 - **LLM** : self-hosted (Qwen2.5-14B-Instruct-AWQ via vLLM, GPU 24 Go) pour la confidentialité des données juridiques
 
