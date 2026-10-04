@@ -1,3 +1,4 @@
+from backend.app.agents.prompts.synthesis_prompt import load_synthesis_prompt_templates, render_prompt
 from backend.app.agents.state import Citation
 from backend.app.core.config import get_settings
 from backend.app.llm.factory import get_llm_client
@@ -29,19 +30,15 @@ def synthesize_answer(
 	]
 	context_block = "\n".join(context_lines) if context_lines else "Aucun article recupere."
 
-	system_prompt = (
-		"Tu es un assistant juridique specialise en loi de finance tunisienne. "
-		"N'invente jamais une source. Cite uniquement les extraits fournis. "
-		"Si les informations sont insuffisantes, dis-le explicitement."
-	)
-	user_prompt = (
-		f"Langue de reponse: {language}\n"
-		f"Categorie estimee: {category}\n"
-		f"Question utilisateur: {question}\n"
-		f"IDs de contexte graphe: {', '.join(graph_context_ids) if graph_context_ids else 'aucun'}\n\n"
-		"Sources disponibles:\n"
-		f"{context_block}\n\n"
-		"Donne une reponse claire, concise, et strictement basee sur ces sources."
+	system_template, user_template = load_synthesis_prompt_templates()
+	system_prompt = system_template
+	user_prompt = render_prompt(
+		user_template,
+		language=language,
+		category=category,
+		question=question,
+		graph_context_ids=", ".join(graph_context_ids) if graph_context_ids else "aucun",
+		context_block=context_block,
 	)
 
 	try:
