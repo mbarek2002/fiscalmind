@@ -1,0 +1,65 @@
+[
+	{
+		"question": "Quel mécanisme permet de garantir des crédits à moyen et long terme pour les entreprises économiques non couvertes par un dispositif de garantie existant ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::7"],
+		"anchor_text": "confiée à la société tunisienne de garantie",
+		"notes": "Art. 3 — dotation de 25 millions de dinars, gérée par la société tunisienne de garantie, taux de couverture 50-75%."
+	},
+	{
+		"question": "Quels mécanismes l'État met-il en place pour accélérer la création d'entreprises et d'emplois, et quelle augmentation de capital est prévue pour la banque de financement des PME ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::9"],
+		"anchor_text": "60 millions de dinars sur les ressources budgétaires",
+		"notes": "Art. 6 (ateliers à entreprendre, prêts participatifs sans intérêt) et Art. 7 (augmentation de capital de 100 millions de dinars)."
+	},
+	{
+		"question": "Les établissements de crédit peuvent-ils abandonner les pénalités de retard dues par les hôtels touristiques en difficulté, et dans quel cadre ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::14"],
+		"anchor_text": "décomptés à partir du premier janvier 2011",
+		"notes": "Art. 14 — programme exceptionnel de redressement des établissements touristiques et de l'artisanat."
+	},
+	{
+		"question": "Quelles conditions un hôtel touristique doit-il remplir pour bénéficier d'un abandon de pénalités de retard par un établissement de crédit ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::15"],
+		"anchor_text": "loi n° 95-34 relative au redressement des entreprises",
+		"notes": "Conditions : pas en cessation d'activité, pas classé avant déc. 2010, pas sous la loi 95-34, en règle fiscalement et vis-à-vis de la CNSS."
+	},
+	{
+		"question": "Quel avantage l'État accorde-t-il aux hôtels touristiques ayant subi une baisse de chiffre d'affaires d'au moins 30% en 2015 par rapport à 2014 ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::19"],
+		"anchor_text": "régime légal de sécurité sociale",
+		"notes": "Art. 19 — prise en charge par l'État de la contribution patronale CNSS, juillet 2015 à décembre 2016."
+	},
+	{
+		"question": "La taxe de départ de Tunisie instituée par la loi de finances complémentaire pour 2014 est-elle toujours applicable ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::20"],
+		"anchor_text": "taxe de départ de Tunisie",
+		"notes": "Art. 21 — suspension des dispositions de l'article 36 de la loi n° 2014-54."
+	},
+	{
+		"question": "Une entreprise peut-elle déduire de son assiette imposable les pénalités qu'elle a abandonnées sur des créances envers des entreprises économiques ou des établissements touristiques ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::23"],
+		"anchor_text": "déduire lesdites pénalités de leur assiette imposable",
+		"notes": "Art. 23 — déduction sur l'année de l'abandon et les deux années suivantes, pénalités enregistrées au 31/12/2014."
+	},
+	{
+		"question": "Quel est le plafond du coût d'acquisition ou de construction d'une habitation pour que les intérêts du prêt restent déductibles, y compris dans le cadre des contrats Murabaha ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::25"],
+		"anchor_text": "contrats de vente Murabaha",
+		"notes": "Art. 26 — plafond de 200 000 dinars, applicable aux montants échus à partir du 1er janvier 2016."
+	},
+	{
+		"question": "De quel montant à quel montant a été relevé le seuil prévu par la loi de finances 2014 pour le secteur de l'agriculture et de la pêche ?",
+		"language": "fr",
+		"expected_chunk_ids": ["fedb0448-3cf8-461c-a965-479726816599::26"],
+		"anchor_text": "relevé de 2000 dinars à 3000 dinars",
+		"notes": "Art. 27 — relevé de 2000 à 3000 dinars (premier tiret) et de 2001 à 3001 dinars (deuxième tiret)."
+	}
+]

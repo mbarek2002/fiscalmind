@@ -62,6 +62,12 @@ class Settings(BaseSettings):
 	minio_bucket_raw: str = "raw-documents"
 	minio_secure: bool = False
 
+	# Local MLflow tracking store for offline evaluations (retriever metrics, prompt/trace
+	# tracking) — a local SQLite file, no tracking server or Databricks needed. A bare
+	# directory path (the old file-store backend) is deprecated by MLflow and raises at
+	# startup; artifacts still land in ./mlruns alongside this database.
+	mlflow_tracking_uri: str = "sqlite:///mlflow.db"
+
 	@field_validator("cors_origins", mode="before")
 	@classmethod
 	def parse_cors_origins(cls, value: str | list[str]) -> list[str]:

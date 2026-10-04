@@ -21,3 +21,5 @@ torch>=2.3.1
 opendataloader-pdf>=2.5.0
 langchain-text-splitters>=0.3.0
 langgraph>=0.2.0
+mlflow>=2.9.0
+pandas>=2.0.0

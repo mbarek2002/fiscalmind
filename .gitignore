@@ -25,3 +25,7 @@ Thumbs.db
 
 # Claude Code local state
 .claude/
+
+# MLflow local tracking store (runs/metrics are machine-local, not versioned)
+mlruns/
+mlflow.db
