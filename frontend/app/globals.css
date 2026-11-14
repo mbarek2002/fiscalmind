@@ -1,31 +1,190 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   FiscalMind — Civic Ledger theme
+   Institutional, legal, high-trust design system.
+   ============================================================ */
+
+@theme inline {
+	--font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+	--font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+	--font-arabic: "Cairo", var(--font-source-sans), sans-serif;
+
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--radius-2xl: calc(var(--radius) + 8px);
+
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary-900: var(--primary-900);
+	--color-primary-700: var(--primary-700);
+	--color-primary-500: var(--primary-500);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-success: var(--success);
+	--color-success-foreground: var(--success-foreground);
+	--color-warning: var(--warning);
+	--color-warning-foreground: var(--warning-foreground);
+	--color-danger: var(--danger);
+	--color-danger-foreground: var(--danger-foreground);
+	--color-info-badge: var(--info-badge);
+	--color-success-badge: var(--success-badge);
+	--color-warning-badge: var(--warning-badge);
+	--color-error-badge: var(--error-badge);
+	--color-border: var(--border);
+	--color-border-soft: var(--border-soft);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-text-strong: var(--text-strong);
+	--color-text-muted: var(--text-muted);
+	--color-text-faint: var(--text-faint);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+
+	--shadow-card: 0 1px 2px 0 rgb(16 33 50 / 0.04), 0 1px 3px 0 rgb(16 33 50 / 0.06);
+	--shadow-elevated: 0 4px 12px -2px rgb(16 33 50 / 0.08), 0 2px 6px -2px rgb(16 33 50 / 0.06);
+}
+
 :root {
-	color-scheme: light;
+	--radius: 0.75rem;
+
+	/* Civic Ledger core palette (oklch equivalents of the brand hex codes) */
+	--primary-900: oklch(0.283 0.062 253); /* #0E2A47 */
+	--primary-700: oklch(0.395 0.083 253); /* #1F4E79 */
+	--primary-500: oklch(0.517 0.087 245); /* #2F6FA3 */
+	--success: oklch(0.500 0.082 165); /* #1F7A5A */
+	--warning: oklch(0.735 0.135 76); /* #D49B1E */
+	--danger: oklch(0.559 0.146 25); /* #B54747 */
+
+	/* Neutrals */
+	--background: oklch(0.968 0.004 240); /* #F4F6F8 */
+	--foreground: oklch(0.228 0.028 253); /* #102132 */
+	--card: oklch(1 0 0); /* #FFFFFF */
+	--card-foreground: var(--foreground);
+	--popover: oklch(1 0 0);
+	--popover-foreground: var(--foreground);
+	--border-soft: oklch(0.881 0.011 240); /* #D6DEE6 */
+	--border: var(--border-soft);
+	--input: var(--border-soft);
+	--text-strong: oklch(0.228 0.028 253); /* #102132 */
+	--text-muted: oklch(0.435 0.024 250); /* #4D6072 */
+	--text-faint: oklch(0.585 0.020 246); /* #7B8B9B */
+
+	/* Semantic tokens mapped onto shadcn expectations */
+	--primary: var(--primary-700);
+	--primary-foreground: oklch(1 0 0);
+	--secondary: oklch(0.955 0.010 240);
+	--secondary-foreground: var(--primary-900);
+	--muted: oklch(0.945 0.008 240);
+	--muted-foreground: var(--text-muted);
+	--accent: oklch(0.945 0.020 245);
+	--accent-foreground: var(--primary-900);
+	--destructive: var(--danger);
+	--destructive-foreground: oklch(1 0 0);
+	--success-foreground: oklch(1 0 0);
+	--warning-foreground: oklch(0.228 0.028 253);
+	--danger-foreground: oklch(1 0 0);
+
+	/* Functional badges */
+	--info-badge: oklch(0.955 0.020 245); /* #E7F0FA */
+	--success-badge: oklch(0.958 0.024 165); /* #E8F6F1 */
+	--warning-badge: oklch(0.965 0.038 90); /* #FFF5E2 */
+	--error-badge: oklch(0.955 0.024 25); /* #FDECEC */
+
+	--ring: var(--primary-500);
+
+	/* Sidebar (institutional deep navy) */
+	--sidebar: var(--primary-900);
+	--sidebar-foreground: oklch(0.96 0.01 240);
+	--sidebar-primary: oklch(1 0 0);
+	--sidebar-primary-foreground: var(--primary-900);
+	--sidebar-accent: oklch(0.32 0.055 253);
+	--sidebar-accent-foreground: oklch(1 0 0);
+	--sidebar-border: oklch(0.35 0.05 253);
+	--sidebar-ring: var(--primary-500);
 }
 
-* {
-	box-sizing: border-box;
+@layer base {
+	* {
+		border-color: var(--color-border);
+	}
+
+	html {
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		color: var(--color-foreground);
+		background-color: var(--color-background);
+		background-image:
+			radial-gradient(1200px 600px at 100% -10%, oklch(0.92 0.03 245 / 0.6), transparent 60%),
+			radial-gradient(900px 500px at -10% 110%, oklch(0.94 0.02 240 / 0.55), transparent 60%);
+		background-attachment: fixed;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-family: var(--font-display);
+		letter-spacing: -0.01em;
+		color: var(--color-text-strong);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-primary-500);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
 }
 
-body {
-	margin: 0;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	background: #f5f7fb;
-	color: #1f2937;
+@utility legal-citation {
+	border-left: 3px solid var(--color-primary-500);
+	padding-left: 1rem;
+	background: linear-gradient(90deg, var(--color-info-badge) 0%, transparent 100%);
 }
 
-main {
-	max-width: 860px;
-	margin: 0 auto;
-	padding: 2rem 1rem;
+@utility surface-card {
+	background: var(--color-card);
+	border: 1px solid var(--color-border-soft);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-card);
 }
 
-.card {
-	background: #ffffff;
-	border: 1px solid #e5e7eb;
-	border-radius: 12px;
-	padding: 1rem;
+@keyframes fm-fade-in {
+	from { opacity: 0; transform: translateY(4px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fm-slide-up {
+	from { opacity: 0; transform: translateY(10px); }
+	to   { opacity: 1; transform: translateY(0); }
 }
 
-.muted {
-	color: #6b7280;
+@utility animate-fade-in {
+	animation: fm-fade-in 0.35s ease-out both;
+}
+@utility animate-slide-up {
+	animation: fm-slide-up 0.4s ease-out both;
 }
