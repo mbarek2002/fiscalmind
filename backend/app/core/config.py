@@ -28,6 +28,11 @@ class Settings(BaseSettings):
 	qdrant_api_key: str | None = None
 	qdrant_collection_loi: str = "loi_finance"
 	qdrant_collection_jurisprudence: str = "jurisprudence"
+	# Collection separee pour le pipeline de chunking par article (v2) -- jamais
+	# ecrite ni lue par le pipeline de production (qdrant_collection_loi).
+	qdrant_collection_loi_by_article: str = "loi_finance_by_article"
+	e5_embedding_model_name: str = "intfloat/multilingual-e5-base"
+	e5_embedding_dim: int = 768
 	# BGE-M3's native dense output size — do not shrink this; it used to be artificially
 	# truncated to 64, which silently destroyed embedding quality for every provider.
 	qdrant_vector_size: int = 1024
