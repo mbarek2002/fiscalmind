@@ -1,0 +1,452 @@
+[
+  {
+    "question": "Quel est le montant des tarifs majores des prix des documents fournis par l'office de la topographie et du cadastre, selon l'arrêté en question ?",
+    "language": "fr",
+    "source_file": "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf",
+    "expected": [
+      {
+        "chunk_id": "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf::chunk242",
+        "numero_article": 12
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf"
+  },
+  {
+    "question": "Quel type de dépenses envers les résidences secondaires, avions et bateaux de plaisance sont admissibles en déduction pour la détermination du bénéfice d'une entreprise ?",
+    "language": "fr",
+    "source_file": "11.pdf",
+    "expected": [
+      {
+        "chunk_id": "11.pdf::chunk4",
+        "numero_article": 14
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis 11.pdf"
+  },
+  {
+    "question": "Quelle est la condition pour que la plus-value d'une cession soit déductible pour la détermination du résultat imposable de l'exercice de la cession ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-15-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-15-1-1.pdf::chunk36",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-15-1-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel est le champ d'intervention du capital risque qui est éligible aux avantages fiscaux, et quels sont les secteurs ajoutés à ce champ d'intervention depuis la loi de 1988 ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-15-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-15-1-1.pdf::chunk17",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-15-1-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel est le taux de retenue à la source appliqué aux revenus de capitaux mobiliers pour les organismes de placement collectif en valeurs mobilières ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-45.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-45.pdf::chunk2",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-45.pdf (fallback taille)"
+  },
+  {
+    "question": "Est-il possible pour les copropriétaires ayant la qualité de personnes morales soumises à l'IS de déduire les mêmes revenus de l'assiette de l'IS comme les fonds communs de créances, qui sont considérés comme étant en dehors du champ d'application de l'impôt ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-45.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-45.pdf::chunk7",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-45.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel type d'exonérations, abattements, déductions, crédits ou tout autre dégrèvement peuvent être accordés selon la Convention, soit par la législation d'un État contractant, soit par un accord particulier conclu par un État contractant ?",
+    "language": "fr",
+    "source_file": "PORTUGAL.pdf",
+    "expected": [
+      {
+        "chunk_id": "PORTUGAL.pdf::chunk17",
+        "numero_article": 27
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis PORTUGAL.pdf"
+  },
+  {
+    "question": "Quel est le montant maximal exonéré d'impôt pour une personne physique résidente de l'un des États contractants qui séjourne dans l'autre État contractant en qualité d'employé d'une entreprise du premier État?",
+    "language": "fr",
+    "source_file": "PORTUGAL.pdf",
+    "expected": [
+      {
+        "chunk_id": "PORTUGAL.pdf::chunk13",
+        "numero_article": 20
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis PORTUGAL.pdf"
+  },
+  {
+    "question": "Quel est le critère pour bénéficier de l'exonération d'impôt lors de la cession de terrains agricoles situés dans des zones agricoles ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-23-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-23-1.pdf::chunk9",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-23-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel est le taux d'imposition à payer pour une cession de terrain effectuée dans un délai de cinq ans pour l'aménagement d'une zone industrielle conformément à la législation en vigueur, si la déclaration initiale a été liquidée au taux de 50% ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-23-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-23-1.pdf::chunk21",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-23-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quelle sont les rémunérations des gérants majoritaires que la société peut déduire pour la détermination de l'assiette soumise à l'IS, et à partir de quand ces déductions sont admises ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-08-2-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-08-2-1.pdf::chunk4",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-08-2-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quelle est la nouvelle catégorie auxquelle les rémunérations des gérants majoritaires des sociétés à responsabilité limitée sont classés, et quels impôts sont applicables à ce titre ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-08-2-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-08-2-1.pdf::chunk0",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-08-2-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Est-ce que la retenue à la source de 1% au titre de la redevance de compensation est due pour les honoraires de 15.000D dans le cadre de l'exécution d'une convention liant les deux parties, puisque le montant annuel net dépasse 20.000 D?",
+    "language": "fr",
+    "source_file": "Note-commune-n-12-2.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-12-2.pdf::chunk4",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-12-2.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel est l'État dans lequel un artiste du spectacle ou un sportif doit être imposé sur leur revenu si leurs activités personnelles sont financées essentiellement par des fonds publics du premier État ou à l'une de ses collectivités locales ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-54.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-54.pdf::chunk14",
+        "numero_article": 17
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-54.pdf"
+  },
+  {
+    "question": "Quel est le délai minimum avant la fin d'une année civile pour que l'un des États contractants puisse dénoncer la Convention ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-54.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-54.pdf::chunk26",
+        "numero_article": 29
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-54.pdf"
+  },
+  {
+    "question": "Quelle est la disposition régissant la mise en place d'une caisse enregistreuse pour les entreprises prestataires de services de consommation sur place ?",
+    "language": "fr",
+    "source_file": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf",
+    "expected": [
+      {
+        "chunk_id": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk21",
+        "numero_article": 59
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf"
+  },
+  {
+    "question": "Quel est le montant maximal de déduction possible pour les entreprises créées entre 2018 et 2020, qui ont réalisé des investissements directs dans les zones de développement régional, en application de la loi de l'investissement et des décrets gouvernementaux concernés ?",
+    "language": "fr",
+    "source_file": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf",
+    "expected": [
+      {
+        "chunk_id": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk24",
+        "numero_article": 64
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf"
+  },
+  {
+    "question": "Quel est le statut fiscal des personnes physiques et morales non résidentes qui réalisent des opérations temporaires de montage ou des opérations de surveillance en lien avec cela, selon la note commune n°17 /2005 ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-17-9-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-17-9-1.pdf::chunk0",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-17-9-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quelle est la législation en vigueur au 31 décembre 2004 qui exonère les personnes physiques et morales non établies ni domiciliées en Tunisie de la taxe sur les établissements à caractère industriel, commercial ou professionnel ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-17-9-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-17-9-1.pdf::chunk2",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-17-9-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Est-il obligatoire de payer la retenue à la source au taux de 50% pour les acquisitions de biens, équipements et matériels dans le cadre des contrats de vente salam par les services de l'Etat, les collectivités locales, les établissements et les entreprises publics ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-10-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-10-1-1.pdf::chunk6",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-10-1-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quel est le régime fiscal des opérations de vente salam pour les établissements de crédits en matière de taxe sur la valeur ajoutée et des droits d'enregistrement, selon la loi de finances pour l'année 2012 ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-10-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-10-1-1.pdf::chunk0",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-commune-n-10-1-1.pdf (fallback taille)"
+  },
+  {
+    "question": "Quels types de revenus sont imposables dans l'État contractant pour un résident d'un autre État contractant, en dehors des navires, bateaux et aéronefs ?",
+    "language": "fr",
+    "source_file": "ILE-DE-MAURICE.pdf",
+    "expected": [
+      {
+        "chunk_id": "ILE-DE-MAURICE.pdf::chunk4",
+        "numero_article": 6
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis ILE-DE-MAURICE.pdf"
+  },
+  {
+    "question": "Quel sont les privilèges fiscaux qui bénéficient aux agents diplomatiques ou aux fonctionnaires consulaires, en vertu soit des règles générales du droit des gens, soit des dispositions d'accords particuliers, selon la Convention en question ?",
+    "language": "fr",
+    "source_file": "ILE-DE-MAURICE.pdf",
+    "expected": [
+      {
+        "chunk_id": "ILE-DE-MAURICE.pdf::chunk23",
+        "numero_article": 27
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis ILE-DE-MAURICE.pdf"
+  },
+  {
+    "question": "Quel est le taux de la taxe unique sur les assurances pour les contrats d'assurance des risques de navigation maritime et aérienne, selon la loi de finances pour l'année 2018 ?",
+    "language": "fr",
+    "source_file": "Note-Commune-N°16-5.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-Commune-N°16-5.pdf::chunk2",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-Commune-N°16-5.pdf (fallback taille)"
+  },
+  {
+    "question": "Quelle est la taxe due au titre des primes d'assurance des risques de la navigation aérienne et des primes d'assurance des autres risques aux taux de 6% et 12%, et comment est calculée cette taxe ?",
+    "language": "fr",
+    "source_file": "Note-Commune-N°16-5.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-Commune-N°16-5.pdf::chunk6",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Genere depuis Note-Commune-N°16-5.pdf (fallback taille)"
+  },
+  {
+    "question": "Quelle est la manière dont un établissement de crédit doit facturer le montant de la taxe sur la valeur ajoutée supportée au titre de ses acquisitions réalisées dans le cadre de contrats de vente salam, et comment est calculé ce montant pour une opération spécifique ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-10-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-10-1-1.pdf::chunk1",
+        "numero_article": null
+      },
+      {
+        "chunk_id": "Note-commune-n-10-1-1.pdf::chunk4",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Multi-chunk genere depuis Note-commune-n-10-1-1.pdf"
+  },
+  {
+    "question": "Quelle est la manière spécifique dans laquelle les rémunérations des gérants majoritaires des SARL sont traitées pour l'impôt sur les sociétés, en considérant les dispositions de la loi de finances pour l'année 2011 et les commentaires associés ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-08-2-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-08-2-1.pdf::chunk4",
+        "numero_article": null
+      },
+      {
+        "chunk_id": "Note-commune-n-08-2-1.pdf::chunk0",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Multi-chunk genere depuis Note-commune-n-08-2-1.pdf"
+  },
+  {
+    "question": "Quelle est la taux d'imposition et les délais de déclaration pour une cession de terres domaniales ayant perdu leur vocation agricole effectuée par voie d'échange, et pour une cession de terres domaniales ayant perdu leur vocation agricole non acquises par voie d'échange ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-23-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-23-1.pdf::chunk5",
+        "numero_article": null
+      },
+      {
+        "chunk_id": "Note-commune-n-23-1.pdf::chunk4",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Multi-chunk genere depuis Note-commune-n-23-1.pdf"
+  },
+  {
+    "question": "Quelle sont les conditions dans lesquelles les gains provenant de l'aliénation de biens mobiliers sont imposables dans l'autre État contractant, selon la Convention ?",
+    "language": "fr",
+    "source_file": "PORTUGAL.pdf",
+    "expected": [
+      {
+        "chunk_id": "PORTUGAL.pdf::chunk16",
+        "numero_article": 26
+      },
+      {
+        "chunk_id": "PORTUGAL.pdf::chunk8",
+        "numero_article": 13
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Multi-chunk genere depuis PORTUGAL.pdf"
+  },
+  {
+    "question": "Quelle est la déduction possible pour les 120 000 D investis dans la clinique, en considérant les avantages fiscaux accordés aux SICAR et aux FCPR, et en tenant compte de la limite de 35% du bénéfice imposable ?",
+    "language": "fr",
+    "source_file": "Note-commune-n-15-1-1.pdf",
+    "expected": [
+      {
+        "chunk_id": "Note-commune-n-15-1-1.pdf::chunk11",
+        "numero_article": null
+      },
+      {
+        "chunk_id": "Note-commune-n-15-1-1.pdf::chunk32",
+        "numero_article": null
+      }
+    ],
+    "is_unanswerable": false,
+    "notes": "Multi-chunk genere depuis Note-commune-n-15-1-1.pdf"
+  },
+  {
+    "question": "Quelle est l'amende applicable en cas de non-declaration en douane de marchandises importees ?",
+    "language": "fr",
+    "source_file": null,
+    "expected": [],
+    "is_unanswerable": true,
+    "notes": "Categorie non couverte par le corpus : douane"
+  },
+  {
+    "question": "Quelles sont les obligations de declaration de soupcon en matiere de blanchiment d'argent pour une entreprise tunisienne ?",
+    "language": "fr",
+    "source_file": null,
+    "expected": [],
+    "is_unanswerable": true,
+    "notes": "Categorie non couverte par le corpus : blanchiment"
+  },
+  {
+    "question": "Quelles sanctions penales s'appliquent a un dirigeant pour abus de biens sociaux ?",
+    "language": "fr",
+    "source_file": null,
+    "expected": [],
+    "is_unanswerable": true,
+    "notes": "Categorie non couverte par le corpus : abus_de_biens_sociaux"
+  },
+  {
+    "question": "Quelles sont les restrictions de controle des changes pour un transfert de devises a l'etranger ?",
+    "language": "fr",
+    "source_file": null,
+    "expected": [],
+    "is_unanswerable": true,
+    "notes": "Categorie non couverte par le corpus : change"
+  },
+  {
+    "question": "Quelles sont les peines prevues en cas de corruption d'un agent public dans le cadre d'un marche fiscal ?",
+    "language": "fr",
+    "source_file": null,
+    "expected": [],
+    "is_unanswerable": true,
+    "notes": "Categorie non couverte par le corpus : corruption"
+  }
+]
