@@ -18,20 +18,26 @@ def _get_local_cross_encoder(model_name: str):
 	return CrossEncoder(model_name)
 
 
+def _chunk_text(chunk) -> str:
+	"""RetrievedChunk exposes `.extrait`, JurisprudenceChunk exposes `.resume`."""
+	text = getattr(chunk, "extrait", None)
+	return text if text is not None else getattr(chunk, "resume", "")
+
+
 def _score_with_local_cross_encoder(
 	question: str,
-	chunks: list[RetrievedChunk],
+	chunks: list,
 	settings: Settings,
 ) -> list[float]:
 	model = _get_local_cross_encoder(settings.local_reranker_model_name)
-	pairs = [[question, chunk.extrait] for chunk in chunks]
+	pairs = [[question, _chunk_text(chunk)] for chunk in chunks]
 	raw_scores = model.predict(pairs)
 	return [float(score) for score in raw_scores]
 
 
 def _score_with_remote_provider(
 	question: str,
-	chunks: list[RetrievedChunk],
+	chunks: list,
 	settings: Settings,
 ) -> list[float]:
 	provider = settings.reranker_provider
@@ -41,7 +47,11 @@ def _score_with_remote_provider(
 	)
 
 
-def rerank_chunks(question: str, chunks: list[RetrievedChunk], top_k: int | None = None) -> list[RetrievedChunk]:
+def rerank_chunks(
+	question: str,
+	chunks: list[RetrievedChunk],
+	top_k: int | None = None,
+) -> list[RetrievedChunk]:
 	if not chunks:
 		return []
 

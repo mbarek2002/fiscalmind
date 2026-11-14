@@ -156,6 +156,7 @@ class ChunkDebugInfo(BaseModel):
 class ExtractChunkDebugResponse(BaseModel):
 	filename: str
 	mode_requested: str
+	strategy_used: str
 	page_count: int
 	extraction_warnings: list[str]
 	text_length: int
