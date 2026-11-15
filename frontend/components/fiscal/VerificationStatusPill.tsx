@@ -25,6 +25,12 @@ const META: Record<string, { label: string; Icon: typeof CheckCircle2; classes: 
 	},
 };
 
+// Valeurs renvoyees par le backend (agents/verifier.py) -> cles d'affichage.
+const BACKEND_STATUS: Record<string, string> = {
+	validated: "verifie",
+	rejected: "non_verifie",
+};
+
 export function VerificationStatusPill({
 	status,
 	className,
@@ -32,7 +38,7 @@ export function VerificationStatusPill({
 	status: VerificationStatus;
 	className?: string;
 }) {
-	const meta = META[status] ?? META.incertain;
+	const meta = META[BACKEND_STATUS[status] ?? status] ?? META.incertain;
 	const { Icon } = meta;
 	return (
 		<span

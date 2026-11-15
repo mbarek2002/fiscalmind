@@ -48,7 +48,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 	};
 
 	return (
-		<div className="flex min-h-dvh w-full">
+		// Coque fixe a la hauteur de l'ecran : seule la zone <main> (et, dans le chat,
+		// la conversation et les citations) defile -- jamais la page entiere.
+		<div className="flex h-dvh w-full overflow-hidden">
 			{/* Sidebar */}
 			<aside
 				className={cn(
@@ -105,8 +107,8 @@ export function AppShell({ children }: { children: ReactNode }) {
 			)}
 
 			{/* Main */}
-			<div className="flex min-w-0 flex-1 flex-col">
-				<header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-border-soft bg-card/80 px-4 backdrop-blur lg:px-8">
+			<div className="flex min-h-0 min-w-0 flex-1 flex-col">
+				<header className="z-20 flex h-16 shrink-0 items-center gap-3 border-b border-border-soft bg-card/80 px-4 backdrop-blur lg:px-8">
 					<Button
 						variant="ghost"
 						size="icon"
@@ -132,7 +134,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 						)}
 					</div>
 				</header>
-				<main className="flex-1 px-4 py-6 lg:px-8 lg:py-8">{children}</main>
+				<main className="min-h-0 flex-1 overflow-y-auto px-4 py-6 lg:px-8 lg:py-6">{children}</main>
 			</div>
 		</div>
 	);
