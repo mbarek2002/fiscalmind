@@ -84,7 +84,9 @@ class Settings(BaseSettings):
 
 	@property
 	def sync_database_url(self) -> str:
-		return self.database_url.replace("+aiosqlite", "").replace("+asyncpg", "")
+		# Driver psycopg2 explicite : SQLAlchemy recent choisit psycopg (v3) par
+		# defaut pour "postgresql://", qui n'est pas dans requirements.txt.
+		return self.database_url.replace("+aiosqlite", "").replace("+asyncpg", "+psycopg2")
 
 	@property
 	def provider_strict_mode_enabled(self) -> bool:
