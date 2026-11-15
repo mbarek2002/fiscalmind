@@ -66,6 +66,11 @@ class Settings(BaseSettings):
 	nvidia_llm_model: str = "nvidia/nemotron-3.5-super-vl-120b-a12b"
 	nvidia_enable_thinking: bool = False
 
+	# LLM juge des evaluations (RAGAS, LLM-as-judge). "local" = Ollama/vLLM
+	# (comportement historique). judge_model vide = modele par defaut du fournisseur.
+	judge_provider: str = "local"
+	judge_model: str | None = None
+
 	minio_endpoint: str | None = None
 	minio_access_key: str | None = None
 	minio_secret_key: str | None = None

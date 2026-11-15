@@ -1,0 +1,791 @@
+{
+  "metrics": {
+    "judge_mean_score": 4.333333333333333,
+    "judge_correct_rate": 0.8,
+    "judge_partial_rate": 0.06666666666666667,
+    "judge_incorrect_rate": 0.13333333333333333,
+    "unanswerable_refusal_rate": 1.0,
+    "retrieval_hit_rate_top5": 0.8666666666666667,
+    "mean_agent_seconds": 10.257714285714286,
+    "n_errors": 0,
+    "faithfulness": 0.9365873015873016,
+    "answer_relevancy": 0.8258780283969143
+  },
+  "n_answerable": 30,
+  "n_unanswerable": 5,
+  "mean_score": 4.333333333333333,
+  "correct_rate": 0.8,
+  "partial_rate": 0.06666666666666667,
+  "incorrect_rate": 0.13333333333333333,
+  "refusal_rate": 1.0,
+  "retrieval_hit_rate": 0.8666666666666667,
+  "mean_agent_seconds": 10.257714285714286,
+  "n_errors": 0,
+  "examples": [
+    {
+      "question": "Quel est le montant des tarifs majores des prix des documents fournis par l'office de la topographie et du cadastre, selon l'arrêté en question ?",
+      "is_unanswerable": false,
+      "answer": "Les sources fournies ne permettent pas de répondre à la question.\n\nL'article 12 mentionne que les tarifs sont majorés des prix des documents fournis par l'office de la topographie et du cadastre, mais il ne précise aucun montant. L'article 13 indique que les frais sont évalués selon des barèmes fixés par décision du conseil d'administration de l'office, sans en donner le détail.",
+      "expected_chunk_ids": [
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf::chunk242"
+      ],
+      "retrieved_chunk_ids": [
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2023_compressed.pdf::chunk225",
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf::chunk242",
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2023_compressed.pdf::chunk229",
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf::chunk246",
+        "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2023_compressed.pdf::chunk226"
+      ],
+      "expected_retrieved": true,
+      "score": 2,
+      "verdict": "incorrect",
+      "refused": null,
+      "justification": "L'assistant indique que les sources ne permettent pas de répondre, alors que l'article 12 précise que les tarifs sont majorés des prix des documents fournis par l'office de la topographie et du cadastre, ce qui constitue une réponse partielle mais présente dans le texte de référence.",
+      "agent_seconds": 25.39,
+      "error": null
+    },
+    {
+      "question": "Quel type de dépenses envers les résidences secondaires, avions et bateaux de plaisance sont admissibles en déduction pour la détermination du bénéfice d'une entreprise ?",
+      "is_unanswerable": false,
+      "answer": "Aucune dépense envers les résidences secondaires, avions et bateaux de plaisance n'est admissible en déduction pour la détermination du bénéfice d'une entreprise.\n\nSelon les sources fournies :\n\n1.  **Article 14, point 4** : « toute charge se rapportant aux résidences secondaires, avions et bateaux de plaisance visés au paragraphe 4 de l'article 15 du présent code » n'est pas admise en déduction.\n2.  **Article 15, point 4** : l'amortissement des avions et bateaux de plaisance mis à la disposition des dirigeants ou employés de l'entreprise et dont l'utilisation ne concerne pas directement l'objet de l'entreprise ainsi que des résidences secondaires n'est pas admis en déduction.\n3.  **Liste des charges non déductibles (point 1.3)** : les charges relatives aux résidences secondaires, avions et bateaux de plaisance ne faisant pas l'objet de l'exploitation sont non déductibles.\n4.  **Liste des amortissements non déductibles (point 2.1)** : les amortissements relatifs aux résidences secondaires, avions et bateaux de plaisance ne faisant pas l'objet de l'exploitation sont non déductibles.\n\nEn résumé, tant les charges que les amortissements relatifs à ces biens sont exclus de la déduction lorsqu'ils ne font pas l'objet de l'exploitation de l'entreprise.",
+      "expected_chunk_ids": [
+        "11.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-26.pdf::chunk10",
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk4",
+        "code-IS-et-IRPP-francais.pdf::chunk4",
+        "Note-commune-n-26.pdf::chunk9",
+        "Note-commune-n-26.pdf::chunk2"
+      ],
+      "expected_retrieved": false,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète : elle indique qu'aucune dépense n'est admissible, s'appuyant sur l'article 14 (charges) et l'article 15 (amortissements) du texte de référence, qui excluent ces biens sauf s'ils constituent l'objet principal de l'exploitation.",
+      "agent_seconds": 17.26,
+      "error": null
+    },
+    {
+      "question": "Quelle est la condition pour que la plus-value d'une cession soit déductible pour la détermination du résultat imposable de l'exercice de la cession ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, la condition pour que la plus-value d'une cession soit déductible pour la détermination du résultat imposable de l'exercice de la cession est la suivante :\n\n**La cession doit avoir lieu après 5 ans de détention.**\n\nDans ce cas, la plus-value est déductible dans la limite de 50% de son montant (soit 39.000 D dans l'exemple cité). À l'inverse, si la cession a lieu avant l'expiration de 5 ans de détention, la plus-value n'est pas déductible.",
+      "expected_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk36"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk36",
+        "Loi-de-Finances-2007.pdf::chunk5",
+        "Note-Commune-N°17-1.pdf::chunk1",
+        "Note-commune-n-11-11.pdf::chunk5",
+        "Loi-de-Finances-2007.pdf::chunk7"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse identifie correctement la condition des 5 ans de détention et mentionne la limite de 50% (39.000 D), conformément au texte de référence.",
+      "agent_seconds": 17.05,
+      "error": null
+    },
+    {
+      "question": "Quel est le champ d'intervention du capital risque qui est éligible aux avantages fiscaux, et quels sont les secteurs ajoutés à ce champ d'intervention depuis la loi de 1988 ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, le champ d'intervention du capital risque éligible aux avantages fiscaux est le catalogue d'intervention fixé par l'article 21 de la loi n° 88-92 du 2 août 1988 relative aux sociétés d'investissement.\n\nLes secteurs ajoutés à ce champ d'intervention sont :\n1. L'agriculture\n2. La pêche\n3. La lutte contre la pollution\n4. La protection de l'environnement",
+      "expected_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk17"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk17",
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk7",
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk14",
+        "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk7",
+        "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk16"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse restitue fidèlement le texte de référence en identifiant le catalogue de l'article 21 de la loi n° 88-92 comme champ d'intervention et en listant les quatre secteurs ajoutés par le décret-loi n° 2011-100.",
+      "agent_seconds": 10.82,
+      "error": null
+    },
+    {
+      "question": "Quel est le taux de retenue à la source appliqué aux revenus de capitaux mobiliers pour les organismes de placement collectif en valeurs mobilières ?",
+      "is_unanswerable": false,
+      "answer": "Les sources fournies ne permettent pas de répondre précisément à la question concernant le taux de retenue à la source appliqué aux revenus de capitaux mobiliers pour les **organismes de placement collectif en valeurs mobilières** (OPCVM).\n\nEn effet, les documents mentionnent explicitement le taux de 20% pour :\n*   Les **fonds communs de créances** (article 27).\n*   Les **sociétés d'investissement à capital variable (SICAV)** (article 46 du code de l'IRPP et de l'IS).\n*   Les **fonds communs de placement en valeurs mobilières** (qui sont maintenus dans le régime de la retenue à la source définitive/libératoire).\n\nBien que les OPCVM comprennent les SICAV et les fonds communs de placement en valeurs mobilières, les sources ne fournissent pas un taux unique et général applicable à l'ensemble de la catégorie \"organismes de placement collectif en valeurs mobilières\" sans distinction entre leurs formes juridiques.",
+      "expected_chunk_ids": [
+        "Note-commune-n-45.pdf::chunk2"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-45.pdf::chunk2",
+        "Note-commune-n-45.pdf::chunk10",
+        "Note-commune-n-45.pdf::chunk9",
+        "Note-commune-n-45.pdf::chunk3",
+        "Note-Commune-N°01-1.pdf::chunk12"
+      ],
+      "expected_retrieved": true,
+      "score": 2,
+      "verdict": "incorrect",
+      "refused": null,
+      "justification": "La réponse affirme que les sources ne permettent pas de répondre, alors que le texte de référence mentionne explicitement un taux de 20% pour les revenus de capitaux mobiliers des fonds communs de créances, qui relèvent des OPCVM, et indique que ce taux s'applique aux revenus de capitaux mobiliers.",
+      "agent_seconds": 16.28,
+      "error": null
+    },
+    {
+      "question": "Est-il possible pour les copropriétaires ayant la qualité de personnes morales soumises à l'IS de déduire les mêmes revenus de l'assiette de l'IS comme les fonds communs de créances, qui sont considérés comme étant en dehors du champ d'application de l'impôt ?",
+      "is_unanswerable": false,
+      "answer": "Non, il n'est pas possible pour les copropriétaires personnes morales soumises à l'IS de déduire les revenus des fonds communs de créances de leur assiette d'IS.\n\nSelon les sources fournies :\n\n1.  **Pour les fonds communs de placement en valeurs mobilières** : Les articles 23 et 24 de la loi de finances pour l'année 2002 ont permis aux copropriétaires personnes morales soumises à l'IS de déduire les revenus des parts de l'assiette de l'IS.\n\n2.  **Pour les fonds communs de créances** : Le régime est différent. Les sources précisent que :\n    *   Les revenus réalisés par le fonds sont imposables entre les mains des copropriétaires.\n    *   Pour les copropriétaires personnes morales soumises à l'IS, lorsque les parts sont inscrites à l'actif d'une entreprise, les revenus des parts ainsi que le boni de liquidation **font partie des bénéfices soumis à l'IS**.\n    *   Lorsque les parts ne sont pas inscrites à l'actif d'une entreprise, ces revenus sont classés dans la catégorie des revenus de capitaux mobiliers.\n\nAucune disposition dans les sources ne prévoit une déduction de ces revenus de l'assiette de l'IS pour les fonds communs de créances, contrairement aux fonds communs de placement en valeurs mobilières.",
+      "expected_chunk_ids": [
+        "Note-commune-n-45.pdf::chunk7"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-45.pdf::chunk7",
+        "Note-commune-n-45.pdf::chunk6",
+        "Note-commune-n-45.pdf::chunk11",
+        "Note-commune-n-45.pdf::chunk1",
+        "Note-commune-n-45.pdf::chunk8"
+      ],
+      "expected_retrieved": true,
+      "score": 2,
+      "verdict": "incorrect",
+      "refused": null,
+      "justification": "La réponse affirme qu'il n'est pas possible de déduire les revenus, alors que le texte de référence indique explicitement que les copropriétaires personnes morales soumises à l'IS peuvent déduire ces revenus de leur assiette conformément au paragraphe III de l'article 48 du code.",
+      "agent_seconds": 18.41,
+      "error": null
+    },
+    {
+      "question": "Quel type d'exonérations, abattements, déductions, crédits ou tout autre dégrèvement peuvent être accordés selon la Convention, soit par la législation d'un État contractant, soit par un accord particulier conclu par un État contractant ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, les dispositions de la Convention ne peuvent être interprétées comme limitant ou interdisant l'octroi des exonérations, abattements, déductions, crédits ou tout autre dégrèvement qui sont ou pourront être accordés :\n\n1.  **Par la législation d'un État contractant** pour la détermination de l'impôt perçu par cet État ;\n2.  **Par tout accord particulier conclu par un État contractant** (ou tout autre accord intervenu entre les États contractants, ou accord relatif aux impôts en matière de coopération économique ou technique).",
+      "expected_chunk_ids": [
+        "PORTUGAL.pdf::chunk17"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-28-6.pdf::chunk20",
+        "PORTUGAL.pdf::chunk17",
+        "Etats-unis-Amerique.pdf::chunk18",
+        "KOWEIT.pdf::chunk25",
+        "Canada.pdf::chunk16"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse restitue fidèlement l'article 27 en précisant que la Convention ne limite pas les exonérations, abattements, déductions, crédits ou autres dégrèvements accordés par la législation d'un État contractant ou par un accord particulier.",
+      "agent_seconds": 2.16,
+      "error": null
+    },
+    {
+      "question": "Quel est le montant maximal exonéré d'impôt pour une personne physique résidente de l'un des États contractants qui séjourne dans l'autre État contractant en qualité d'employé d'une entreprise du premier État?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, le montant maximal exonéré d'impôt pour une personne physique résidente de l'un des États contractants qui séjourne dans l'autre État contractant en qualité d'employé d'une entreprise du premier État (à seule fin d'acquérir une expérience technique ou professionnelle) est de **US $ 5 000** (ou son équivalent en monnaie de l'un des États contractants).\n\nCette information figure dans le dernier extrait intitulé « ARTICLE 20 : ETUDIANTS ET STAGIAIRES », qui précise que l'exonération s'applique « pendant une année et dans la limite d'un montant équivalent en monnaie de l'un des Etats contractants, à US $ 5.000 ».\n\n*Note : D'autres versions de l'article 20 présentes dans les sources mentionnent des montants différents (25 000 couronnes norvégiennes) ou ne précisent aucun plafond, mais seule la dernière version citée indique explicitement le montant de US $ 5 000 pour ce cas précis.*",
+      "expected_chunk_ids": [
+        "PORTUGAL.pdf::chunk13"
+      ],
+      "retrieved_chunk_ids": [
+        "Yemen.pdf::chunk16",
+        "Mauritanie.pdf::chunk19",
+        "Luxembourg.pdf::chunk18",
+        "PORTUGAL.pdf::chunk13",
+        "Norvege.pdf::chunk17"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse indique correctement le montant maximal exonéré de US $ 5 000 (ou son équivalent) pour une durée d'un année, conformément au deuxième paragraphe de l'article 20 du texte de référence.",
+      "agent_seconds": 14.79,
+      "error": null
+    },
+    {
+      "question": "Quel est le critère pour bénéficier de l'exonération d'impôt lors de la cession de terrains agricoles situés dans des zones agricoles ?",
+      "is_unanswerable": false,
+      "answer": "Le critère pour bénéficier de l'exonération d'impôt lors de la cession de terrains agricoles situés dans des zones agricoles est que l'acquéreur s'engage, dans l'acte de cession, à ne pas réserver le terrain objet de la cession à la construction avant l'expiration des 4 années qui suivent celle de la cession.\n\nPar ailleurs, le bénéfice de l'exonération nécessite la présentation d'une attestation délivrée par les autorités compétentes justifiant que le terrain objet de la cession est un terrain agricole situé dans une zone agricole.\n\nEnfin, l'exonération ne s'applique pas lorsque l'acquéreur est un promoteur immobilier.",
+      "expected_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk9"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk9",
+        "Note-commune-n-23-1.pdf::chunk2",
+        "Note-commune-n-23-1.pdf::chunk1",
+        "Note-commune-n-23-1.pdf::chunk10",
+        "Note-commune-n-04-3-1.pdf::chunk2"
+      ],
+      "expected_retrieved": true,
+      "score": 4,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse reprend correctement les deux critères essentiels (engagement de ne pas construire pendant 4 ans et attestation des autorités compétentes). L'ajout concernant le promoteur immobilier n'est pas contredit par le texte de référence fourni, bien qu'il ne s'y trouve pas explicitement.",
+      "agent_seconds": 6.92,
+      "error": null
+    },
+    {
+      "question": "Quel est le taux d'imposition à payer pour une cession de terrain effectuée dans un délai de cinq ans pour l'aménagement d'une zone industrielle conformément à la législation en vigueur, si la déclaration initiale a été liquidée au taux de 50% ?",
+      "is_unanswerable": false,
+      "answer": "Si la déclaration initiale a été liquidée au taux de 50% alors que la cession a été effectuée au profit d'une personne qui s'engage dans l'acte de cession à réserver le terrain pour l'aménagement d'une zone industrielle conformément à la législation en vigueur au cours d'une période ne dépassant pas les cinq ans, l'impôt définitif est dû au taux de **25%**.\n\nLe cédant peut alors demander la restitution de la différence entre l'impôt payé au taux de 50% et l'impôt dû au taux de 25%.",
+      "expected_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk21"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk19",
+        "Note-commune-n-23-1.pdf::chunk21",
+        "Note-commune-n-23-1.pdf::chunk20",
+        "Note-commune-n-23-1.pdf::chunk5",
+        "Note-commune-n-28-7.pdf::chunk5"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse reprend exactement le taux de 25% et la possibilité de restitution de la différence prévus par le texte de référence pour ce cas précis.",
+      "agent_seconds": 13.95,
+      "error": null
+    },
+    {
+      "question": "Quelle sont les rémunérations des gérants majoritaires que la société peut déduire pour la détermination de l'assiette soumise à l'IS, et à partir de quand ces déductions sont admises ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, voici les réponses à votre question :\n\n**Rémunérations déductibles**\nLa société peut déduire les rémunérations des gérants majoritaires pour la détermination de l'assiette soumise à l'IS, à condition que :\n1. Elles soient accordées au gérant en contrepartie de son activité au sein de la société en sa qualité de gérant.\n2. Elles ne soient pas exagérées.\n\nSont exclues de cette déduction toutes les autres rémunérations et avantages accordés par la société qui sont classés, au niveau du gérant, dans la catégorie des revenus de valeurs mobilières.\n\n**Date d'application**\nCes déductions sont admises à partir du 1er janvier 2011. Par conséquent, sont admises en déduction les rémunérations des gérants majoritaires dues par la société au titre de l'exercice 2010 et au titre des exercices ultérieurs.",
+      "expected_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk4",
+        "Note-commune-n-08-2-1.pdf::chunk3",
+        "Note-commune-n-08-2-1.pdf::chunk1",
+        "Note-commune-n-08-2-1.pdf::chunk0",
+        "Note-commune-n-08-2-1.pdf::chunk2"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète : elle identifie précisément les conditions de déductibilité (contrepartie de l'activité de gérant, non exagération), les exclusions (revenus de valeurs mobilières) et la date d'application (1er janvier 2011, incluant l'exercice 2010 et les suivants), conformément au texte de référence.",
+      "agent_seconds": 9.35,
+      "error": null
+    },
+    {
+      "question": "Quelle est la nouvelle catégorie auxquelle les rémunérations des gérants majoritaires des sociétés à responsabilité limitée sont classés, et quels impôts sont applicables à ce titre ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, les rémunérations des gérants majoritaires des sociétés à responsabilité limitée (SARL) sont classées dans la **catégorie des traitements et salaires**.\n\nLes impôts et contributions applicables à ce titre sont :\n1. L'**impôt sur le revenu (IR)** ;\n2. La **retenue à la source** ;\n3. La **taxe de formation professionnelle** ;\n4. La **contribution au fonds de promotion des logements au profit des salariés**.",
+      "expected_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk0"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk3",
+        "Note-commune-n-08-2-1.pdf::chunk0",
+        "Note-commune-n-08-2-1.pdf::chunk1",
+        "Note-commune-n-08-2-1.pdf::chunk2",
+        "Note-commune-n-08-2-1.pdf::chunk4"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète par rapport au texte de référence, qui classe les rémunérations des gérants majoritaires des SARL dans la catégorie des traitements et salaires et soumet ces rémunérations à l'impôt sur le revenu, à la retenue à la source, à la taxe de formation professionnelle et à la contribution au fonds de promotion des logements au profit des salariés.",
+      "agent_seconds": 1.7,
+      "error": null
+    },
+    {
+      "question": "Est-ce que la retenue à la source de 1% au titre de la redevance de compensation est due pour les honoraires de 15.000D dans le cadre de l'exécution d'une convention liant les deux parties, puisque le montant annuel net dépasse 20.000 D?",
+      "is_unanswerable": false,
+      "answer": "Non, la retenue à la source de 1% au titre de la redevance de compensation n'est pas due.\n\nSelon les sources fournies, concernant les honoraires de 15.000D dans le cadre de l'exécution d'une convention liant les deux parties (catégorie des bénéfices des professions non commerciales), la retenue à la source au taux de 1% n'est pas due du fait que le montant net ne dépasse pas 20.000D.",
+      "expected_chunk_ids": [
+        "Note-commune-n-12-2.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-12-2.pdf::chunk5",
+        "Note-commune-n-12-2.pdf::chunk4",
+        "Note-commune-n-12-2.pdf::chunk3",
+        "Note-commune-n-03-3.pdf::chunk7",
+        "Note-commune-n-12-2.pdf::chunk2"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte car le texte de référence indique que la retenue de 1% n'est due que si le montant net annuel dépasse 20.000 D, or les honoraires de 15.000 D ne dépassent pas ce seuil.",
+      "agent_seconds": 7.47,
+      "error": null
+    },
+    {
+      "question": "Quel est l'État dans lequel un artiste du spectacle ou un sportif doit être imposé sur leur revenu si leurs activités personnelles sont financées essentiellement par des fonds publics du premier État ou à l'une de ses collectivités locales ?",
+      "is_unanswerable": false,
+      "answer": "L'artiste du spectacle ou le sportif doit être imposé uniquement dans le premier État (celui dont il est résident et qui finance essentiellement ses activités par des fonds publics ou l'une de ses collectivités locales).\n\nCela découle du paragraphe 3 de l'Article 17, qui stipule que le revenu n'est imposable que dans le premier État lorsque les activités exercées dans l'autre État sont financées essentiellement par des fonds publics du premier État ou à l'une de ses collectivités locales.",
+      "expected_chunk_ids": [
+        "Note-commune-n-54.pdf::chunk14"
+      ],
+      "retrieved_chunk_ids": [
+        "SYRIE.pdf::chunk11",
+        "Note-commune-n-54.pdf::chunk14",
+        "Oman.pdf::chunk13",
+        "ILE-DE-MAURICE.pdf::chunk14",
+        "emirate-des-etats-unis.pdf::chunk13"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète : elle identifie précisément que l'imposition a lieu uniquement dans le premier État (celui de résidence et de financement public), conformément au paragraphe 3 de l'article 17 du texte de référence.",
+      "agent_seconds": 8.54,
+      "error": null
+    },
+    {
+      "question": "Quel est le délai minimum avant la fin d'une année civile pour que l'un des États contractants puisse dénoncer la Convention ?",
+      "is_unanswerable": false,
+      "answer": "Le délai minimum est de **six mois** avant la fin de chaque année civile.",
+      "expected_chunk_ids": [
+        "Note-commune-n-54.pdf::chunk26"
+      ],
+      "retrieved_chunk_ids": [
+        "U.M.A.pdf::chunk19",
+        "Espagne.pdf::chunk28",
+        "Jordanie.pdf::chunk21",
+        "Norvege.pdf::chunk22",
+        "Suisse.pdf::chunk23"
+      ],
+      "expected_retrieved": false,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse indique exactement le délai de six mois prévu par l'article 29 pour dénoncer la convention avant la fin d'une année civile.",
+      "agent_seconds": 17.37,
+      "error": null
+    },
+    {
+      "question": "Quelle est la disposition régissant la mise en place d'une caisse enregistreuse pour les entreprises prestataires de services de consommation sur place ?",
+      "is_unanswerable": false,
+      "answer": "La disposition régissant la mise en place d'une caisse enregistreuse pour les entreprises prestataires de services de consommation sur place est l'**Article 59 ter**.\n\nSelon cette source :\n*   Les entreprises prestataires de services de consommation sur place doivent mettre en place « une caisse enregistreuse », et ce, pour toutes leurs transactions avec les clients.\n*   Les modalités pratiques de la mise en place de ladite caisse sont fixées par un décret gouvernemental (le décret gouvernemental n° 2019-1126 du 26 novembre 2019 est mentionné en note de bas de page).\n*   Les dispositions de cet article s'appliquent à partir du 1er juin 2016.",
+      "expected_chunk_ids": [
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk21"
+      ],
+      "retrieved_chunk_ids": [
+        "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf::chunk21",
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk21",
+        "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk21",
+        "Loi-de-Finances-2016.pdf::chunk17",
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk21"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse identifie précisément l'article 59 ter comme disposition régissant la caisse enregistreuse et restitue fidèlement ses trois éléments essentiels : obligation pour toutes les transactions, fixation des modalités par décret gouvernemental, et date d'application au 1er juin 2016.",
+      "agent_seconds": 11.9,
+      "error": null
+    },
+    {
+      "question": "Quel est le montant maximal de déduction possible pour les entreprises créées entre 2018 et 2020, qui ont réalisé des investissements directs dans les zones de développement régional, en application de la loi de l'investissement et des décrets gouvernementaux concernés ?",
+      "is_unanswerable": false,
+      "answer": "Les sources fournies ne mentionnent pas de **montant maximal** (plafond en dinars ou en pourcentage du montant de l'investissement) pour la déduction des bénéfices ou revenus.\n\nElles précisent uniquement que :\n\n*   Les entreprises créées entre 2018 et 2020, ayant obtenu une attestation de dépôt de déclaration d'investissement et réalisant des investissements directs dans les zones de développement régional, bénéficient d'une **déduction totale** de leurs bénéfices ou revenus provenant de ces investissements.\n*   Cette déduction totale s'applique pendant une période de **5 ans** (pour le premier groupe des zones de développement régional) ou de **10 ans** (selon le cas), à compter de la date d'entrée en activité effective.\n*   Pour les entreprises bénéficiant de l'exonération de l'article 13 de la loi de finances pour 2018 ou 2019, cette période de déduction totale est décomptée à partir de l'expiration de la période d'exonération (4 ans).\n*   Après expiration de la période de déduction totale, l'article 64 du code prévoit une déduction de **deux tiers** des revenus provenant des investissements directs dans les zones de développement régional.\n\nAucun plafond ou montant maximal de déduction n'est indiqué dans les documents fournis.",
+      "expected_chunk_ids": [
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk24"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-Commune-N°01-2.pdf::chunk1",
+        "Note-Commune-N°01-2.pdf::chunk6",
+        "Note-Commune-N°01-2.pdf::chunk8",
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk24",
+        "Note-Commune-N°01-2.pdf::chunk10"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte car le texte de référence ne mentionne aucun montant maximal ou plafond de déduction, mais précise uniquement les taux (déduction totale puis deux tiers) et les conditions d'application.",
+      "agent_seconds": 9.8,
+      "error": null
+    },
+    {
+      "question": "Quel est le statut fiscal des personnes physiques et morales non résidentes qui réalisent des opérations temporaires de montage ou des opérations de surveillance en lien avec cela, selon la note commune n°17 /2005 ?",
+      "is_unanswerable": false,
+      "answer": "Selon la note commune n° 17/2005, les personnes physiques et morales non établies ni domiciliées en Tunisie qui réalisent des opérations temporaires de montage ou des opérations de surveillance s'y rattachant sont **exonérées de la taxe sur les établissements à caractère industriel, commercial ou professionnel**, conformément aux dispositions de l'article 36 du code de la fiscalité locale.",
+      "expected_chunk_ids": [
+        "Note-commune-n-17-9-1.pdf::chunk0"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-17-9.pdf::chunk0",
+        "Note-commune-n-17-9-1.pdf::chunk0",
+        "Note-commune-n-17-9.pdf::chunk2",
+        "Note-commune-n-17-9-1.pdf::chunk2",
+        "Note-commune-n-28-5.pdf::chunk3"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète : elle mentionne l'exonération de la taxe sur les établissements à caractère industriel, commercial ou professionnel pour les personnes physiques et morales non établies ni domiciliées en Tunisie réalisant des opérations temporaires de montage ou de surveillance, conformément à l'article 36 du code de la fiscalité locale cité dans la note.",
+      "agent_seconds": 1.32,
+      "error": null
+    },
+    {
+      "question": "Quelle est la législation en vigueur au 31 décembre 2004 qui exonère les personnes physiques et morales non établies ni domiciliées en Tunisie de la taxe sur les établissements à caractère industriel, commercial ou professionnel ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, la législation en vigueur au 31 décembre 2004 qui exonère les personnes physiques et morales non établies ni domiciliées en Tunisie de la taxe sur les établissements à caractère industriel, commercial ou professionnel est :\n\n**L'article 36 du code de la fiscalité locale promulgué par la loi n°97-11 du 3 février 1997.**\n\nLes sources précisent toutefois que cet article a été modifié par l'article 80 de la loi n°90 de l'année 2004 du 31 décembre 2004 (loi de finances pour l'année 2005).",
+      "expected_chunk_ids": [
+        "Note-commune-n-17-9-1.pdf::chunk2"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-17-9.pdf::chunk2",
+        "Note-commune-n-17-9-1.pdf::chunk2",
+        "Note-commune-n-17-9.pdf::chunk0",
+        "Note-commune-n-17-9-1.pdf::chunk0",
+        "code-de-la-fiscalite-locale-2020.pdf::chunk27"
+      ],
+      "expected_retrieved": true,
+      "score": 4,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse identifie correctement l'article 36 du code de la fiscalité locale (loi n°97-11 du 3 février 1997) comme la législation en vigueur au 31 décembre 2004. Le détail manquant est la précision que cet article exonère spécifiquement les personnes physiques et morales non établies ni domiciliées en Tunisie, ainsi que la mention des articles 45 et 46 de la loi de finances pour 2003 qui ont élargi le champ d'application de l'impôt sur le revenu.",
+      "agent_seconds": 13.25,
+      "error": null
+    },
+    {
+      "question": "Est-il obligatoire de payer la retenue à la source au taux de 50% pour les acquisitions de biens, équipements et matériels dans le cadre des contrats de vente salam par les services de l'Etat, les collectivités locales, les établissements et les entreprises publics ?",
+      "is_unanswerable": false,
+      "answer": "Non, il n'est pas obligatoire de payer la retenue à la source au taux de 50% pour les acquisitions de biens, équipements et matériels dans le cadre des contrats de vente salam par les services de l'Etat, les collectivités locales, les établissements et les entreprises publics.\n\nSelon les sources fournies, ces entités ne sont pas tenues d'appliquer la retenue à la source au taux de 50% au titre desdites acquisitions.",
+      "expected_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk6"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk6",
+        "Note-commune-n-03-2.pdf::chunk2",
+        "Note-commune-n-03.pdf::chunk1",
+        "Note-commune-n-19-11.pdf::chunk3",
+        "Note-commune-n-04-1-1.pdf::chunk6"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse de l'assistant est conforme au texte de référence qui précise explicitement que les entités citées ne sont pas tenues d'appliquer la retenue à la source au taux de 50% pour ces acquisitions.",
+      "agent_seconds": 1.6,
+      "error": null
+    },
+    {
+      "question": "Quel est le régime fiscal des opérations de vente salam pour les établissements de crédits en matière de taxe sur la valeur ajoutée et des droits d'enregistrement, selon la loi de finances pour l'année 2012 ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, le régime fiscal des opérations de vente salam pour les établissements de crédits, selon la loi de finances pour l'année 2012, est le suivant :\n\n**1. En matière de taxe sur la valeur ajoutée (TVA) :**\n*   La marge bénéficiaire réalisée par l'établissement de crédit est exonérée de la taxe sur la valeur ajoutée, à l'exclusion des commissions.\n*   Les assujettis à la TVA peuvent déduire la taxe grevant leurs acquisitions nécessaires à leurs activités auprès des établissements de crédit dans le cadre des contrats de vente salam (à condition que la facture ou le contrat mentionne le montant de la TVA supportée).\n*   Les montants payés dans le cadre de ces contrats ne sont pas soumis à la retenue à la source de 50% au titre de la TVA.\n\n**2. En matière de droits d'enregistrement :**\n*   Les contrats de vente salam ne sont pas soumis obligatoirement à la formalité d'enregistrement.\n*   Ils sont exonérés des droits d'enregistrement, même s'ils sont présentés volontairement à cette formalité.",
+      "expected_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk0"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk2",
+        "Note-commune-n-10-1-1.pdf::chunk0",
+        "Note-commune-n-10-1-1.pdf::chunk1",
+        "Note-commune-n-10-1-1.pdf::chunk6",
+        "Note-commune-n-04-1-1.pdf::chunk0"
+      ],
+      "expected_retrieved": true,
+      "score": 3,
+      "verdict": "partiel",
+      "refused": null,
+      "justification": "La réponse est correcte sur la TVA mais ajoute des informations non présentes dans la référence (retenue à la source, condition de facture) et omet de mentionner l'article 37 comme base légale, tout en ne citant pas explicitement l'article 28 pour les droits d'enregistrement.",
+      "agent_seconds": 12.0,
+      "error": null
+    },
+    {
+      "question": "Quels types de revenus sont imposables dans l'État contractant pour un résident d'un autre État contractant, en dehors des navires, bateaux et aéronefs ?",
+      "is_unanswerable": false,
+      "answer": "D'après les sources fournies, les types de revenus imposables dans l'État contractant où ils proviennent (l'État de source) pour un résident d'un autre État contractant, en dehors des navires, bateaux et aéronefs, sont les suivants :\n\n**1. Gains en capital (Article 13) :**\n*   Les gains provenant de l'aliénation de biens immobiliers situés dans cet autre État (paragraphe 1).\n*   Les gains provenant de l'aliénation d'actions, parts ou autres droits dans une société dont l'actif est constitué principalement de biens immobiliers situés dans cet État (paragraphe 2).\n*   Les gains provenant de l'aliénation de biens mobiliers faisant partie de l'actif d'un établissement stable ou d'une base fixe situés dans cet autre État, y compris les gains de l'aliénation de cet établissement stable ou de cette base fixe (paragraphe 3).\n\n**2. Autres revenus (Article 21) :**\n*   Les éléments de revenus non traités dans les articles précédents de la Convention et qui proviennent de l'autre État contractant (paragraphe 2).\n*   *Précision :* Si ces revenus proviennent de biens immobiliers et que le bénéficiaire exerce une activité industrielle ou commerciale via un établissement stable, ou une profession indépendante via une base fixe dans l'autre État, et que le droit ou le bien générateur des revenus s'y rattache effectivement, l'imposition se fait selon l'article 7 (bénéfices des entreprises) ou l'article 14 (professions indépendantes).\n\n**3. Professions dépendantes (Article 15) :**\n*   Les salaires, traitements et autres rémunérations similaires reçus au titre d'un emploi salarié exercé dans l'autre État contractant (paragraphe 1).",
+      "expected_chunk_ids": [
+        "ILE-DE-MAURICE.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "DBA-TUN-franz.pdf::chunk11",
+        "INDONESIE.pdf::chunk17",
+        "Danemark.pdf::chunk19",
+        "Serbie.pdf::chunk21",
+        "Bretagne.pdf::chunk12"
+      ],
+      "expected_retrieved": false,
+      "score": 2,
+      "verdict": "incorrect",
+      "refused": null,
+      "justification": "La réponse se base sur des articles (13, 21, 15) absents du texte de référence, qui ne contient que l'article 6 relatif aux revenus immobiliers, et inclut des catégories de revenus non prévues par ce texte.",
+      "agent_seconds": 3.34,
+      "error": null
+    },
+    {
+      "question": "Quel sont les privilèges fiscaux qui bénéficient aux agents diplomatiques ou aux fonctionnaires consulaires, en vertu soit des règles générales du droit des gens, soit des dispositions d'accords particuliers, selon la Convention en question ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, la Convention ne précise pas la liste des privilèges fiscaux spécifiques. Elle stipule uniquement que ses dispositions ne portent pas atteinte aux privilèges fiscaux dont bénéficient les agents diplomatiques ou les fonctionnaires consulaires en vertu soit des règles générales du droit des gens, soit des dispositions d'accords particuliers.",
+      "expected_chunk_ids": [
+        "ILE-DE-MAURICE.pdf::chunk23"
+      ],
+      "retrieved_chunk_ids": [
+        "Danemark.pdf::chunk24",
+        "INDONESIE.pdf::chunk22",
+        "Coree_du_sud.pdf::chunk24",
+        "Luxembourg.pdf::chunk24",
+        "ILE-DE-MAURICE.pdf::chunk23"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse reflète fidèlement le texte de référence en indiquant que la Convention ne liste pas les privilèges spécifiques, mais garantit qu'elle ne porte pas atteinte à ceux existants par le droit des gens ou des accords particuliers.",
+      "agent_seconds": 8.0,
+      "error": null
+    },
+    {
+      "question": "Quel est le taux de la taxe unique sur les assurances pour les contrats d'assurance des risques de navigation maritime et aérienne, selon la loi de finances pour l'année 2018 ?",
+      "is_unanswerable": false,
+      "answer": "Le taux de la taxe unique sur les assurances pour les contrats d'assurance des risques de navigation maritime et aérienne est de **6%**.\n\nSelon la note commune n° 16/2018, l'article 48 de la loi de finances pour l'année 2018 a prévu le relèvement de ce taux de 5% à 6%. Ce taux est applicable aux primes émises à partir du 1er janvier 2018.",
+      "expected_chunk_ids": [
+        "Note-Commune-N°16-5.pdf::chunk2"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-Commune-N°16-5.pdf::chunk0",
+        "Note-Commune-N°16-5.pdf::chunk2",
+        "Code-des-Droits-dEnregistrement-et-de-Timbre-2018-.pdf::chunk63",
+        "Code-des-Droits-dEnregistrement-et-de-Timbre-2025.pdf::chunk62",
+        "Note-Commune-N°16-5.pdf::chunk4"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse indique correctement le taux de 6% pour les contrats d'assurance des risques de navigation maritime et aérienne, conformément à l'article 48 de la loi de finances pour l'année 2018 qui a relevé le taux de 5% à 6%.",
+      "agent_seconds": 11.34,
+      "error": null
+    },
+    {
+      "question": "Quelle est la taxe due au titre des primes d'assurance des risques de la navigation aérienne et des primes d'assurance des autres risques aux taux de 6% et 12%, et comment est calculée cette taxe ?",
+      "is_unanswerable": false,
+      "answer": "La taxe due au titre des primes d'assurance des risques de la navigation aérienne et des primes d'assurance des autres risques aux taux de 6% et 12% est calculée comme suit :\n\n**1. Base de calcul :**\nLa taxe est liquidée sur le montant des primes d'assurance émises au cours du mois, après déduction du montant des primes d'assurance annulées ou restituées au cours de ce même mois (même si elles ont été émises antérieurement, dans la mesure où elles ont supporté la taxe à leur émission).\n\n**2. Taux applicables :**\n*   Risques de navigation aérienne : **6%**\n*   Autres risques : **12%**\n\n**3. Méthode de calcul (exemple tiré des sources pour le mois de février 2018) :**\n*   **Risques de navigation aérienne :** 6,8 MD × 6% = 0,408 MD\n*   **Autres risques :** 3,6 MD × 12% = 0,432 MD\n*   **Taxe due au titre des primes émises :** 0,408 MD + 0,432 MD = **0,840 MD**\n\n**4. Imputation des primes annulées :**\nSi des primes annulées ont été émises antérieurement (par exemple en 2017) et ont déjà supporté la taxe aux anciens taux (5% et 10%), la taxe payée lors de leur émission initiale est imputée sur la taxe due au titre des primes émises aux nouveaux taux (6% et 12%).\n\n**Exemple de liquidation finale (février 2018) :**\n*   Taxe due au titre des primes émises : 0,840 MD\n*   Moins : Taxe payée au titre des primes annulées (émises en 2017) : 0,325 MD\n*   **Taxe à payer au titre du mois : 0,515 MD**",
+      "expected_chunk_ids": [
+        "Note-Commune-N°16-5.pdf::chunk6"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-Commune-N°16-5.pdf::chunk6",
+        "Note-Commune-N°16-5.pdf::chunk4",
+        "Note-Commune-N°16-5.pdf::chunk7",
+        "Note-Commune-N°16-5.pdf::chunk5",
+        "Note-Commune-N°16-5.pdf::chunk2"
+      ],
+      "expected_retrieved": true,
+      "score": 4,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète sur le calcul de la taxe et l'imputation des primes annulées. Un détail mineur manque : le montant détaillé de la taxe sur les primes annulées (0,325 MD) n'est pas explicitement décomposé par risque, bien que le total soit correct.",
+      "agent_seconds": 16.4,
+      "error": null
+    },
+    {
+      "question": "Quelle est la manière dont un établissement de crédit doit facturer le montant de la taxe sur la valeur ajoutée supportée au titre de ses acquisitions réalisées dans le cadre de contrats de vente salam, et comment est calculé ce montant pour une opération spécifique ?",
+      "is_unanswerable": false,
+      "answer": "**Manière de facturer :**\n\nL'établissement de crédit est tenu de mentionner sur la facture ou le contrat de vente, selon le cas, le montant de la taxe sur la valeur ajoutée (TVA) qu'il a supporté au titre de ses acquisitions réalisées dans le cadre des contrats de vente salam, et ce **à l'identique**.\n\n**Calcul pour une opération spécifique (exemple fourni dans les sources) :**\n\nPrenons l'exemple d'un établissement de crédit qui achète des produits soumis à la TVA au taux de 18% dans le cadre d'un contrat de vente salam :\n\n1.  **Montant de l'acquisition (hors taxe) :** 10 000 dinars.\n2.  **Calcul de la TVA supportée :** 10 000 dinars $\\times$ 18% = **1 800 dinars**.\n3.  **Marge bénéficiaire :** 2 000 dinars (exonérée de TVA).\n4.  **Montant global facturé par l'établissement de crédit :** \n    10 000 dinars (prix d'acquisition) + 1 800 dinars (TVA supportée mentionnée à l'identique) + 2 000 dinars (marge) = **13 800 dinars**.\n\nAinsi, l'établissement de crédit facture le montant de la TVA supportée (1 800 dinars) sans pouvoir la déduire, car la marge bénéficiaire réalisée est exonérée de TVA.",
+      "expected_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk1",
+        "Note-commune-n-10-1-1.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-10-1-1.pdf::chunk3",
+        "Note-commune-n-10-1-1.pdf::chunk4",
+        "Note-commune-n-10-1-1.pdf::chunk1",
+        "Note-commune-n-10-1-1.pdf::chunk2",
+        "Note-commune-n-10-1-1.pdf::chunk5"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse restitue fidèlement l'obligation de facturation à l'identique de la TVA supportée sur la facture ou le contrat, et reprend correctement l'exemple de calcul (10 000 DT HT × 18 % = 1 800 DT de TVA ; total facturé 13 800 DT) tel que présenté dans le texte de référence.",
+      "agent_seconds": 2.93,
+      "error": null
+    },
+    {
+      "question": "Quelle est la manière spécifique dans laquelle les rémunérations des gérants majoritaires des SARL sont traitées pour l'impôt sur les sociétés, en considérant les dispositions de la loi de finances pour l'année 2011 et les commentaires associés ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, l'article 42 de la loi n° 2010-58 du 17 décembre 2010 (loi de finances pour l'année 2011) a révisé le régime fiscal des rémunérations des gérants majoritaires des SARL pour l'impôt sur les sociétés (IS) de la manière suivante :\n\n1. **Déductibilité** : Les SARL peuvent désormais déduire les rémunérations de leurs gérants majoritaires pour la détermination de l'assiette soumise à l'IS. Auparavant (jusqu'au 31 décembre 2010), ces rémunérations n'étaient pas admises en déduction.\n\n2. **Conditions de déduction** : La déduction se limite aux montants et à la valeur des avantages accordés au gérant en contrepartie de son activité au sein de la société en sa qualité de gérant, à condition qu'ils ne soient pas exagérés.\n\n3. **Date d'application** : Ces nouvelles dispositions s'appliquent à partir du 1er janvier 2011. Elles concernent les rémunérations relatives à l'exercice 2010 et aux exercices ultérieurs.\n\n4. **Exclusions** : Toutes les autres rémunérations et avantages accordés par la société qui sont classés dans la catégorie des revenus de valeurs mobilières au niveau du gérant demeurent non déductibles pour la détermination de l'assiette soumise à l'IS.",
+      "expected_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk4",
+        "Note-commune-n-08-2-1.pdf::chunk0"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-08-2-1.pdf::chunk2",
+        "Note-commune-n-08-2-1.pdf::chunk1",
+        "Note-commune-n-08-2-1.pdf::chunk0",
+        "Note-commune-n-08-2-1.pdf::chunk3",
+        "Note-commune-n-08-2-1.pdf::chunk4"
+      ],
+      "expected_retrieved": true,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et complète par rapport au texte de référence, couvrant la déductibilité, les conditions, la date d'application et les exclusions.",
+      "agent_seconds": 4.17,
+      "error": null
+    },
+    {
+      "question": "Quelle est la taux d'imposition et les délais de déclaration pour une cession de terres domaniales ayant perdu leur vocation agricole effectuée par voie d'échange, et pour une cession de terres domaniales ayant perdu leur vocation agricole non acquises par voie d'échange ?",
+      "is_unanswerable": false,
+      "answer": "Voici les informations tirées des sources fournies :\n\n**1. Cession de terres domaniales ayant perdu leur vocation agricole effectuée par voie d'échange**\n*   **Taux d'imposition :** Les dispositions applicables aux immeubles autres que les terres domaniales s'appliquent. Le taux est de **10%** (cession après 5 ans de possession ou biens hérités) ou de **15%** (cession durant les 5 ans suivant la date de possession).\n*   **Délai de déclaration :** La déclaration est déposée, au plus tard, à la fin du **troisième mois qui suit celui de la réalisation effective de la cession**.\n\n**2. Cession de terres domaniales ayant perdu leur vocation agricole non acquises par voie d'échange**\n*   **Taux d'imposition :** \n    *   **25%** lorsque la cession est faite au profit des agences foncières, de la société nationale immobilière de Tunisie, de la société de promotion des logements sociaux, ou de personnes s'engageant à réserver le terrain pour l'aménagement d'une zone industrielle.\n    *   **50%** pour les autres cas.\n*   **Délai de déclaration :** L'impôt fait l'objet d'une déclaration initiale et d'une déclaration définitive. La déclaration initiale est déposée au cours du **mois qui suit celui de la notification de la valeur fixée par l'expert du domaine de l'État**.",
+      "expected_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk5",
+        "Note-commune-n-23-1.pdf::chunk4"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-23-1.pdf::chunk4",
+        "Note-commune-n-23-1.pdf::chunk17",
+        "Note-commune-n-23-1.pdf::chunk5",
+        "Note-commune-n-23-1.pdf::chunk2",
+        "Note-commune-n-23-1.pdf::chunk19"
+      ],
+      "expected_retrieved": true,
+      "score": 3,
+      "verdict": "partiel",
+      "refused": null,
+      "justification": "La réponse est correcte pour les taux et le délai de la cession par échange, mais elle omet le délai de déclaration pour les cessions non acquises par échange (fin du troisième mois suivant la réalisation effective de la cession) et donne un délai erroné pour cette dernière catégorie.",
+      "agent_seconds": 7.35,
+      "error": null
+    },
+    {
+      "question": "Quelle sont les conditions dans lesquelles les gains provenant de l'aliénation de biens mobiliers sont imposables dans l'autre État contractant, selon la Convention ?",
+      "is_unanswerable": false,
+      "answer": "Selon les sources fournies, les gains provenant de l'aliénation de biens mobiliers sont imposables dans l'autre État contractant dans les conditions suivantes :\n\n1. **Liens avec un établissement stable** : Les gains provenant de l'aliénation de biens mobiliers qui font partie de l'actif d'un établissement stable qu'une entreprise d'un État contractant a dans l'autre État contractant sont imposables dans cet autre État.\n\n2. **Liens avec une base fixe** : Les gains provenant de l'aliénation de biens mobiliers qui appartiennent à une base fixe dont un résident d'un État contractant dispose dans l'autre État contractant pour l'exercice d'une profession indépendante sont imposables dans cet autre État.\n\n3. **Aliénation globale** : Cette imposition s'applique également aux gains provenant de l'aliénation de l'établissement stable (seul ou avec l'ensemble de l'entreprise) ou de cette base fixe.\n\n**Exception importante** : Les gains provenant de l'aliénation de navires ou d'aéronefs exploités en trafic international, ou de biens mobiliers affectés à l'exploitation de ces navires ou aéronefs, ne sont imposables que dans l'État contractant où le siège de direction effective de l'entreprise est situé (et non nécessairement dans l'autre État contractant).\n\nPour tous les autres biens mobiliers ne répondant pas à ces conditions, les gains ne sont imposables que dans l'État contractant dont le cédant est un résident.",
+      "expected_chunk_ids": [
+        "PORTUGAL.pdf::chunk16",
+        "PORTUGAL.pdf::chunk8"
+      ],
+      "retrieved_chunk_ids": [
+        "DBA-TUN-franz.pdf::chunk11",
+        "Slovaquie.pdf::chunk12",
+        "sudan.pdf::chunk10",
+        "Republique-Tcheque.pdf::chunk12",
+        "Yemen.pdf::chunk10"
+      ],
+      "expected_retrieved": false,
+      "score": 5,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse couvre l'ensemble des conditions d'imposabilité des gains sur biens mobiliers dans l'autre État contractant (établissement stable, base fixe, aliénation globale) ainsi que l'exception pour le trafic international et la règle subsidiaire de résidence, conformément à l'article 13 de la convention.",
+      "agent_seconds": 13.82,
+      "error": null
+    },
+    {
+      "question": "Quelle est la déduction possible pour les 120 000 D investis dans la clinique, en considérant les avantages fiscaux accordés aux SICAR et aux FCPR, et en tenant compte de la limite de 35% du bénéfice imposable ?",
+      "is_unanswerable": false,
+      "answer": "D'après les sources fournies, voici la réponse :\n\nPour les 120 000 D investis dans la clinque, la déduction possible est de **70 000 D**.\n\n**Détail du calcul :**\nLe bénéfice imposable est limité à 35% du bénéfice net.\n- Bénéfice net : 200 000 D\n- Plafond de déduction : 200 000 D × 35% = 70 000 D\n\nBien que le montant investi soit de 120 000 D, la déduction est plafonnée à 70 000 D, soit 35% du bénéfice imposable.\n\n**Conditions mentionnées dans les sources :**\n- L'emploi des montants doit avoir lieu en 2014 et avant la date limite de dépôt de la déclaration de l'IS.\n- L'avantage peut être bénéficié au titre de l'exercice 2014 ou de l'exercice 2015.\n- La déduction s'applique aux réinvestissements auprès des SICAR ou des FCPR, dans la limite de 35% du revenu ou du bénéfice global imposable, sans que l'impôt dû ne soit inférieur au minimum d'impôt.",
+      "expected_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk11",
+        "Note-commune-n-15-1-1.pdf::chunk32"
+      ],
+      "retrieved_chunk_ids": [
+        "Note-commune-n-15-1-1.pdf::chunk32",
+        "Note-commune-n-15-1-1.pdf::chunk12",
+        "Note-commune-n-15-1-1.pdf::chunk11",
+        "Note-commune-n-15-1-1.pdf::chunk20",
+        "Note-commune-n-15-1-1.pdf::chunk24"
+      ],
+      "expected_retrieved": true,
+      "score": 4,
+      "verdict": "correct",
+      "refused": null,
+      "justification": "La réponse est correcte et le calcul de la déduction (70 000 D) est exact par rapport à la limite de 35% du bénéfice imposable. Un détail mineur manque : la précision que le montant non déduit (50 000 D) peut être reporté sur l'exercice suivant (2015), bien que cela n'impacte pas le calcul principal pour 2014.",
+      "agent_seconds": 7.74,
+      "error": null
+    },
+    {
+      "question": "Quelle est l'amende applicable en cas de non-declaration en douane de marchandises importees ?",
+      "is_unanswerable": true,
+      "answer": "Les sources fournies ne permettent pas de répondre à la question. Elles ne contiennent aucune disposition concernant l'amende applicable en cas de non-déclaration en douane de marchandises importées.",
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk132",
+        "Code-des-Droits-dEnregistrement-et-de-Timbre-2018-.pdf::chunk56",
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk125",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk129",
+        "Code-des-droits-denregistrement-et-de-timbre-2020.pdf::chunk58"
+      ],
+      "expected_retrieved": null,
+      "score": null,
+      "verdict": null,
+      "refused": true,
+      "justification": "Les sources fournies ne contiennent aucune disposition concernant l'amende applicable en cas de non-déclaration en douane de marchandises importées.",
+      "agent_seconds": 9.37,
+      "error": null
+    },
+    {
+      "question": "Quelles sont les obligations de declaration de soupcon en matiere de blanchiment d'argent pour une entreprise tunisienne ?",
+      "is_unanswerable": true,
+      "answer": "Les sources fournies ne permettent pas de répondre à la question sur les obligations de déclaration de soupçon en matière de blanchiment d'argent pour une entreprise tunisienne.\n\nBien que les sources mentionnent la loi n°2003-75 du 10 décembre 2003 relative à la lutte contre le terrorisme et à la répression du blanchiment d'argent, elles ne contiennent pas les dispositions spécifiques concernant l'obligation de déclaration de soupçon. Les documents disponibles traitent principalement de la déclaration pays par pays (transfert de bénéfices) et de dispositions fiscales diverses.",
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "Loi-de-Finances-2019-Fr.pdf::chunk18",
+        "Note-commune-n-06-2.pdf::chunk19",
+        "Note-Commune-N°13-2.pdf::chunk0",
+        "Note-commune-n-07-3.pdf::chunk2",
+        "Code-des-Droits-dEnregistrement-et-de-Timbre-2018-.pdf::chunk83"
+      ],
+      "expected_retrieved": null,
+      "score": null,
+      "verdict": null,
+      "refused": true,
+      "justification": "Les sources fournies ne contiennent pas les dispositions spécifiques concernant l'obligation de déclaration de soupçon en matière de blanchiment d'argent pour une entreprise tunisienne.",
+      "agent_seconds": 5.31,
+      "error": null
+    },
+    {
+      "question": "Quelles sanctions penales s'appliquent a un dirigeant pour abus de biens sociaux ?",
+      "is_unanswerable": true,
+      "answer": "Les sources fournies ne permettent pas de répondre à la question. Elles ne contiennent aucune disposition relative à l'abus de biens sociaux ni aux sanctions pénales applicables à un dirigeant pour ce motif. Les textes disponibles concernent principalement des infractions fiscales (fraude fiscale, secret professionnel, obligations déclaratives) et des mesures administratives de fermeture de locaux.",
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "Code_FISCALITE-LOCALE-2025.pdf::chunk82",
+        "Note-commune-n-39-2.pdf::chunk18",
+        "CODE-DE-LA-FISCALITE-LOCALE-2023-1-1.pdf::chunk95",
+        "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk56",
+        "cdpf-2025.pdf::chunk58"
+      ],
+      "expected_retrieved": null,
+      "score": null,
+      "verdict": null,
+      "refused": true,
+      "justification": "Les sources fournies ne contiennent aucune disposition relative à l'abus de biens sociaux ni aux sanctions pénales applicables à un dirigeant pour ce motif.",
+      "agent_seconds": 10.42,
+      "error": null
+    },
+    {
+      "question": "Quelles sont les restrictions de controle des changes pour un transfert de devises a l'etranger ?",
+      "is_unanswerable": true,
+      "answer": "D'après les sources fournies, voici les restrictions de contrôle des changes pour un transfert de devises à l'étranger :\n\n1. **Nécessité d'une autorisation** : Le transfert de capitaux à l'étranger en devises est libre, mais dans les cas où ce transfert nécessite l'obtention d'une autorisation de la Banque Centrale de Tunisie, les dispositions de l'article 4 de la loi s'appliquent.\n\n2. **Limite de transfert dans le cadre de l'amnistie** : Pour les sommes bénéficiant de l'amnistie (loi n°2007-41), les contrevenants ne doivent pas transférer à l'étranger plus de 20% des sommes objet de l'amnistie et figurant au solde des comptes en devises ou en dinars convertibles avant l'expiration d'un délai de six mois à compter de la date de leur dépôt dans ces comptes.\n\nLes sources ne précisent pas d'autres restrictions générales applicables à tous les transferts de devises à l'étranger.",
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "Loi-n°-2016-71-portant-loi-de-linvestissement.pdf::chunk6",
+        "Note-commune-n-02-6.pdf::chunk2",
+        "Note-commune-n-34.pdf::chunk2",
+        "Note-Commune-n°12-2.pdf::chunk10",
+        "Note-commune-n-34.pdf::chunk9"
+      ],
+      "expected_retrieved": null,
+      "score": null,
+      "verdict": null,
+      "refused": true,
+      "justification": "L'assistant a inventé des restrictions spécifiques (autorisation de la Banque Centrale de Tunisie, loi n°2007-41, limite de 20%) qui ne figurent pas dans le corpus juridique fourni, alors que la question n'a pas de réponse dans les sources.",
+      "agent_seconds": 13.24,
+      "error": null
+    },
+    {
+      "question": "Quelles sont les peines prevues en cas de corruption d'un agent public dans le cadre d'un marche fiscal ?",
+      "is_unanswerable": true,
+      "answer": "Les sources fournies ne permettent pas de répondre à la question. Elles ne contiennent aucune information concernant les peines prévues en cas de corruption d'un agent public dans le cadre d'un marché fiscal.",
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "Note-Commune-N°01-4.pdf::chunk9",
+        "Note-commune-n-28-5.pdf::chunk4",
+        "Note-commune-n-15.pdf::chunk4",
+        "Note-commune-n-39-2.pdf::chunk2",
+        "Note-commune-n-39-2.pdf::chunk13"
+      ],
+      "expected_retrieved": null,
+      "score": null,
+      "verdict": null,
+      "refused": true,
+      "justification": "Les sources fournies ne contiennent aucune information concernant les peines prévues en cas de corruption d'un agent public dans le cadre d'un marché fiscal.",
+      "agent_seconds": 8.26,
+      "error": null
+    }
+  ]
+}

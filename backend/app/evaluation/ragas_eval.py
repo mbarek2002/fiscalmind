@@ -21,7 +21,7 @@ except ModuleNotFoundError:
 from datasets import Dataset
 from langchain_core.embeddings import Embeddings
 from langchain_openai import ChatOpenAI
-from ragas import evaluate
+from ragas import RunConfig, evaluate
 from ragas.embeddings import LangchainEmbeddingsWrapper
 from ragas.llms import LangchainLLMWrapper
 from ragas.metrics import AnswerRelevancy, Faithfulness
@@ -55,35 +55,49 @@ def build_ragas_dataset(golden_set: list[GoldenExampleByArticle]) -> tuple[Datas
 			continue
 		agent_results.append(answer_question(example.question, language=example.language))
 
-	dataset = Dataset.from_dict(
+	return dataset_from_results(agent_results), agent_results
+
+
+def dataset_from_results(agent_results: list[SimpleAgentResult]) -> Dataset:
+	return Dataset.from_dict(
 		{
 			"user_input": [r.question for r in agent_results],
 			"response": [r.answer for r in agent_results],
 			"retrieved_contexts": [r.contexts for r in agent_results],
 		}
 	)
-	return dataset, agent_results
 
 
-def run_ragas_evaluation(golden_set: list[GoldenExampleByArticle] | None = None):
+def evaluate_ragas_dataset(dataset: Dataset, max_workers: int = 4):
+	"""Faithfulness + AnswerRelevancy avec le juge configure (JUDGE_PROVIDER /
+	JUDGE_MODEL ; "local" par defaut = Ollama/vLLM, comportement historique).
+	max_workers limite le parallelisme (limites de debit des API distantes)."""
+	from backend.app.evaluation.llm_judge import judge_extra_body, resolve_judge_chat_config
+
 	settings = get_settings()
-	examples = golden_set if golden_set is not None else load_golden_set()
-	dataset, agent_results = build_ragas_dataset(examples)
-
+	base_url, api_key, model = resolve_judge_chat_config(settings)
+	extra_body = judge_extra_body(settings)
 	judge_llm = LangchainLLMWrapper(
 		ChatOpenAI(
-			base_url=settings.local_llm_base_url,
-			api_key=settings.local_llm_api_key,
-			model=settings.local_llm_model_name,
+			base_url=base_url,
+			api_key=api_key,
+			model=model,
 			temperature=0.0,
+			**({"extra_body": extra_body} if extra_body else {}),
 		)
 	)
 	judge_embeddings = LangchainEmbeddingsWrapper(E5LangchainEmbeddings())
 
-	result = evaluate(
+	return evaluate(
 		dataset=dataset,
 		metrics=[Faithfulness(), AnswerRelevancy()],
 		llm=judge_llm,
 		embeddings=judge_embeddings,
+		run_config=RunConfig(max_workers=max_workers, timeout=180),
 	)
-	return result, agent_results
+
+
+def run_ragas_evaluation(golden_set: list[GoldenExampleByArticle] | None = None):
+	examples = golden_set if golden_set is not None else load_golden_set()
+	dataset, agent_results = build_ragas_dataset(examples)
+	return evaluate_ragas_dataset(dataset), agent_results

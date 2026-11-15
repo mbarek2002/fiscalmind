@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from backend.app.ingestion.indexing_by_article import search_by_article_hybrid
 from backend.app.llm.factory import get_llm_client
@@ -21,6 +21,8 @@ class SimpleAgentResult:
 	# Textes bruts des chunks recuperes (pas juste leurs ids) -- RAGAS a besoin du
 	# texte du contexte, pas d'un identifiant, pour juger Faithfulness/Relevancy.
 	contexts: list[str]
+	# chunk_id des sources, dans le meme ordre que contexts (rapport d'evaluation).
+	source_ids: list[str] = field(default_factory=list)
 
 
 def answer_question(question: str, language: str = "fr", top_k: int = DEFAULT_TOP_K) -> SimpleAgentResult:
@@ -40,4 +42,9 @@ def answer_question(question: str, language: str = "fr", top_k: int = DEFAULT_TO
 
 	answer = get_llm_client().generate(prompt=user_prompt, system_prompt=SYSTEM_PROMPT)
 
-	return SimpleAgentResult(question=question, answer=answer or "", contexts=contexts)
+	return SimpleAgentResult(
+		question=question,
+		answer=answer or "",
+		contexts=contexts,
+		source_ids=[r.id_chunk for r in results],
+	)

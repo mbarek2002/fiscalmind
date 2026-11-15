@@ -15,6 +15,24 @@ def _get_client() -> QdrantClient:
 	return QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key)
 
 
+def point_id_for_chunk(chunk_id: str) -> str:
+	"""Identifiant Qdrant deterministe d'un chunk ("fichier.pdf::chunkN")."""
+	return str(uuid.uuid5(uuid.NAMESPACE_OID, chunk_id))
+
+
+def fetch_chunk_texts(chunk_ids: list[str]) -> dict[str, str]:
+	"""Texte indexe des chunks demandes, par chunk_id (absents ignores)."""
+	if not chunk_ids:
+		return {}
+	settings = get_settings()
+	points = _get_client().retrieve(
+		collection_name=settings.qdrant_collection_loi_by_article,
+		ids=[point_id_for_chunk(c) for c in chunk_ids],
+		with_payload=True,
+	)
+	return {p.payload["id_chunk"]: p.payload.get("texte", "") for p in points}
+
+
 def ensure_collection_by_article() -> None:
 	"""Cree la collection separee (si absente) avec un vecteur dense (E5) et un
 	index full-text BM25 natif (Qdrant >= 1.20, verifie en conditions reelles) sur
@@ -54,7 +72,7 @@ def index_chunks_by_article(chunks: list[Chunk]) -> None:
 
 	points = [
 		models.PointStruct(
-			id=str(uuid.uuid5(uuid.NAMESPACE_OID, chunk.chunk_id)),
+			id=point_id_for_chunk(chunk.chunk_id),
 			vector={"dense": dense_vector},
 			payload={
 				"id_chunk": chunk.chunk_id,
