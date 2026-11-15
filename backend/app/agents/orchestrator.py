@@ -1,6 +1,7 @@
 from backend.app.agents.formatter import format_answer
 from backend.app.agents.jurisprudence_retrieval import retrieve_jurisprudence
-from backend.app.agents.legal_retrieval import collect_graph_context_ids, retrieve_legal_candidates
+from backend.app.agents.legal_retrieval import collect_graph_context_ids
+from backend.app.agents.legal_retrieval_by_article import retrieve_legal_candidates_by_article
 from backend.app.agents.qualification import extract_date_des_faits, qualify_question
 from backend.app.agents.reranker import rerank_legal_results
 from backend.app.agents.state import AgentState
@@ -19,7 +20,10 @@ def run_query_pipeline(question: str, language: str, user_role: str = "citoyen")
 	retry_count = 0
 
 	while True:
-		legal_candidates = retrieve_legal_candidates(question=question, language=lang, top_k=top_k)
+		# Collection loi_finance_by_article (chunking par article, E5 + BM25).
+		# L'ancienne recherche (legal_retrieval.retrieve_legal_candidates, collection
+		# loi_finance) reste disponible mais n'est plus utilisee par /query.
+		legal_candidates = retrieve_legal_candidates_by_article(question=question, language=lang, top_k=top_k)
 		legal_results = rerank_legal_results(question=question, legal_candidates=legal_candidates, top_k=top_k)
 		graph_context_ids = collect_graph_context_ids(legal_results)
 		category = qualify_question(question, legal_results)
