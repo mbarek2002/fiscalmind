@@ -56,7 +56,13 @@ function mapAuthResponse(raw: BackendTokenPair): AuthResponse {
 	};
 }
 
-async function refreshAccessToken(): Promise<boolean> {
+// Le backend fait tourner les refresh tokens : chacun n'est utilisable qu'UNE fois.
+// Plusieurs requetes en 401 simultanees (React StrictMode lance les effets deux fois,
+// plusieurs onglets...) ne doivent donc partager qu'un seul appel /auth/refresh,
+// sinon le second est refuse ("already revoked") et l'utilisateur est deconnecte.
+let refreshInFlight: Promise<boolean> | null = null;
+
+async function doRefresh(): Promise<boolean> {
 	const refreshToken = authStore.getRefreshToken();
 	if (!refreshToken) return false;
 	try {
@@ -65,13 +71,26 @@ async function refreshAccessToken(): Promise<boolean> {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ refresh_token: refreshToken }),
 		});
-		if (!res.ok) return false;
-		const raw = (await res.json()) as BackendTokenPair;
-		authStore.setSession(mapAuthResponse(raw));
-		return true;
+		if (res.ok) {
+			const raw = (await res.json()) as BackendTokenPair;
+			authStore.setSession(mapAuthResponse(raw));
+			return true;
+		}
+		// Un autre onglet a peut-etre deja fait la rotation : si le token stocke a
+		// change entre-temps, la session est toujours valide.
+		return authStore.getRefreshToken() !== refreshToken;
 	} catch {
 		return false;
 	}
+}
+
+function refreshAccessToken(): Promise<boolean> {
+	if (!refreshInFlight) {
+		refreshInFlight = doRefresh().finally(() => {
+			refreshInFlight = null;
+		});
+	}
+	return refreshInFlight;
 }
 
 async function request<T>(path: string, init: RequestInit = {}, allowRefresh = true): Promise<T> {

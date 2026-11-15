@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Send, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
@@ -12,7 +12,36 @@ import { VerificationStatusPill } from "@/components/fiscal/VerificationStatusPi
 import { LegalDisclaimer } from "@/components/fiscal/LegalDisclaimer";
 import { LoadingSkeleton, EmptyState } from "@/components/fiscal/states";
 import { api, ApiError } from "@/lib/api";
+import { authStore, CHAT_KEY_PREFIX } from "@/lib/auth";
 import type { QueryResponse } from "@/lib/types";
+
+interface ChatSnapshot {
+	messages: ChatMessage[];
+	current: QueryResponse | null;
+}
+
+// Conversation conservee pour la duree de l'onglet (sessionStorage) : survit au
+// changement de page et au rechargement, effacee a la deconnexion (authStore.clear).
+function chatStorageKey(): string {
+	return CHAT_KEY_PREFIX + (authStore.getUser()?.id ?? "anonymous");
+}
+
+function loadChat(): ChatSnapshot | null {
+	try {
+		const raw = window.sessionStorage.getItem(chatStorageKey());
+		return raw ? (JSON.parse(raw) as ChatSnapshot) : null;
+	} catch {
+		return null;
+	}
+}
+
+function saveChat(snapshot: ChatSnapshot) {
+	try {
+		window.sessionStorage.setItem(chatStorageKey(), JSON.stringify(snapshot));
+	} catch {
+		// stockage plein ou indisponible : la conversation reste en memoire
+	}
+}
 
 export default function ChatPage() {
 	const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -20,6 +49,30 @@ export default function ChatPage() {
 	const [loading, setLoading] = useState(false);
 	const [input, setInput] = useState("");
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
+	const messagesEndRef = useRef<HTMLDivElement>(null);
+	const citationsRef = useRef<HTMLDivElement>(null);
+	const [restored, setRestored] = useState(false);
+
+	// Restauration apres le montage (pas pendant le rendu serveur : evite un ecart d'hydratation).
+	useEffect(() => {
+		const saved = loadChat();
+		if (saved) {
+			setMessages(saved.messages);
+			setCurrent(saved.current);
+		}
+		setRestored(true);
+	}, []);
+	useEffect(() => {
+		if (restored) saveChat({ messages, current });
+	}, [restored, messages, current]);
+
+	// Suit le dernier message ; remet les citations en haut a chaque nouvelle reponse.
+	useEffect(() => {
+		messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+	}, [messages, loading]);
+	useEffect(() => {
+		citationsRef.current?.scrollTo({ top: 0 });
+	}, [current]);
 
 	const submit = async () => {
 		const q = input.trim();
@@ -51,9 +104,11 @@ export default function ChatPage() {
 	};
 
 	return (
-		<div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-			<section className="flex min-h-[70dvh] flex-col">
-				<div className="surface-card flex-1 space-y-4 p-4 lg:p-6">
+		// Ecran large : la page tient dans la hauteur de <main> ; seules la conversation
+		// et la liste des citations defilent. Petit ecran : empilement classique.
+		<div className="mx-auto grid max-w-6xl gap-6 lg:h-full lg:grid-cols-[minmax(0,1fr)_320px] lg:grid-rows-[minmax(0,1fr)]">
+			<section className="flex min-h-0 flex-col">
+				<div className="surface-card min-h-[60dvh] flex-1 space-y-4 overflow-y-auto p-4 lg:min-h-0 lg:p-6">
 					{messages.length === 0 && !loading && (
 						<EmptyState
 							icon={<Sparkles className="h-6 w-6" />}
@@ -69,6 +124,7 @@ export default function ChatPage() {
 							<LoadingSkeleton lines={4} />
 						</div>
 					)}
+					<div ref={messagesEndRef} aria-hidden />
 				</div>
 
 				<form
@@ -76,7 +132,7 @@ export default function ChatPage() {
 						e.preventDefault();
 						submit();
 					}}
-					className="surface-card mt-4 flex items-end gap-2 p-3"
+					className="surface-card mt-4 flex shrink-0 items-end gap-2 p-3"
 				>
 					<label htmlFor="question" className="sr-only">
 						Votre question
@@ -100,11 +156,11 @@ export default function ChatPage() {
 						<Send className="h-4 w-4" />
 					</Button>
 				</form>
-				<LegalDisclaimer className="mt-3" />
+				<LegalDisclaimer className="mt-3 shrink-0" />
 			</section>
 
-			<aside className="space-y-4">
-				<div className="surface-card p-4">
+			<aside className="flex min-h-0 min-w-0 flex-col gap-4">
+				<div className="surface-card shrink-0 p-4">
 					<h2 className="font-display text-sm font-bold uppercase tracking-wide text-text-muted">
 						Vérification
 					</h2>
@@ -123,12 +179,15 @@ export default function ChatPage() {
 					)}
 				</div>
 
-				<div>
-					<h2 className="mb-2 font-display text-sm font-bold uppercase tracking-wide text-text-muted">
+				<div className="flex min-h-0 flex-1 flex-col">
+					<h2 className="mb-2 shrink-0 font-display text-sm font-bold uppercase tracking-wide text-text-muted">
 						Citations
 					</h2>
 					{current && current.citations.length > 0 ? (
-						<div className="space-y-3">
+						<div
+							ref={citationsRef}
+							className="min-h-0 flex-1 space-y-3 overflow-y-auto overflow-x-hidden pr-1"
+						>
 							{current.citations.map((c) => (
 								<CitationCard key={c.article_id} citation={c} />
 							))}

@@ -7,9 +7,31 @@ import { Button } from "@/components/ui/button";
 import { api, ApiError } from "@/lib/api";
 import type { HealthResponse } from "@/lib/types";
 import { LoadingSkeleton, ErrorState } from "@/components/fiscal/states";
+import { AppShell } from "@/components/fiscal/AppShell";
+import { authStore } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
+// Page publique (lien depuis l'accueil) ET entree "Sante systeme" de la barre
+// laterale : connecte, elle s'affiche dans l'application ; sinon, page autonome.
 export default function HealthPage() {
+	const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+
+	useEffect(() => {
+		setLoggedIn(authStore.isAuthenticated());
+	}, []);
+
+	if (loggedIn === null) return null;
+	if (loggedIn) {
+		return (
+			<AppShell>
+				<HealthContent embedded />
+			</AppShell>
+		);
+	}
+	return <HealthContent embedded={false} />;
+}
+
+function HealthContent({ embedded }: { embedded: boolean }) {
 	const [data, setData] = useState<HealthResponse | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -34,10 +56,15 @@ export default function HealthPage() {
 	const isUp = data?.status === "ok";
 
 	return (
-		<div className="mx-auto max-w-3xl px-4 py-10 lg:px-8">
-			<Link href="/" className="mb-4 inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary-700">
-				<ArrowLeft className="h-4 w-4" /> Retour à l&apos;accueil
-			</Link>
+		<div className={cn("mx-auto max-w-3xl", !embedded && "px-4 py-10 lg:px-8")}>
+			{!embedded && (
+				<Link
+					href="/"
+					className="mb-4 inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary-700"
+				>
+					<ArrowLeft className="h-4 w-4" /> Retour à l&apos;accueil
+				</Link>
+			)}
 			<div className="flex flex-wrap items-center justify-between gap-2">
 				<div>
 					<h1 className="font-display text-3xl font-bold">Santé système</h1>

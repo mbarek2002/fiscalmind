@@ -3,6 +3,7 @@ import type { AuthResponse, User } from "./types";
 const TOKEN_KEY = "fiscalmind.token";
 const REFRESH_KEY = "fiscalmind.refresh_token";
 const USER_KEY = "fiscalmind.user";
+export const CHAT_KEY_PREFIX = "fiscalmind.chat.";
 // Mirrors the access token into a plain (non-httpOnly) cookie so middleware.ts can
 // gate routes at the edge. Readable by JS like localStorage — same XSS exposure,
 // not a security upgrade, just what's possible without a backend-issued cookie.
@@ -62,6 +63,14 @@ export const authStore = {
 		window.localStorage.removeItem(REFRESH_KEY);
 		window.localStorage.removeItem(USER_KEY);
 		clearCookie();
+		// Conversations en cours (chat/page.tsx) : ne pas les laisser au compte suivant.
+		try {
+			Object.keys(window.sessionStorage)
+				.filter((key) => key.startsWith(CHAT_KEY_PREFIX))
+				.forEach((key) => window.sessionStorage.removeItem(key));
+		} catch {
+			// stockage indisponible (navigation privee...) : rien a nettoyer
+		}
 	},
 	isAuthenticated(): boolean {
 		return !!authStore.getToken();

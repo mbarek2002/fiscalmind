@@ -18,7 +18,8 @@ export function middleware(request: NextRequest) {
 		return NextResponse.redirect(url);
 	}
 
-	if (isAuthPage && hasSession) {
+	// Deja connecte : l'accueil public et les pages de connexion menent a l'application.
+	if ((isAuthPage || pathname === "/") && hasSession) {
 		const url = request.nextUrl.clone();
 		url.pathname = "/chat";
 		return NextResponse.redirect(url);
@@ -28,5 +29,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/chat/:path*", "/history/:path*", "/admin/:path*", "/profile/:path*", "/login", "/register"],
+	matcher: ["/", "/chat/:path*", "/history/:path*", "/admin/:path*", "/profile/:path*", "/login", "/register"],
 };
