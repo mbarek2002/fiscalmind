@@ -28,6 +28,11 @@ class Settings(BaseSettings):
 	qdrant_api_key: str | None = None
 	qdrant_collection_loi: str = "loi_finance"
 	qdrant_collection_jurisprudence: str = "jurisprudence"
+	# Collection separee pour le pipeline de chunking par article (v2) -- jamais
+	# ecrite ni lue par le pipeline de production (qdrant_collection_loi).
+	qdrant_collection_loi_by_article: str = "loi_finance_by_article"
+	e5_embedding_model_name: str = "intfloat/multilingual-e5-base"
+	e5_embedding_dim: int = 768
 	# BGE-M3's native dense output size — do not shrink this; it used to be artificially
 	# truncated to 64, which silently destroyed embedding quality for every provider.
 	qdrant_vector_size: int = 1024
@@ -55,6 +60,16 @@ class Settings(BaseSettings):
 	openai_llm_model: str = "gpt-4o-mini"
 	gemini_api_key: str | None = None
 	gemini_llm_model: str = "gemini-2.0-flash"
+	# API NVIDIA (build.nvidia.com), format OpenAI -- cle "nvapi-..."
+	nvidia_api_key: str | None = None
+	nvidia_base_url: str = "https://integrate.api.nvidia.com/v1"
+	nvidia_llm_model: str = "nvidia/nemotron-3.5-super-vl-120b-a12b"
+	nvidia_enable_thinking: bool = False
+
+	# LLM juge des evaluations (RAGAS, LLM-as-judge). "local" = Ollama/vLLM
+	# (comportement historique). judge_model vide = modele par defaut du fournisseur.
+	judge_provider: str = "local"
+	judge_model: str | None = None
 
 	minio_endpoint: str | None = None
 	minio_access_key: str | None = None
@@ -79,7 +94,9 @@ class Settings(BaseSettings):
 
 	@property
 	def sync_database_url(self) -> str:
-		return self.database_url.replace("+aiosqlite", "").replace("+asyncpg", "")
+		# Driver psycopg2 explicite : SQLAlchemy recent choisit psycopg (v3) par
+		# defaut pour "postgresql://", qui n'est pas dans requirements.txt.
+		return self.database_url.replace("+aiosqlite", "").replace("+asyncpg", "+psycopg2")
 
 	@property
 	def provider_strict_mode_enabled(self) -> bool:
@@ -106,8 +123,8 @@ class Settings(BaseSettings):
 	@classmethod
 	def validate_llm_provider(cls, value: str) -> str:
 		provider = (value or "local").strip().lower()
-		if provider not in {"local", "openai", "gemini"}:
-			raise ValueError("llm_provider must be one of: local, openai, gemini")
+		if provider not in {"local", "openai", "gemini", "nvidia"}:
+			raise ValueError("llm_provider must be one of: local, openai, gemini, nvidia")
 		return provider
 
 

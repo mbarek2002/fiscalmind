@@ -5,3 +5,4 @@ class Provider(str, Enum):
 	local = "local"
 	openai = "openai"
 	gemini = "gemini"
+	nvidia = "nvidia"

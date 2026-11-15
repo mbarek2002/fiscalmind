@@ -10,6 +10,7 @@ from backend.app.llm.providers.embeddings.local_embedding import LocalEmbeddingC
 from backend.app.llm.providers.embeddings.openai_embedding import OpenAIEmbeddingClient
 from backend.app.llm.providers.generation.gemini_llm import GeminiLLMClient
 from backend.app.llm.providers.generation.local_vllm import LocalVLLMClient
+from backend.app.llm.providers.generation.nvidia_llm import NvidiaLLMClient
 from backend.app.llm.providers.generation.openai_llm import OpenAILLMClient
 
 
@@ -36,6 +37,8 @@ class LLMClientFactory:
 			return OpenAILLMClient(settings)
 		if provider == Provider.gemini:
 			return GeminiLLMClient(settings)
+		if provider == Provider.nvidia:
+			return NvidiaLLMClient(settings)
 		raise ValueError(f"Unsupported llm provider: {provider}")
 
 

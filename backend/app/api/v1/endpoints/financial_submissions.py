@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from backend.app.agents.graph import get_financial_analysis_graph
+from backend.app.agents.graph_by_article import get_financial_analysis_graph_by_article
 from backend.app.api.deps import get_db, require_roles
 from backend.app.models.db_models import (
 	FinancialDocument,
@@ -283,6 +284,75 @@ async def analyze_submission(
 	# just set, documents_snapshot captured earlier, finding we just built) instead of
 	# re-reading submission.findings — same MissingGreenlet reason as above, and a db.refresh()
 	# on `finding` would equally expire `finding.citations` right before we read it.
+	return FinancialSubmissionPublic(
+		id=submission.id,
+		company_id=submission.company_id,
+		source_type=submission.source_type,
+		status=submission.status,
+		free_text=submission.free_text,
+		structured_data=submission.structured_data,
+		final_summary=submission.final_summary,
+		verification_status=submission.verification_status,
+		disclaimer=submission.disclaimer,
+		documents=documents_snapshot,
+		findings=[_to_finding_public(finding)],
+		created_at=submission.created_at,
+	)
+
+
+@router.post("/{submission_id}/analyze-by-article", response_model=FinancialSubmissionPublic)
+async def analyze_submission_by_article(
+	submission_id: str,
+	db: AsyncSession = Depends(get_db),
+	current_user: User = Depends(require_roles(UserRole.entreprise, UserRole.admin)),
+) -> FinancialSubmissionPublic:
+	"""Variante de /analyze utilisant le nouveau pipeline (E5 + chunking par article
+	+ BM25 natif, collection loi_finance_by_article) au lieu de l'ancien (BGE-M3 +
+	chunking par taille, collection loi_finance) -- pour le tester en conditions
+	reelles sans toucher au flux de production existant.
+
+	Ne modifie pas submission.status/verification_status/final_summary (ambigus
+	s'ils devaient refleter deux pipelines sur la meme soumission) : ajoute
+	uniquement un nouveau InfractionFinding, toujours execute (pas de
+	court-circuit sur un etat "completed" pose par l'autre pipeline)."""
+	submission = await _get_owned_submission(submission_id, db, current_user)
+	documents_snapshot = [_to_document_public(doc) for doc in submission.documents]
+
+	try:
+		graph = get_financial_analysis_graph_by_article()
+		result = graph.invoke(
+			{
+				"structured_data": submission.structured_data,
+				"free_text": submission.free_text,
+				"language": "fr",
+			}
+		)
+	except Exception as exc:
+		raise HTTPException(
+			status_code=status.HTTP_502_BAD_GATEWAY,
+			detail=f"Analysis pipeline (by_article) failed: {exc}",
+		) from exc
+
+	finding = InfractionFinding(
+		submission_id=submission.id,
+		categorie_infraction=result.get("category") or "non_classe",
+		description=result.get("final_answer") or "",
+	)
+	for citation in result.get("citations", []):
+		finding.citations.append(
+			InfractionCitation(
+				citation_type=CitationType.article,
+				ref_id=citation.get("article_id", ""),
+				loi=citation.get("loi"),
+				numero_article=citation.get("numero_article"),
+				statut=citation.get("statut"),
+				langue=citation.get("langue"),
+				extrait=citation.get("extrait", ""),
+			)
+		)
+	db.add(finding)
+	await db.commit()
+
 	return FinancialSubmissionPublic(
 		id=submission.id,
 		company_id=submission.company_id,

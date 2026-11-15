@@ -134,7 +134,10 @@ class InfractionCitation(Base):
 		String(36), ForeignKey("infraction_findings.id", ondelete="CASCADE"), nullable=False, index=True
 	)
 	citation_type: Mapped[CitationType] = mapped_column(Enum(CitationType), nullable=False)
-	ref_id: Mapped[str] = mapped_column(String(100), nullable=False)
+	# 500, pas 100 : le pipeline by-article (chunking_by_article.py) utilise
+	# "{nom_de_fichier}::chunk{index}" comme identifiant, qui depasse 100
+	# caracteres pour les noms de fichiers longs du corpus reel.
+	ref_id: Mapped[str] = mapped_column(String(500), nullable=False)
 	loi: Mapped[str | None] = mapped_column(String(255), nullable=True)
 	numero_article: Mapped[int | None] = mapped_column(Integer, nullable=True)
 	reference: Mapped[str | None] = mapped_column(String(255), nullable=True)

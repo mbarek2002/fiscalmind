@@ -11,6 +11,7 @@ async def persist_query_and_audit(
 	final_answer: str,
 	verification_status: str,
 	citations: list[dict],
+	retry_count: int = 0,
 ) -> None:
 	query_log = QueryLog(
 		id=query_id,
@@ -43,7 +44,7 @@ async def persist_query_and_audit(
 			final_answer=final_answer,
 			citations=citations,
 			verification_status=verification_status,
-			retry_count=0,
+			retry_count=retry_count,
 		)
 	)
 	await db.commit()
