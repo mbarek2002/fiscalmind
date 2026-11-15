@@ -60,6 +60,11 @@ class Settings(BaseSettings):
 	openai_llm_model: str = "gpt-4o-mini"
 	gemini_api_key: str | None = None
 	gemini_llm_model: str = "gemini-2.0-flash"
+	# API NVIDIA (build.nvidia.com), format OpenAI -- cle "nvapi-..."
+	nvidia_api_key: str | None = None
+	nvidia_base_url: str = "https://integrate.api.nvidia.com/v1"
+	nvidia_llm_model: str = "nvidia/nemotron-3.5-super-vl-120b-a12b"
+	nvidia_enable_thinking: bool = False
 
 	minio_endpoint: str | None = None
 	minio_access_key: str | None = None
@@ -113,8 +118,8 @@ class Settings(BaseSettings):
 	@classmethod
 	def validate_llm_provider(cls, value: str) -> str:
 		provider = (value or "local").strip().lower()
-		if provider not in {"local", "openai", "gemini"}:
-			raise ValueError("llm_provider must be one of: local, openai, gemini")
+		if provider not in {"local", "openai", "gemini", "nvidia"}:
+			raise ValueError("llm_provider must be one of: local, openai, gemini, nvidia")
 		return provider
 
 
