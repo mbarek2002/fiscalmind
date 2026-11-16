@@ -116,7 +116,7 @@ def test_nvidia_client_sends_thinking_flag(monkeypatch: pytest.MonkeyPatch) -> N
 	captured: dict = {}
 
 	class _FakeOpenAI:
-		def __init__(self, api_key: str, base_url: str | None) -> None:
+		def __init__(self, api_key: str, base_url: str | None, **kwargs: object) -> None:
 			captured["base_url"] = base_url
 			self.chat = self
 			self.completions = self

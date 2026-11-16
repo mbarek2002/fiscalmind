@@ -121,10 +121,13 @@ def judge_extra_body(settings: Settings) -> dict | None:
 
 def parse_judge_json(raw: str) -> dict:
 	"""Extrait le premier objet JSON de la sortie du juge (tolere ```json ...```)."""
-	match = re.search(r"\{.*\}", raw or "", re.DOTALL)
-	if not match:
-		raise ValueError(f"no JSON object in judge output: {raw[:200]!r}")
-	return json.loads(match.group(0))
+	# raw_decode lit le PREMIER objet JSON et ignore le texte qui suit (le juge
+	# ajoute parfois une explication apres le JSON -> "Extra data").
+	start = (raw or "").find("{")
+	if start < 0:
+		raise ValueError(f"no JSON object in judge output: {(raw or '')[:200]!r}")
+	obj, _ = json.JSONDecoder().raw_decode(raw[start:])
+	return obj
 
 
 class JudgeClient:
