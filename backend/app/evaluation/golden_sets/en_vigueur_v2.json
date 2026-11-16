@@ -1,0 +1,500 @@
+{
+  "version": "en_vigueur_v2",
+  "description": "Questions 'regle en vigueur' : la bonne reponse est celle de l'edition la plus recente du corpus ; les anciennes editions et notes communes qui donnent une autre valeur sont des pieges. Reponses redigees a partir du texte (pas par un LLM), preuves verifiees par backend/scripts/validate_golden_en_vigueur_v2.py.",
+  "date_reference": "2026-11-15",
+  "statut_validation": "a_valider_par_l_utilisateur",
+  "items": [
+    {
+      "id": "Q01",
+      "question": "Quelle est la pénalité en cas de retard dans le paiement de l'impôt lorsque la déclaration est déposée spontanément ?",
+      "reponse_attendue": "1,25 % du montant de l'impot par mois ou fraction de mois de retard, majoree d'une penalite fixe de 3 % du montant de l'impot si le retard depasse 60 jours. La somme des deux penalites ne peut pas depasser le montant de l'impot en principal.",
+      "faits_cles": [
+        "1,25 % par mois ou fraction de mois",
+        "penalite fixe de 3 % seulement si retard > 60 jours",
+        "plafond : pas plus que l'impot en principal"
+      ],
+      "faits_errones": [
+        "0,5 % par mois",
+        "0,75 % par mois",
+        "1,52 %",
+        "3 % si le retard ne depasse pas 60 jours",
+        "5 % si le retard depasse 60 jours"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 81 (modifie par LF 2023 art. 59 et LF 2024 art. 61)",
+      "attendus": [
+        "cdpf-2025.pdf::chunk49"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk45"
+      ],
+      "preuves": [
+        "1,25% du montant de l'impôt par mois",
+        "pénalité fixe liquidée au taux de 3% du montant de l'impôt exigible, lorsque le retard dans le paiement de l'impôt dépasse 60 jours",
+        "ne doit pas excéder le montant de l'impôt en principal"
+      ],
+      "pieges": [
+        {
+          "chunk": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk46",
+          "marqueur": "0,5% du montant",
+          "pourquoi": "edition 2018 : 0,5 %/mois, pas de penalite fixe"
+        },
+        {
+          "chunk": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk47",
+          "marqueur": "lorsque le retard dans le paiement de l'impôt ne dépasse pas 60 jours",
+          "pourquoi": "edition 2023 : 3 % (<= 60 j) / 5 % (> 60 j), remplace par la LF 2024"
+        },
+        {
+          "chunk": "Note-Commune-N°13-5.pdf::chunk0",
+          "marqueur": "1,52%",
+          "pourquoi": "note commune 2019 : 0,75 %/mois et 1,52 % / 2,5 %"
+        },
+        {
+          "chunk": "Note-Commune-N°13-5.pdf::chunk5",
+          "marqueur": "1,52%",
+          "pourquoi": "note commune 2019 (meme regime perime)"
+        }
+      ],
+      "origine": "question de l'utilisateur (test frontend du 15/11)"
+    },
+    {
+      "id": "Q02",
+      "question": "Quel est le taux de la pénalité de retard lorsque le retard de paiement est constaté suite à l'intervention des services du contrôle fiscal ?",
+      "reponse_attendue": "2,25 % du montant de l'impot par mois ou fraction de mois de retard, majoree d'une penalite fixe de 10 % du montant de l'impot exigible.",
+      "faits_cles": [
+        "2,25 % par mois",
+        "penalite fixe de 10 %"
+      ],
+      "faits_errones": [
+        "1,25 % suite au controle"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 82 (modifie par LF 2019 art. 51 et LF 2023 art. 59)",
+      "attendus": [
+        "cdpf-2025.pdf::chunk49"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk45",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk47"
+      ],
+      "preuves": [
+        "est porté à 2,25% lorsque le retard dans le paiement de l'impôt est constaté suite à l'intervention des services du contrôle fiscal",
+        "pénalité fixe liquidée au taux de 10% du montant de l'impôt exigible"
+      ],
+      "pieges": [
+        {
+          "chunk": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk46",
+          "marqueur": "est porté à 1.25% lorsque le retard",
+          "pourquoi": "edition 2018 : 1,25 % sans penalite fixe"
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "question": "Une entreprise qui paie un fournisseur en espèces pour 6 000 dinars risque-t-elle une sanction fiscale ?",
+      "reponse_attendue": "Oui. Depuis le 1er janvier 2023, le paiement en especes d'un montant superieur ou egal a 5 000 dinars (TTC) au titre d'acquisitions de biens, services ou produits entraine pour l'entreprise qui paie (le client) une amende de 20 % du montant paye, avec un minimum de 2 000 dinars. Pour 6 000 DT : 20 % = 1 200 DT, inferieur au minimum, donc amende de 2 000 DT. (Cote fournisseur, l'amende de 8 % des montants encaisses en especes est maintenue s'il ne declare pas l'identite complete du client : c'est une autre sanction, qui ne vise pas l'entreprise qui paie.)",
+      "faits_cles": [
+        "amende a la charge du client qui paie",
+        "20 % des montants payes en especes",
+        "seuil de 5 000 DT TTC",
+        "minimum 2 000 DT",
+        "pour 6 000 DT : 2 000 DT"
+      ],
+      "faits_errones": [
+        "appliquer au client l'amende de 8 % du fournisseur",
+        "480 DT"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 83 ter (ajoute par LF 2023 art. 60) ; Note commune n°10/2023",
+      "attendus": [
+        "cdpf-2025.pdf::chunk50",
+        "Note-Commune-N°10.pdf::chunk1",
+        "Note-Commune-N°10.pdf::chunk5"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk46",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk47",
+        "Note-Commune-N°10.pdf::chunk0"
+      ],
+      "preuves": [
+        "amende égale à 20% des montants payés avec un minimum de 2.000 dinars"
+      ],
+      "pieges": [
+        {
+          "chunk": "Note-Commune-N°10.pdf::chunk4",
+          "marqueur": "8% des montants recouvrés",
+          "pourquoi": "piege de ROLE : l'amende de 8 % vise le fournisseur qui encaisse sans declarer le client (maintenue en 2023), pas l'entreprise qui paie"
+        },
+        {
+          "chunk": "Note-Commune-N°10.pdf::chunk3",
+          "marqueur": "n’est pas admise en déduction la taxe sur la valeur ajoutée",
+          "pourquoi": "ancien regime de non-deduction, abroge par la LF 2023"
+        }
+      ],
+      "origine": "question de l'utilisateur (test frontend du 15/11)"
+    },
+    {
+      "id": "Q04",
+      "question": "Une entreprise achète en 2024 du matériel pour 8 000 dinars payé en espèces. Peut-elle déduire la TVA et la charge correspondante, et quelle sanction encourt-elle ?",
+      "reponse_attendue": "Oui, la TVA et les charges/amortissements sont deductibles quel que soit le moyen de paiement : la LF 2023 a abroge la non-deduction pour les paiements en especes >= 5 000 DT. En contrepartie, l'entreprise (client) paie une amende de 20 % du montant paye en especes, minimum 2 000 DT : 20 % x 8 000 = 1 600 DT, donc 2 000 DT.",
+      "faits_cles": [
+        "TVA et charges deductibles malgre le paiement en especes (depuis 2023)",
+        "amende de 20 %, minimum 2 000 DT",
+        "pour 8 000 DT : 2 000 DT"
+      ],
+      "faits_errones": [
+        "TVA non deductible",
+        "charge non deductible / reintegree"
+      ],
+      "source_en_vigueur": "Note commune n°10/2023 ; CDPF edition 2025, article 83 ter",
+      "attendus": [
+        "Note-Commune-N°10.pdf::chunk5",
+        "cdpf-2025.pdf::chunk50"
+      ],
+      "equivalents": [
+        "Note-Commune-N°10.pdf::chunk4",
+        "Note-Commune-N°10.pdf::chunk0"
+      ],
+      "preuves": [
+        "nonobstant le moyen de paiement de sa contrepartie"
+      ],
+      "pieges": [
+        {
+          "chunk": "Note-Commune-N°10.pdf::chunk3",
+          "marqueur": "n’est pas admise en déduction la taxe sur la valeur ajoutée",
+          "pourquoi": "rappel de la legislation en vigueur jusqu'au 31/12/2022"
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "question": "Une pénalité de retard de paiement peut-elle dépasser le montant de l'impôt dû ?",
+      "reponse_attendue": "Non. Depuis la LF 2024, la somme de la penalite de retard et de la penalite fixe au titre de chaque impot ne doit pas exceder le montant de l'impot en principal exigible.",
+      "faits_cles": [
+        "plafonnee au montant de l'impot en principal",
+        "ajoute par la LF 2024"
+      ],
+      "faits_errones": [
+        "pas de plafond"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 81, 3e paragraphe (ajoute par LF 2024 art. 61)",
+      "attendus": [
+        "cdpf-2025.pdf::chunk49"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk45"
+      ],
+      "preuves": [
+        "La somme de la pénalité de retard et de la pénalité fixe au titre de chaque impôt ne doit pas excéder le montant de l'impôt en principal exigible"
+      ],
+      "pieges": [
+        {
+          "chunk": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk47",
+          "marqueur": "lorsque le retard dans le paiement de l'impôt ne dépasse pas 60 jours",
+          "pourquoi": "edition 2023 : pas encore de plafond"
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "question": "Une société doit payer 10 000 dinars d'impôt avant le 28 février. Elle dépose spontanément et paie le 14 avril. Quelle pénalité doit-elle payer ?",
+      "reponse_attendue": "Retard compte du 1er mars a la fin du mois de paiement (avril) : 2 mois. Penalite de retard : 10 000 x 1,25 % x 2 = 250 DT. Le retard (45 jours) ne depasse pas 60 jours, donc pas de penalite fixe. Total : 250 DT.",
+      "faits_cles": [
+        "2 mois de retard",
+        "250 DT",
+        "pas de penalite fixe (retard <= 60 jours)"
+      ],
+      "faits_errones": [
+        "penalite fixe de 3 % (300 DT)",
+        "total 550 DT",
+        "taux de 0,75 %"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 81",
+      "attendus": [
+        "cdpf-2025.pdf::chunk49"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk45"
+      ],
+      "preuves": [
+        "1,25% du montant de l'impôt par mois",
+        "lorsque le retard dans le paiement de l'impôt dépasse 60 jours"
+      ],
+      "pieges": [
+        {
+          "chunk": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk47",
+          "marqueur": "lorsque le retard dans le paiement de l'impôt ne dépasse pas 60 jours",
+          "pourquoi": "edition 2023 : 3 % des le premier jour (<= 60 j)"
+        },
+        {
+          "chunk": "Note-Commune-N°13-5.pdf::chunk0",
+          "marqueur": "1,52%",
+          "pourquoi": "note commune 2019 : 0,75 %/mois"
+        }
+      ],
+      "notes": "question de calcul : verifie que l'agent applique la regle en vigueur"
+    },
+    {
+      "id": "Q07",
+      "question": "Quel est le taux de la pénalité de retard applicable à une créance fiscale constatée dans les écritures du receveur des finances ?",
+      "reponse_attendue": "1,25 % par mois ou fraction de mois de retard du montant de la creance en principal (taux reduit a 1 % pour les sommes payees dans un delai ne depassant pas une annee a partir de l'expiration du delai de 90 jours).",
+      "faits_cles": [
+        "1,25 % par mois",
+        "reduit a 1 % si paiement dans l'annee suivant le delai de 90 jours"
+      ],
+      "faits_errones": [
+        "0,75 % par mois",
+        "reduit a 0,5 %"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 88 (modifie par LF 2023 art. 59)",
+      "attendus": [
+        "cdpf-2025.pdf::chunk51"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk46",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk48"
+      ],
+      "preuves": [
+        "pénalité de retard liquidée au taux de 1,25% par mois",
+        "Le taux des pénalités est réduit à 1% pour les sommes payées"
+      ],
+      "pieges": [
+        {
+          "chunk": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk49",
+          "marqueur": "taux de 0.75% par",
+          "pourquoi": "edition 2018 : 0,75 % et 0,5 %"
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "question": "Quelle amende s'applique à une entreprise qui délivre une attestation de retenue à la source sans utiliser la plateforme électronique du ministère des finances ?",
+      "reponse_attendue": "Une amende egale a 30 % du montant de l'impot retenu a la source objet de l'infraction, sans etre inferieure a 50 dinars par attestation.",
+      "faits_cles": [
+        "30 % du montant retenu",
+        "minimum 50 DT par attestation"
+      ],
+      "faits_errones": [
+        "aucune sanction specifique"
+      ],
+      "source_en_vigueur": "CDPF edition 2025, article 105 (paragraphe ajoute par LF 2022 art. 41)",
+      "attendus": [
+        "cdpf-2025.pdf::chunk60"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk54",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk54"
+      ],
+      "preuves": [
+        "30% du montant de l'impôt retenu à la source objet de l'infraction sans que le montant de l'amende puisse être inférieur à 50 dinars par attestation"
+      ],
+      "pieges": [
+        {
+          "chunk": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk58",
+          "marqueur": "200%",
+          "pourquoi": "edition 2018 : la sanction specifique a la plateforme n'existe pas encore"
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "question": "Quelle est la sanction pour une personne qui s'abstient de délivrer une attestation des montants qu'elle a retenus à la source ?",
+      "reponse_attendue": "Une amende egale a 200 % des montants retenus, sans etre inferieure a 100 dinars ni depasser 5 000 dinars.",
+      "faits_cles": [
+        "200 % des montants retenus",
+        "minimum 100 DT",
+        "maximum 5 000 DT"
+      ],
+      "faits_errones": [],
+      "source_en_vigueur": "CDPF edition 2025, article 105",
+      "attendus": [
+        "cdpf-2025.pdf::chunk60"
+      ],
+      "equivalents": [
+        "Code-des-droits-et-procedures-fiscaux-2024.pdf::chunk54",
+        "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf::chunk54",
+        "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf::chunk58"
+      ],
+      "preuves": [
+        "amende égale à 200% de ces montants"
+      ],
+      "pieges": [],
+      "notes": "question temoin : regle stable dans toutes les editions (verifie l'absence de regression)"
+    },
+    {
+      "id": "Q10",
+      "question": "Quel est le taux de la retenue à la source sur les honoraires payés par une personne morale à un prestataire ?",
+      "reponse_attendue": "10 % (taux general de l'article 52-I-a, applicable aux montants payes a partir du 1er janvier 2021), sous reserve des taux reduits prevus par le meme article.",
+      "faits_cles": [
+        "10 %"
+      ],
+      "faits_errones": [
+        "15 %"
+      ],
+      "source_en_vigueur": "Code de l'IRPP et de l'IS, edition 2023 (la plus recente du corpus), article 52-I-a (modifie par LF 2021 art. 14)",
+      "attendus": [
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk20"
+      ],
+      "equivalents": [
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk19"
+      ],
+      "preuves": [
+        "a) 10%"
+      ],
+      "pieges": [
+        {
+          "chunk": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk19",
+          "marqueur": "a) 15%",
+          "pourquoi": "edition 2019 : 15 %"
+        },
+        {
+          "chunk": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf::chunk19",
+          "marqueur": "a) 15%",
+          "pourquoi": "edition 2020 : 15 %"
+        }
+      ],
+      "a_verifier": "le corpus ne contient pas d'edition du code IRPP-IS posterieure a 2023"
+    },
+    {
+      "id": "Q11",
+      "question": "Quel est le montant de l'impôt forfaitaire annuel pour une entreprise du régime forfaitaire dont le chiffre d'affaires ne dépasse pas 10 000 dinars, implantée en zone communale ?",
+      "reponse_attendue": "400 dinars par an (montant reduit de 50 % pour les entreprises implantees dans les autres zones). Au-dela : 3 % du chiffre d'affaires entre 10 000 et 100 000 dinars. L'impot est majore de 50 % si la declaration annuelle est deposee plus de 30 jours apres l'expiration des delais.",
+      "faits_cles": [
+        "400 DT par an",
+        "reduit de 50 % hors zones communales",
+        "majoration de 50 % en cas de depot tardif > 30 jours"
+      ],
+      "faits_errones": [
+        "200 DT par an"
+      ],
+      "source_en_vigueur": "Code de l'IRPP et de l'IS, edition 2023, article 44 ter (modifie par LF 2023 art. 55)",
+      "attendus": [
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk11"
+      ],
+      "equivalents": [],
+      "preuves": [
+        "400 dinars"
+      ],
+      "pieges": [
+        {
+          "chunk": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk11",
+          "marqueur": "200 dinars",
+          "pourquoi": "edition 2019 : 200 DT"
+        },
+        {
+          "chunk": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf::chunk11",
+          "marqueur": "200 dinars",
+          "pourquoi": "edition 2020 : 200 DT"
+        },
+        {
+          "chunk": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk10",
+          "marqueur": "200 dinars",
+          "pourquoi": "edition 2021 : 200 DT"
+        }
+      ],
+      "a_verifier": "le corpus ne contient pas d'edition du code IRPP-IS posterieure a 2023"
+    },
+    {
+      "id": "Q12",
+      "question": "Quel est le plafond annuel de déduction des primes d'assurance-vie pour le calcul de l'impôt sur le revenu ?",
+      "reponse_attendue": "100 000 dinars par an (primes ou cotisations des contrats assurance-vie, takaful et de capitalisation comportant les garanties prevues par l'article 39), sous reserve du minimum d'impot.",
+      "faits_cles": [
+        "100 000 DT par an"
+      ],
+      "faits_errones": [
+        "10 000 DT par an"
+      ],
+      "source_en_vigueur": "Code de l'IRPP et de l'IS, edition 2023, article 39-I-2 (modifie par LF 2021 art. 16)",
+      "attendus": [
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk8"
+      ],
+      "equivalents": [
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk7"
+      ],
+      "preuves": [
+        "100.000 dinars par an"
+      ],
+      "pieges": [
+        {
+          "chunk": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk8",
+          "marqueur": "10.000 dinars par an",
+          "pourquoi": "edition 2019 : 10 000 DT"
+        },
+        {
+          "chunk": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf::chunk8",
+          "marqueur": "10.000 dinars par an",
+          "pourquoi": "edition 2020 : 10 000 DT"
+        }
+      ],
+      "a_verifier": "le corpus ne contient pas d'edition du code IRPP-IS posterieure a 2023"
+    },
+    {
+      "id": "Q13",
+      "question": "Quel est le taux général de l'impôt sur les sociétés ?",
+      "reponse_attendue": "15 % du benefice imposable (taux applicable aux benefices realises a partir du 1er janvier 2021), avec des taux particuliers pour certains secteurs (par exemple 10 % pour les activites artisanales, agricoles et de peche).",
+      "faits_cles": [
+        "15 %"
+      ],
+      "faits_errones": [
+        "25 %"
+      ],
+      "source_en_vigueur": "Code de l'IRPP et de l'IS, edition 2023, article 49-I (modifie par LF 2021 art. 14)",
+      "attendus": [
+        "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf::chunk17"
+      ],
+      "equivalents": [
+        "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf::chunk16"
+      ],
+      "preuves": [
+        "est fixé à 15%"
+      ],
+      "pieges": [
+        {
+          "chunk": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf::chunk17",
+          "marqueur": "fixé à 25%",
+          "pourquoi": "edition 2019 : 25 %"
+        },
+        {
+          "chunk": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf::chunk17",
+          "marqueur": "fixé à 25%",
+          "pourquoi": "edition 2020 : 25 %"
+        }
+      ],
+      "a_verifier": "le corpus ne contient pas d'edition du code IRPP-IS posterieure a 2023 : verifier qu'aucune loi de finances 2024/2025 n'a modifie ce taux"
+    },
+    {
+      "id": "Q14",
+      "question": "Quelle pénalité s'applique aux sommes dues au titre de la taxe sur les immeubles bâtis en cas de retard ?",
+      "reponse_attendue": "1,25 % par mois ou fraction de mois de retard, a partir du 1er janvier de l'annee suivant celle au titre de laquelle la taxe est exigible. Les penalites de retard ne peuvent pas exceder le montant de la creance en principal.",
+      "faits_cles": [
+        "1,25 % par mois",
+        "a partir du 1er janvier de l'annee suivante",
+        "plafonnee au principal"
+      ],
+      "faits_errones": [
+        "0,75 % par mois"
+      ],
+      "source_en_vigueur": "Code de la fiscalite locale, edition 2025, article 19 (modifie par LF 2023 art. 59-7)",
+      "attendus": [
+        "Code_FISCALITE-LOCALE-2025.pdf::chunk17"
+      ],
+      "equivalents": [
+        "CODE-DE-LA-FISCALITE-LOCALE-2023-1-1.pdf::chunk17"
+      ],
+      "preuves": [
+        "une pénalité égale à 1,25%",
+        "ne doivent pas excéder le montant de la créance en principal"
+      ],
+      "pieges": [
+        {
+          "chunk": "Code-de-la-Fiscalite-Locale-2018.pdf::chunk18",
+          "marqueur": "0,75%",
+          "pourquoi": "edition 2018 : 0,75 %"
+        },
+        {
+          "chunk": "code-de-la-fiscalite-locale-2020.pdf::chunk18",
+          "marqueur": "0,75%",
+          "pourquoi": "edition 2020 : 0,75 %"
+        }
+      ]
+    }
+  ],
+  "notes": "Questions accentuees (2026-11-16) : la version sans accents faussait la recherche BM25."
+}
