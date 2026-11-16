@@ -20,6 +20,47 @@ def point_id_for_chunk(chunk_id: str) -> str:
 	return str(uuid.uuid5(uuid.NAMESPACE_OID, chunk_id))
 
 
+def fetch_document_chunks(source_file: str) -> list[tuple[str, str]]:
+	"""(chunk_id, texte) de tous les chunks d'un document, dans l'ordre du document."""
+	settings = get_settings()
+	client = _get_client()
+	flt = models.Filter(must=[models.FieldCondition(key="source_file", match=models.MatchValue(value=source_file))])
+	rows: list[tuple[str, str]] = []
+	offset = None
+	while True:
+		points, offset = client.scroll(
+			collection_name=settings.qdrant_collection_loi_by_article,
+			scroll_filter=flt,
+			limit=1000,
+			offset=offset,
+			with_payload=["id_chunk", "texte"],
+			with_vectors=False,
+		)
+		rows += [(p.payload["id_chunk"], p.payload.get("texte", "")) for p in points]
+		if offset is None:
+			break
+	return sorted(rows, key=lambda r: int(r[0].rsplit("chunk", 1)[-1]))
+
+
+def list_source_files() -> list[str]:
+	"""Noms de tous les documents indexes dans la collection."""
+	settings = get_settings()
+	client = _get_client()
+	files: set[str] = set()
+	offset = None
+	while True:
+		points, offset = client.scroll(
+			collection_name=settings.qdrant_collection_loi_by_article,
+			limit=2000,
+			offset=offset,
+			with_payload=["source_file"],
+			with_vectors=False,
+		)
+		files.update(p.payload["source_file"] for p in points)
+		if offset is None:
+			return sorted(files)
+
+
 def fetch_chunk_texts(chunk_ids: list[str]) -> dict[str, str]:
 	"""Texte indexe des chunks demandes, par chunk_id (absents ignores)."""
 	if not chunk_ids:

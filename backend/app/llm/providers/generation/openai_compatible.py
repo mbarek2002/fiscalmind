@@ -22,7 +22,9 @@ class OpenAICompatibleChatClient(BaseLLMClient):
 		except Exception as exc:  # pragma: no cover - optional runtime dependency
 			raise RuntimeError("openai package is required for OpenAI-compatible LLM clients") from exc
 
-		self._client = OpenAI(api_key=api_key, base_url=base_url)
+		# Delai maximal par appel : sans lui, un appel bloque cote fournisseur attend
+		# 10 minutes (defaut du SDK) et fige toute l'evaluation.
+		self._client = OpenAI(api_key=api_key, base_url=base_url, timeout=120, max_retries=2)
 		self._model = model
 
 	def generate(self, prompt: str, system_prompt: str | None = None) -> str:

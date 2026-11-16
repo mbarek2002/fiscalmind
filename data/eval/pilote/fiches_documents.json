@@ -1,0 +1,1641 @@
+{
+  "nb": 35,
+  "fiches": [
+    {
+      "fichier": "ILE-DE-MAURICE.pdf",
+      "famille": "AUTRE",
+      "type_document": "convention",
+      "annee": 2008,
+      "annee_source": "derniere_page",
+      "reference": null,
+      "titre": null,
+      "loi_commentee": null,
+      "pays": "Tunisie, Maurice",
+      "impots_concernes": [
+        "conventions_fiscales",
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "double imposition",
+        "revenus",
+        "résidence fiscale",
+        "établissement stable",
+        "élimination des doubles impositions",
+        "échange de renseignements"
+      ],
+      "plan": [
+        "PERSONNES VISEES",
+        "IMPOTS VISES",
+        "DEFINITIONS GENERALES",
+        "RESIDENT",
+        "ETABLISSEMENT STABLE",
+        "REVENUS IMMOBILIERS",
+        "BENEFICES DES ENTREPRISES",
+        "NAVIGATION MARITIME ET AERIENNE",
+        "ENTREPRISES ASSOCIEES",
+        "DIVIDENDES",
+        "INTERETS",
+        "REDEVANCES",
+        "GAINS EN CAPITAL",
+        "PROFESSIONS INDEPENDANTES",
+        "PROFESSIONS DEPENDANTES"
+      ],
+      "resume": "Cette convention bilatérale signée le 12 février 2008 entre la Tunisie et Maurice vise à éviter la double imposition en matière d'impôts sur le revenu. Elle définit les règles d'imposition des différents types de revenus (dividendes, intérêts, redevances, salaires, etc.) et prévoit des méthodes d'élimination des doubles impositions ainsi qu'un échange de renseignements entre les autorités compétentes.",
+      "statut_version": "indetermine",
+      "remplacee_par": null,
+      "nb_chunks": 26,
+      "preuves": {
+        "annee": "Date de signature : le 12/02/2008",
+        "annee_regle": "Fait à Tunis, le 12 février 2008"
+      },
+      "rejets": [
+        "titre: preuve introuvable dans le texte (\"CONVENTION ENTRE LA REPUBLIQUE DE MAURICE ET LA REPUBLIQUE TUNISIENNE TENDANT A EVITER LA DOUBLE IMPOSITION EN MATIERE D'IMPOTS SUR LE REVENU\")"
+      ],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "PORTUGAL.pdf",
+      "famille": "AUTRE",
+      "type_document": "convention",
+      "annee": 2002,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°34/2002",
+      "titre": null,
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "conventions_fiscales"
+      ],
+      "themes": [
+        "évitement de la double imposition",
+        "impôts sur le revenu",
+        "établissement stable",
+        "dividendes",
+        "intérêts",
+        "redevances"
+      ],
+      "plan": [
+        "CHAMP D'APPLICATION DE LA CONVENTION",
+        "DEFINITIONS",
+        "IMPOSITION DES REVENUS",
+        "METHODES POUR ELIMINER LES DOUBLES IMPOSITIONS",
+        "DISPOSITIONS SPECIALES",
+        "DISPOSITIONS FINALES"
+      ],
+      "resume": "Cette convention bilatérale entre la Tunisie et le Portugal, signée le 24 février 1999, vise à éviter la double imposition en matière d'impôts sur le revenu. Elle définit les règles d'imposition des différents types de revenus (immobiliers, bénéfices, dividendes, intérêts, redevances, gains en capital, salaires, pensions) et prévoit des méthodes d'élimination de la double imposition. Le document inclut également des dispositions sur la non-discrimination, la procédure amiable et l'échange de renseignements.",
+      "statut_version": "indetermine",
+      "remplacee_par": null,
+      "nb_chunks": 19,
+      "preuves": {
+        "reference": "ANNEXE A LA NOTE COMMUNE N° 34/2002",
+        "annee": "FAIT A Lisbonne, le 24 février 1999",
+        "annee_regle": "NOTE COMMUNE  N° 34/2002"
+      },
+      "rejets": [
+        "titre: preuve introuvable dans le texte (\"CONVENTION ENTRE LA REPUBLIQUE TUNISIENNE ET LA REPUBLIQUE PORTUGAISE EN VUE D'EVITER LA DOUBLE IMPOSITION EN MATIERE D'IMPOTS SUR LE REVENU\")"
+      ],
+      "conflits": [
+        "annee : regles=2002 (premiere_page) / llm=1999"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf",
+      "famille": "CDPF",
+      "type_document": "code",
+      "annee": 2023,
+      "annee_source": "nom_fichier",
+      "reference": "loi n°2000-82 du 9 août 2000",
+      "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "procedures_sanctions",
+        "droits_consommation",
+        "conventions_fiscales",
+        "autre"
+      ],
+      "themes": [
+        "controle fiscal",
+        "contentieux fiscal",
+        "sanctions fiscales",
+        "taxation d'office",
+        "restitution",
+        "prix de transfert"
+      ],
+      "plan": [
+        "Loi de promulgation du code des droits et procédures fiscaux",
+        "Code des droits et procédures fiscaux",
+        "Textes d'application du code des droits et procédures fiscaux",
+        "Textes connexes"
+      ],
+      "resume": "Ce recueil tunisien rassemble le Code des droits et procédures fiscaux, ses textes d'application et textes connexes, mis à jour au 1er janvier 2023. Il définit les droits et obligations des contribuables, les procédures de contrôle fiscal, de contentieux et de recouvrement, ainsi que les sanctions administratives et pénales applicables. Le document inclut également des dispositions sur les prix de transfert, la déclaration pays par pays et des mesures fiscales exceptionnelles.",
+      "statut_version": "remplacee",
+      "remplacee_par": "cdpf-2025.pdf",
+      "nb_chunks": 245,
+      "preuves": {
+        "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+        "reference": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux",
+        "annee": "Mis à jour au 1er janvier 2023",
+        "annee_regle": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-des-droits-et-procedures-fiscaux-2024.pdf",
+      "famille": "CDPF",
+      "type_document": "code",
+      "annee": 2024,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "procedures_sanctions",
+        "droits_consommation",
+        "conventions_fiscales",
+        "autre"
+      ],
+      "themes": [
+        "contrôle fiscal",
+        "contentieux fiscal",
+        "sanctions fiscales",
+        "taxation d'office",
+        "procédures de vérification",
+        "restitution des sommes perçues en trop"
+      ],
+      "plan": [
+        "Première partie - Loi de promulgation du code des droits et procédures fiscaux",
+        "Code des droits et procédures fiscaux",
+        "Deuxième partie - Textes d'application du code des droits et procédures fiscaux",
+        "Troisième partie - Textes connexes"
+      ],
+      "resume": "Ce recueil tunisien rassemble le Code des droits et procédures fiscaux mis à jour au 1er janvier 2024, ses textes d'application et des textes connexes. Il définit les droits et obligations des contribuables, les procédures de contrôle fiscal, de vérification, de taxation d'office et de contentieux, ainsi que les sanctions administratives et pénales applicables. Il inclut également des décrets et arrêtés relatifs au Conseil national de la fiscalité, aux commissions de conciliation, à la restitution des sommes perçues en trop et aux prix de transfert.",
+      "statut_version": "remplacee",
+      "remplacee_par": "cdpf-2025.pdf",
+      "nb_chunks": 199,
+      "preuves": {
+        "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+        "annee": "Mis à jour au 1er janvier 2024",
+        "loi_commentee": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux(1)",
+        "annee_regle": "Code-des-droits-et-procedures-fiscaux-2024.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf",
+      "famille": "CDPF",
+      "type_document": "code",
+      "annee": 2018,
+      "annee_source": "nom_fichier",
+      "reference": "Loi n°2000-82 du 9 août 2000",
+      "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D’APPLICATION ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n°2000-82 du 9 août 2000",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "procedures_sanctions",
+        "droits_consommation",
+        "conventions_fiscales",
+        "autre"
+      ],
+      "themes": [
+        "contrôle fiscal",
+        "contentieux fiscal",
+        "sanctions fiscales",
+        "procédures de recouvrement",
+        "droits de recours",
+        "taxation d'office"
+      ],
+      "plan": [
+        "Première partie : Loi de promulgation et Code des droits et procédures fiscaux",
+        "Deuxième partie : Textes d’application du code des droits et procédures fiscaux",
+        "Troisième partie : Textes connexes"
+      ],
+      "resume": "Ce recueil tunisien présente le Code des droits et procédures fiscaux mis à jour au 1er janvier 2018, promulgué par la loi n°2000-82 du 9 août 2000. Il organise le contrôle fiscal, le contentieux de l'assiette et pénal, les sanctions administratives et pénales, ainsi que les procédures de recouvrement et de recours. Il inclut également les textes d'application et les textes connexes relatifs à la fiscalité tunisienne.",
+      "statut_version": "remplacee",
+      "remplacee_par": "cdpf-2025.pdf",
+      "nb_chunks": 156,
+      "preuves": {
+        "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D’APPLICATION ET TEXTES CONNEXES",
+        "reference": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux",
+        "annee": "Mise à jour au 1er janvier 2018",
+        "loi_commentee": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux",
+        "annee_regle": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "cdpf-2025.pdf",
+      "famille": "CDPF",
+      "type_document": "code",
+      "annee": 2025,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n°2000-82 du 9 août 2000",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "procedures_sanctions",
+        "droits_consommation",
+        "conventions_fiscales",
+        "autre"
+      ],
+      "themes": [
+        "contrôle fiscal",
+        "contentieux fiscal",
+        "sanctions fiscales",
+        "taxation d'office",
+        "restitution",
+        "prix de transfert"
+      ],
+      "plan": [
+        "Première partie : Loi de promulgation et Code des droits et procédures fiscaux",
+        "Deuxième partie : Textes d'application du code",
+        "Troisième partie : Textes connexes",
+        "Quatrième partie : Loi organique du Tribunal administratif"
+      ],
+      "resume": "Ce recueil tunisien rassemble le Code des droits et procédures fiscaux mis à jour au 1er janvier 2025, ses textes d'application et des textes connexes. Il définit les règles de contrôle fiscal, de contentieux, de sanctions et de recouvrement des impôts. Il inclut également la loi de promulgation n°2000-82 du 9 août 2000 et divers décrets, arrêtés et lois de finances.",
+      "statut_version": "en_vigueur",
+      "remplacee_par": null,
+      "nb_chunks": 254,
+      "preuves": {
+        "titre": "CODE DES DROITS ET PROCEDURES FISCAUX, SES TEXTES D'APPLICATION ET TEXTES CONNEXES",
+        "annee": "Mis à jour au 1er janvier 2025",
+        "loi_commentee": "Loi n°2000-82 du 9 août 2000 portant promulgation du code des droits et procédures fiscaux",
+        "annee_regle": "cdpf-2025.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "CODE-DE-LA-FISCALITE-LOCALE-2023-1-1.pdf",
+      "famille": "FL",
+      "type_document": "code",
+      "annee": 2023,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n° 97-11 du 3 février 1997",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "fiscalite_locale"
+      ],
+      "themes": [
+        "taxe sur les immeubles bâtis",
+        "taxe sur les terrains non bâtis",
+        "taxe sur les établissements",
+        "taxe hôtelière",
+        "taxe sur les spectacles",
+        "droits et redevances locales"
+      ],
+      "plan": [
+        "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale",
+        "Code de la fiscalité locale",
+        "Textes d'application du code",
+        "Autres dispositions non incorporées au code",
+        "Dispositions transitoires relatives au code des collectivités locales"
+      ],
+      "resume": "Ce recueil administratif présente le Code de la fiscalité locale tunisienne mis à jour au 1er janvier 2023. Il regroupe la loi fondatrice n° 97-11 du 3 février 1997, le code proprement dit avec ses taxes et redevances locales, les textes d'application et les dispositions transitoires. Il concerne principalement la fiscalité des collectivités locales.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code_FISCALITE-LOCALE-2025.pdf",
+      "nb_chunks": 104,
+      "preuves": {
+        "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+        "annee": "Mis à jour au 1er janvier 2023",
+        "loi_commentee": "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale.",
+        "annee_regle": "CODE-DE-LA-FISCALITE-LOCALE-2023-1-1.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-de-la-Fiscalite-Locale-2018.pdf",
+      "famille": "FL",
+      "type_document": "code",
+      "annee": 2018,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n° 97-11 du 3 février 1997",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "fiscalite_locale"
+      ],
+      "themes": [
+        "taxe sur les immeubles bâtis",
+        "taxe sur les terrains non bâtis",
+        "taxe sur les établissements",
+        "taxe hôtelière",
+        "taxe sur les spectacles",
+        "droits de licence"
+      ],
+      "plan": [
+        "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale",
+        "Code de la fiscalité locale",
+        "Textes d'application du code",
+        "Autres dispositions non incorporées au code"
+      ],
+      "resume": "Ce recueil tunisien rassemble le code de la fiscalité locale et ses textes d'application, mis à jour au 1er janvier 2018. Il détaille les taxes et redevances perçues par les collectivités locales, notamment sur les immeubles bâtis, les terrains non bâtis, les établissements et les hôtels. Il comprend également les règles de recouvrement, de contentieux et les sanctions applicables.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code_FISCALITE-LOCALE-2025.pdf",
+      "nb_chunks": 109,
+      "preuves": {
+        "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+        "loi_commentee": "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale.",
+        "annee_regle": "Code-de-la-Fiscalite-Locale-2018.pdf"
+      },
+      "rejets": [
+        "annee: 2018 absente de la preuve ('Mis à jour au 1er janvier 0218')"
+      ],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code_FISCALITE-LOCALE-2025.pdf",
+      "famille": "FL",
+      "type_document": "code",
+      "annee": 2025,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n° 97-11 du 3 février 1997",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "fiscalite_locale"
+      ],
+      "themes": [
+        "taxe sur les immeubles bâtis",
+        "taxe sur les terrains non bâtis",
+        "taxe sur les établissements industriels commerciaux ou professionnels",
+        "taxe hôtelière",
+        "taxe sur les spectacles",
+        "droits et redevances locales"
+      ],
+      "plan": [
+        "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale",
+        "Code de la fiscalité locale",
+        "Textes d'application du code",
+        "Autres dispositions non incorporées au code",
+        "Dispositions transitoires relatives au code des collectivités locales"
+      ],
+      "resume": "Ce recueil administratif tunisien présente le code de la fiscalité locale mis à jour au 1er janvier 2025. Il regroupe la loi fondatrice n° 97-11 du 3 février 1997, le code proprement dit avec ses taxes et redevances locales, ainsi que les textes d'application et dispositions connexes. Il concerne principalement la fiscalité des collectivités locales.",
+      "statut_version": "en_vigueur",
+      "remplacee_par": null,
+      "nb_chunks": 111,
+      "preuves": {
+        "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+        "annee": "Mis à jour au 1er janvier 2025",
+        "loi_commentee": "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale.",
+        "annee_regle": "Code_FISCALITE-LOCALE-2025.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "code-de-la-fiscalite-locale-2020.pdf",
+      "famille": "FL",
+      "type_document": "code",
+      "annee": 2020,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+      "loi_commentee": "Loi n° 97-11 du 3 février 1997",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "fiscalite_locale",
+        "droits_enregistrement",
+        "timbre",
+        "procedures_sanctions",
+        "droits_consommation"
+      ],
+      "themes": [
+        "taxe sur les immeubles bâtis",
+        "taxe sur les terrains non bâtis",
+        "taxe sur les établissements",
+        "taxe hôtelière",
+        "taxe sur les spectacles",
+        "redevances et taxes diverses"
+      ],
+      "plan": [
+        "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale",
+        "Code de la fiscalité locale",
+        "Textes d'application du code",
+        "Autres dispositions non incorporées au code",
+        "Dispositions transitoires relatives au code des collectivités locales"
+      ],
+      "resume": "Ce recueil tunisien présente le code de la fiscalité locale et ses textes d'application, mis à jour au 1er janvier 2020. Il détaille les taxes et redevances locales telles que la taxe sur les immeubles bâtis, la taxe sur les terrains non bâtis, la taxe sur les établissements et la taxe hôtelière. Il inclut également les sanctions, le contentieux, les décrets d'application et les dispositions transitoires.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code_FISCALITE-LOCALE-2025.pdf",
+      "nb_chunks": 111,
+      "preuves": {
+        "titre": "CODE DE LA FISCALITE LOCALE, TEXTES D'APPLICATIONS ET TEXTES CONNEXES",
+        "annee": "Mis à jour au 1er janvier 2020",
+        "loi_commentee": "Loi n° 97-11 du 3 février 1997 portant promulgation du code de la fiscalité locale.",
+        "annee_regle": "code-de-la-fiscalite-locale-2020.pdf"
+      },
+      "rejets": [],
+      "conflits": [
+        "type : regles=code / llm=recueil"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "11.pdf",
+      "famille": "IRPP-IS",
+      "type_document": "code",
+      "annee": null,
+      "annee_source": null,
+      "reference": null,
+      "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "impôt sur le revenu des personnes physiques",
+        "impôt sur les sociétés",
+        "revenus imposables",
+        "déductions",
+        "exonérations",
+        "taux et barème"
+      ],
+      "plan": [
+        "CHAPITRE I IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES",
+        "CHAPITRE II IMPOT SUR LES SOCIETES",
+        "CHAPITRE III DISPOSITIONS COMMUNES",
+        "CHAPITRE IV AVANTAGES FISCAUX"
+      ],
+      "resume": "Ce code tunisien régit l'impôt sur le revenu des personnes physiques et l'impôt sur les sociétés. Il définit les personnes imposables, les catégories de revenus, les déductions, les exonérations, les taux d'imposition et les obligations déclaratives. Il prévoit également des avantages fiscaux pour le développement régional, agricole, à l'exportation et le réinvestissement.",
+      "statut_version": "indetermine",
+      "remplacee_par": null,
+      "nb_chunks": 20,
+      "preuves": {
+        "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+        "annee_regle": "loi n°2001-83"
+      },
+      "rejets": [],
+      "conflits": [
+        "famille : AUTRE -> IRPP-IS d'apres le titre ; edition inconnue (annee 2001 ignoree)"
+      ],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf",
+      "famille": "IRPP-IS",
+      "type_document": "code",
+      "annee": 2023,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "impôt sur le revenu des personnes physiques",
+        "impôt sur les sociétés",
+        "revenus imposables",
+        "déductions",
+        "exonérations",
+        "taux et barème"
+      ],
+      "plan": [
+        "CHAPITRE I IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES",
+        "SECTION I DISPOSITIONS GENERALES",
+        "SECTION II REVENUS IMPOSABLES DEFINITIONS GENERALES",
+        "SOUS-SECTION II EXONERATIONS",
+        "SOUS-SECTION III DEDUCTIONS COMMUNES",
+        "SOUS-SECTION IV EVALUATIONS FORFAITAIRES DU REVENU IMPOSABLE",
+        "SECTION III TAUX ET BAREME DE L'IMPOT",
+        "SECTION IV REGIME FORFAITAIRE DE L'IMPOT SUR LE REVENU",
+        "CHAPITRE II IMPOT SUR LES SOCIETES",
+        "SECTION I CHAMP D'APPLICATION",
+        "SECTION II EXONERATIONS",
+        "SECTION III DETERMINATION DU BENEFICE IMPOSABLE",
+        "SECTION IV TAUX",
+        "SECTION V REGIME D'INTEGRATION DES RESULTATS",
+        "CHAPITRE III DISPOSITIONS COMMUNES"
+      ],
+      "resume": "Ce code tunisien régit l'impôt sur le revenu des personnes physiques et l'impôt sur les sociétés. Il définit les personnes imposables, les catégories de revenus, les exonérations, les déductions, les taux d'imposition et les obligations déclaratives. Il prévoit également des avantages fiscaux pour le développement régional, agricole, à l'exportation et pour les entreprises nouvellement créées.",
+      "statut_version": "en_vigueur",
+      "remplacee_par": null,
+      "nb_chunks": 24,
+      "preuves": {
+        "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+        "annee_regle": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf",
+      "famille": "IRPP-IS",
+      "type_document": "code",
+      "annee": 2020,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "impôt sur le revenu des personnes physiques",
+        "impôt sur les sociétés",
+        "revenus imposables",
+        "déductions",
+        "exonérations",
+        "taux et barème"
+      ],
+      "plan": [
+        "CHAPITRE I IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES",
+        "CHAPITRE II IMPOT SUR LES SOCIETES",
+        "CHAPITRE III DISPOSITIONS COMMUNES",
+        "CHAPITRE IV AVANTAGES FISCAUX"
+      ],
+      "resume": "Ce code tunisien régit l'impôt sur le revenu des personnes physiques et l'impôt sur les sociétés. Il définit les personnes imposables, les catégories de revenus, les déductions, les exonérations, les taux d'imposition et les obligations déclaratives. Il prévoit également des avantages fiscaux pour le développement régional, agricole, l'exportation et les entreprises nouvellement créées.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf",
+      "nb_chunks": 27,
+      "preuves": {
+        "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+        "annee_regle": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf",
+      "famille": "IRPP-IS",
+      "type_document": "code",
+      "annee": 2021,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "imposition des personnes physiques",
+        "imposition des societes",
+        "revenus imposables",
+        "deductions",
+        "exonerations",
+        "taux et barème"
+      ],
+      "plan": [
+        "CHAPITRE I IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES",
+        "CHAPITRE II IMPOT SUR LES SOCIETES",
+        "CHAPITRE III DISPOSITIONS COMMUNES",
+        "CHAPITRE IV AVANTAGES FISCAUX"
+      ],
+      "resume": "Ce code tunisien fixe les règles de l'impôt sur le revenu des personnes physiques et de l'impôt sur les sociétés. Il définit les personnes imposables, les catégories de revenus, les déductions, les exonérations et les taux applicables. Il prévoit également les obligations déclaratives, les modalités de paiement et les avantages fiscaux sectoriels.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf",
+      "nb_chunks": 27,
+      "preuves": {
+        "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+        "annee_regle": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf",
+      "famille": "IRPP-IS",
+      "type_document": "code",
+      "annee": 2019,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "impôt sur le revenu des personnes physiques",
+        "impôt sur les sociétés",
+        "revenus imposables",
+        "déductions",
+        "exonérations",
+        "taux et barème"
+      ],
+      "plan": [
+        "CHAPITRE I IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES",
+        "SECTION I DISPOSITIONS GENERALES",
+        "SECTION II REVENUS IMPOSABLES DEFINITIONS GENERALES",
+        "SECTION III TAUX ET BAREME DE L'IMPOT",
+        "SECTION IV REGIME FORFAITAIRE DE L'IMPOT SUR LE REVENU",
+        "CHAPITRE II IMPOT SUR LES SOCIETES",
+        "CHAPITRE III DISPOSITIONS COMMUNES",
+        "CHAPITRE IV AVANTAGES FISCAUX"
+      ],
+      "resume": "Ce code tunisien régit l'impôt sur le revenu des personnes physiques et l'impôt sur les sociétés. Il définit les personnes imposables, les catégories de revenus, les déductions, exonérations et les modalités de déclaration et de paiement. Il prévoit également des avantages fiscaux pour le développement régional, agricole, à l'exportation et pour les entreprises nouvellement créées.",
+      "statut_version": "remplacee",
+      "remplacee_par": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf",
+      "nb_chunks": 26,
+      "preuves": {
+        "titre": "CODE DE L'IMPOT SUR LE REVENU DES PERSONNES PHYSIQUES ET DE L'IMPOT SUR LES SOCIETES",
+        "annee_regle": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-Commune-N°03.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2024,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°3/2024",
+      "titre": "Note commune N° 3 /2024",
+      "loi_commentee": "loi n°2023-13 du 11 décembre 2023",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP"
+      ],
+      "themes": [
+        "épargne",
+        "déduction d'intérêts",
+        "comptes spéciaux d'épargne",
+        "emprunts obligataires",
+        "bons de trésor assimilables",
+        "emprunts nationaux"
+      ],
+      "plan": [
+        "Commentaire des dispositions de l'article 34 de la loi n°2023-13 du 11 décembre 2023",
+        "Législation fiscale en vigueur jusqu'au 31 décembre 2023",
+        "Apport de la loi de finances pour l'année 2024",
+        "Date d'application de la mesure"
+      ],
+      "resume": "La note commune N° 3/2024 commente l'article 34 de la loi de finances pour 2024 élargissant la déduction d'intérêts aux bons de trésor assimilables et emprunts nationaux. La déduction annuelle est limitée à 10.000 dinars, sans excéder 6.000 dinars pour les comptes spéciaux d'épargne. Les dispositions s'appliquent aux revenus de 2023 déclarés en 2024 et aux années suivantes.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 6,
+      "preuves": {
+        "titre": "Note commune N° 3 /2024",
+        "reference": "Note commune N° 3 /2024",
+        "annee": "Note commune N° 3 /2024",
+        "loi_commentee": "loi n°2023-13 du 11 décembre 2023, portant loi de finances pour l’année 2024",
+        "annee_regle": "Note commune N° 3 /2024"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-Commune-N°10.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2023,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°10/2023",
+      "titre": "Note Commune N° 10 / 2023",
+      "loi_commentee": "décret-loi n°2022-79 du 22 décembre 2022 portant loi de finances pour l’année 2023",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "procedures_sanctions"
+      ],
+      "themes": [
+        "rationalisation du paiement en espèces",
+        "amende fiscale administrative",
+        "déduction des charges",
+        "déduction de la TVA",
+        "date d'entrée en vigueur"
+      ],
+      "plan": [
+        "Commentaire des dispositions de l'article 60 de la loi de finances pour l'année 2023",
+        "Rappel de la législation fiscale en vigueur jusqu'au 31 décembre 2022",
+        "Apport de la loi de finances pour l'année 2023",
+        "Date d'entrée en vigueur de la mesure"
+      ],
+      "resume": "Cette note commente l'article 60 de la loi de finances pour 2023 relatif à la rationalisation du paiement en espèces. Elle abroge les interdictions de déduction des charges, amortissements et TVA pour les paiements en espèces supérieurs à 5 000 dinars et instaure une amende administrative de 20% avec un minimum de 2 000 dinars. La nouvelle amende s'applique à partir du 1er janvier 2023.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 8,
+      "preuves": {
+        "titre": "Note Commune N° 10 / 2023",
+        "reference": "Note Commune N° 10 / 2023",
+        "annee": "Note Commune N° 10 / 2023",
+        "loi_commentee": "décret-loi n°2022-79 du 22 décembre 2022 portant loi de finances pour l’année 2023",
+        "annee_regle": "Note Commune N° 10 / 2023"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-Commune-N°13-5.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2019,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°13/2019",
+      "titre": "Note Commune N°13 / 2019",
+      "loi_commentee": "loi n°2018-56 du 27 décembre 2018 portant loi de finances pour l’année 2019",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "procedures_sanctions",
+        "TVA",
+        "IRPP",
+        "IS",
+        "retenue_source"
+      ],
+      "themes": [
+        "pénalités de retard",
+        "pénalité supplémentaire fixe",
+        "taux de pénalité",
+        "minimum de perception",
+        "entrée en vigueur",
+        "exemples d'application"
+      ],
+      "plan": [
+        "Commentaire des dispositions de l'article 51 de la loi de finances pour l'année 2019",
+        "Rappel de la législation fiscale en vigueur jusqu'au 31 décembre 2018",
+        "Apport de la loi de finances pour l'année 2019",
+        "Date d'entrée en vigueur de la disposition",
+        "Annexe : Exemples d'application"
+      ],
+      "resume": "Cette note commente l'article 51 de la loi de finances 2019 révisant les pénalités de retard et instaurant une pénalité supplémentaire fixe. Elle détaille les nouveaux taux applicables aux déclarations spontanées et aux interventions du contrôle fiscal, ainsi que le minimum de perception de 5 dinars. Les dispositions entrent en vigueur progressivement à partir du 1er janvier et du 1er avril 2019.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 13,
+      "preuves": {
+        "titre": "Note Commune N°13 / 2019",
+        "reference": "Note Commune N°13 / 2019",
+        "annee": "Note Commune N°13 / 2019",
+        "loi_commentee": "loi n°2018-56 du 27 décembre 2018 portant loi de finances pour l’année 2019",
+        "annee_regle": "Note Commune N°13 / 2019"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-Commune-N°16-5.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2018,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°16/2018",
+      "titre": null,
+      "loi_commentee": "loi n° 2017-66 du 18 décembre 2017 portant loi de finances pour l’année 2018",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "droits_enregistrement"
+      ],
+      "themes": [
+        "taxe unique sur les assurances",
+        "actualisation des tarifs",
+        "taux d'imposition",
+        "date d'entrée en vigueur",
+        "liquidation de la taxe",
+        "imputation des primes annulées"
+      ],
+      "plan": [
+        "Rappel de la législation en vigueur au 31 décembre 2017",
+        "Apport de la loi de finances pour l’année 2018",
+        "Date d’entrée en vigueur des nouvelles mesures",
+        "Exemples d'illustration"
+      ],
+      "resume": "La note commente l'article 48 de la loi de finances pour 2018 qui relève les taux de la taxe unique sur les assurances de 5% à 6% pour la navigation maritime et aérienne et de 10% à 12% pour les autres risques. Ces nouveaux taux s'appliquent aux primes émises à partir du 1er janvier 2018. Le document détaille les modalités de liquidation et d'imputation des primes annulées ou restituées.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 8,
+      "preuves": {
+        "reference": "NOTE COMMUNE N° 16 /2018",
+        "annee": "NOTE COMMUNE N° 16 /2018",
+        "loi_commentee": "l’article 48 de la loi n° 2017-66 du 18 décembre 2017 portant loi de finances pour l’année 2018",
+        "annee_regle": "NOTE COMMUNE N° 16 /2018"
+      },
+      "rejets": [
+        "titre: preuve introuvable dans le texte ('OBJET : Commentaire des dispositions de l’article 48 de la loi n° 2017-66 du 18 décembre 2017 portant loi de finances pour l’année 2018 relatives à l’actualisation du tarif de la taxe unique sur les assurances.')"
+      ],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-Commune-N°25-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2018,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°52/2018",
+      "titre": "Barème applicable à la campagne viticole 2016/2017 Revenus 2017 Déclaration 2018",
+      "loi_commentee": "code de l'impôt sur le revenu des personnes physiques et de l'impôt sur les sociétés",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "agriculture",
+        "viticulture",
+        "bénéfice forfaitaire",
+        "barème",
+        "impôt sur le revenu"
+      ],
+      "plan": [
+        "Modes de détermination du bénéfice net des exploitations agricoles",
+        "Barème des revenus de la viticulture campagne 2016/2017",
+        "Revenus nets à l'hectare par nature de raisins",
+        "Caractère minimum du revenu forfaitaire"
+      ],
+      "resume": "Cette note commune tunisienne fixe le barème forfaitaire des revenus viticoles pour la campagne 2016/2017, déclaration 2018. Elle distingue trois modes de détermination du bénéfice net agricole et précise les revenus nets à l'hectare pour les raisins de cuve et de table. Ces revenus constituent un minimum d'assiette pour l'impôt sur le revenu de 2017.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 3,
+      "preuves": {
+        "titre": "O B J E T : Barème applicable à la campagne viticole 2016/2017 Revenus 2017 Déclaration 2018.",
+        "reference": "NOTE COMMUNE N° 52/2018",
+        "annee": "NOTE COMMUNE N° 52/2018",
+        "loi_commentee": "Aux termes de l'article 24 du code de l'impôt sur le revenu des personnes physiques et de l'impôt sur les sociétés",
+        "annee_regle": "NOTE COMMUNE N° 52/2018"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-05-4.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2009,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°5/2009",
+      "titre": "NOTE COMMUNE N°5/2009",
+      "loi_commentee": "loi n° 2008-77 du 22 décembre 2008",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "droits_consommation",
+        "autre"
+      ],
+      "themes": [
+        "taxe de circulation",
+        "certificat d'immatriculation",
+        "cession de véhicule",
+        "quittance de paiement",
+        "recouvrement fiscal"
+      ],
+      "plan": [
+        "I- Législation en vigueur au 31 décembre 2008",
+        "II- Apports de la loi de finances pour l’année 2009",
+        "III - Date d’entrée en vigueur des nouvelles mesures"
+      ],
+      "resume": "La note commente l'article 34 de la loi de finances 2009 relatif à la maîtrise du recouvrement des taxes de circulation. Elle subordonne la délivrance des certificats d'immatriculation en cas de cession à la présentation d'une quittance de paiement des taxes de circulation. Les dispositions s'appliquent aux demandes présentées à partir du 1er janvier 2009.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 7,
+      "preuves": {
+        "titre": "NOTE COMMUNE N°5/2009",
+        "reference": "Texte n° DGI 2009/21",
+        "annee": "NOTE COMMUNE N°5/2009",
+        "loi_commentee": "loi n° 2008-77 du 22 décembre 2008 portant loi de finances pour l’année 2009",
+        "annee_regle": "NOTE COMMUNE N°5/2009"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-06-7.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2006,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°6/2006",
+      "titre": "NOTE COMMUNE N° 6/2006",
+      "loi_commentee": "loi n°2005-106 du 19 décembre 2005",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IS",
+        "IRPP",
+        "fiscalite_locale"
+      ],
+      "themes": [
+        "options de souscription au capital",
+        "introduction en bourse",
+        "exonération fiscale",
+        "salariés",
+        "sociétés cotées"
+      ],
+      "plan": [
+        "Commentaire des dispositions de l'article 29 de la loi de finances pour l'année 2006",
+        "Legislation en vigueur au 31 decembre 2005",
+        "Apport de la loi de finances pour l'annee 2006",
+        "Date d'entree en vigueur de la nouvelle mesure",
+        "Annexe I : Liste des secteurs"
+      ],
+      "resume": "La note commune n°6/2006 commente l'article 29 de la loi de finances pour l'année 2006 qui étend les avantages fiscaux liés aux options de souscription au capital aux sociétés cotées à la bourse de Tunis. Ces avantages concernent la déduction de la moins-value pour l'IS et l'exonération de l'IRPP sur la plus-value des salariés, ainsi que de certaines taxes et contributions. Le dispositif s'applique aux opérations d'offre d'option effectuées à partir du 1er janvier 2006.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 12,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 6/2006",
+        "reference": "NOTE COMMUNE N° 6/2006",
+        "annee": "NOTE COMMUNE N° 6/2006",
+        "loi_commentee": "loi n°2005-106 du 19 décembre 2005 portant loi de finances pour l’année 2006",
+        "annee_regle": "NOTE COMMUNE N° 6/2006"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-08-2-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2011,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°8/2011",
+      "titre": "NOTE COMMUNE N° 8/2011",
+      "loi_commentee": "loi n°2010-58 du 17 décembre 2010",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "retenue_source"
+      ],
+      "themes": [
+        "rémunérations gérants majoritaires",
+        "SARL",
+        "impôt sur les sociétés",
+        "impôt sur le revenu",
+        "retenue à la source",
+        "déduction fiscale"
+      ],
+      "plan": [
+        "Objet de la note",
+        "Législation en vigueur jusqu'au 31 décembre 2010",
+        "Apports de la loi de finances pour l'année 2011",
+        "Date d'application des nouvelles mesures"
+      ],
+      "resume": "Cette note commune commente l'article 42 de la loi de finances pour 2011 concernant la déduction des rémunérations des gérants majoritaires des SARL de l'assiette de l'IS. Elle classe ces rémunérations dans la catégorie des traitements et salaires, les soumettant à l'IRPP et à la retenue à la source. Les nouvelles dispositions s'appliquent à partir du 1er janvier 2011.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 5,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 8/2011",
+        "reference": "Texte n° DGI 2011/16",
+        "annee": "NOTE COMMUNE N° 8/2011",
+        "loi_commentee": "loi n°2010-58 du 17 décembre 2010 portant loi de finances pour l’année 2011",
+        "annee_regle": "NOTE COMMUNE N° 8/2011"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-10-1-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2012,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°10/2012",
+      "titre": "NOTE COMMUNE N° 10/2012",
+      "loi_commentee": "loi n°2011-7 du 31 décembre 2011",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "TVA",
+        "droits_enregistrement",
+        "retenue_source"
+      ],
+      "themes": [
+        "vente salam",
+        "TVA",
+        "droits d'enregistrement",
+        "établissements de crédit",
+        "finance islamique"
+      ],
+      "plan": [
+        "Commentaire des articles 28, 34 et 37 de la loi de finances 2012",
+        "TVA : exonération de la marge bénéficiaire",
+        "TVA : déduction pour les acquéreurs",
+        "TVA : dispense de retenue à la source de 50%",
+        "Droits d'enregistrement : exonération des contrats de vente salam",
+        "Date d'application des mesures"
+      ],
+      "resume": "Cette note commune commente le régime fiscal des opérations de vente salam instauré par la loi de finances pour 2012. Elle précise l'exonération de TVA sur la marge bénéficiaire des établissements de crédit, la déduction de la TVA pour les acquéreurs assujettis et l'absence de retenue à la source de 50%. Elle expose également l'exonération des droits d'enregistrement pour ces contrats, même en cas de présentation volontaire.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 10,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 10/2012",
+        "reference": "Texte n° DGI 2012/10",
+        "annee": "NOTE COMMUNE N° 10/2012",
+        "loi_commentee": "loi n°2011-7 du 31 décembre 2011 portant loi de finances pour l’année 2012",
+        "annee_regle": "NOTE COMMUNE N° 10/2012"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-12-2.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2014,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°12/2014",
+      "titre": "Additif à la note commune N°03/2014 relative à la redevance de compensation",
+      "loi_commentee": "loi de finances pour l’année 2014",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "retenue_source",
+        "IRPP",
+        "IS",
+        "TVA"
+      ],
+      "themes": [
+        "redevance de compensation",
+        "seuil de 20.000 dinars",
+        "sommation des rémunérations",
+        "catégories de revenus",
+        "fait générateur"
+      ],
+      "plan": [
+        "Question n° 1 : dépassement du seuil de 20.000 dinars",
+        "Question n° 2 : sommation des différentes catégories de rémunérations"
+      ],
+      "resume": "Cette note commune précise les modalités d'application de la redevance de compensation instituée par l'article 77 de la loi de finances pour 2014. Elle clarifie que la retenue à la source de 1% s'applique sur le montant ayant permis de dépasser le seuil de 20.000 dinars et les montants ultérieurs, sans sommation des différentes catégories de revenus.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 6,
+      "preuves": {
+        "titre": "Objet : Additif à la note commune N°03/2014 relative à la redevance de compensation",
+        "reference": "Note commune N°12/ 2014",
+        "annee": "Note commune N°12/ 2014",
+        "loi_commentee": "article 77 de la loi de finances pour l’année 2014",
+        "annee_regle": "Note commune N°12/ 2014"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-15-1-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2012,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°15/2012",
+      "titre": "NOTE COMMUNE N° 15/2012",
+      "loi_commentee": "loi n°1-2012 du 16 mai 2012 portant loi des finances complémentaire pour l’année 2012",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "capital risque",
+        "SICAR",
+        "FCPR",
+        "fonds des fonds",
+        "avantages fiscaux",
+        "réinvestissement"
+      ],
+      "plan": [
+        "Modification du cadre législatif du capital risque et adaptation des avantages fiscaux",
+        "Cadre législatif : décret-loi n°2011-99 du 21 octobre 2011",
+        "Cadre fiscal : décret-loi n°2011-100 du 21 octobre 2011",
+        "Date d’application des nouvelles mesures",
+        "Législation en vigueur avant l’entrée en vigueur des décrets-lois",
+        "Législation en vigueur à partir de l’entrée en vigueur des décrets-lois",
+        "Avantages fiscaux relatifs au capital risque",
+        "Précisions diverses",
+        "Annexe n°1 : Catalogue des interventions",
+        "Annexe n°2 : Exemples d’application"
+      ],
+      "resume": "Cette note commune commente les décrets-lois n°2011-99 et n°2011-100 du 21 octobre 2011 modifiant le cadre législatif et fiscal du capital risque en Tunisie. Elle détaille les avantages fiscaux accordés aux SICAR, FCPR et investisseurs en matière de réinvestissement et de plus-values de cession. Elle précise également les dates d'application des nouvelles mesures et fournit des exemples illustratifs.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 37,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 15/2012",
+        "reference": "Texte n° DGI 2012/15",
+        "annee": "NOTE COMMUNE N° 15/2012",
+        "loi_commentee": "des dispositions de l’article 6 de la loi n°1-2012 du 16 mai 2012 portant loi des finances complémentaire pour l’année 2012",
+        "annee_regle": "NOTE COMMUNE N° 15/2012"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-17-9-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2005,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°17/2005",
+      "titre": null,
+      "loi_commentee": "loi n°90 de l’année 2004 du 31décembre 2004",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "fiscalite_locale",
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "exonération",
+        "taxe sur les établissements",
+        "personnes non établies ni domiciliées",
+        "harmonisation fiscale",
+        "loi de finances 2005"
+      ],
+      "plan": [
+        "Objet de la note",
+        "Rappel de la législation en vigueur au 31 décembre 2004",
+        "Apport de la loi de finances pour l’année 2005",
+        "Date d’application des nouvelles mesures"
+      ],
+      "resume": "La note commune n°17/2005 commente l'article 80 de la loi de finances pour l'année 2005. Elle concerne le maintien de l'exonération de la taxe sur les établissements à caractère industriel, commercial ou professionnel pour les personnes physiques et morales non établies ni domiciliées en Tunisie. Les dispositions sont applicables à compter du 1er janvier 2005.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 5,
+      "preuves": {
+        "reference": "NOTE COMMUNE N° 17 /2005",
+        "annee": "NOTE COMMUNE N° 17 /2005",
+        "loi_commentee": "loi n°90 de l’année 2004 du 31décembre 2004 portant loi de finances pour l’année 2005",
+        "annee_regle": "NOTE COMMUNE N° 17 /2005"
+      },
+      "rejets": [
+        "titre: preuve introuvable dans le texte ('OBJET : Commentaire des dispositions de l’article 80 de la loi n°90 de l’année 2004 du 31décembre 2004')"
+      ],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-23-1.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2014,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°23/2014",
+      "titre": "Note commune N°23/2014",
+      "loi_commentee": "loi n°2013-54 du 30 décembre 2013",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS"
+      ],
+      "themes": [
+        "plus-value immobilière",
+        "cession d'immeubles",
+        "exonérations",
+        "taux d'imposition",
+        "modalités de paiement",
+        "assiette d'imposition"
+      ],
+      "plan": [
+        "Régime fiscal de la plus-value provenant de la cession des immeubles non-inscrits au bilan",
+        "Immeubles autres que les terres domaniales ayant perdu leur vocation agricole",
+        "Terres domaniales ayant perdu leur vocation agricole",
+        "Modalités de détermination de la plus-value immobilière",
+        "Modalités de paiement de l'impôt sur le revenu au titre de la plus-value immobilière",
+        "Taux de l'impôt sur le revenu au titre de la plus-value immobilière et délais de dépôt des déclarations",
+        "Date d'entrée en application des dispositions de la loi de finances pour l'année 2014",
+        "Annexe : Exemples d'application"
+      ],
+      "resume": "Cette note commune commente l'article 47 de la loi de finances pour 2014 élargissant le champ d'application de l'impôt sur le revenu à la plus-value immobilière. Elle définit le régime fiscal applicable aux cessions d'immeubles non inscrits au bilan à partir du 1er janvier 2014, en distinguant les immeubles classiques des terres domaniales. Elle précise les opérations imposables et exonérées, l'assiette, les taux (10%, 15%, 25%, 50%), ainsi que les modalités de paiement par retenue à la source, avance et déclarations.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 27,
+      "preuves": {
+        "titre": "Note commune N°23/2014",
+        "reference": "Note commune N°23/2014",
+        "annee": "loi de finances pour l’année 2014",
+        "loi_commentee": "loi n°2013-54 du 30 décembre 2013, portant loi de finances pour l’année 2014",
+        "annee_regle": "Note commune N°23/2014"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-25-3.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2008,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°25/2008",
+      "titre": "NOTE COMMUNE N° 25/2008",
+      "loi_commentee": "loi n°2007-70 du 27 décembre 2007",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "fiscalite_locale",
+        "procedures_sanctions"
+      ],
+      "themes": [
+        "attestation de régularisation fiscale",
+        "transfert de revenus par les étrangers",
+        "non-résidents",
+        "retenue à la source",
+        "exonérations",
+        "procédures d'obtention de l'attestation"
+      ],
+      "plan": [
+        "OBJET",
+        "Subordination du transfert des revenus imposables par les étrangers à la régularisation de leur situation fiscale",
+        "RÉSUMÉ",
+        "I. TENEUR DE LA MESURE",
+        "II. PERSONNES CONCERNÉES PAR LA MESURE",
+        "III. SITUATIONS CONCERNÉES PAR LA PRÉSENTATION DE L'ATTESTATION",
+        "IV. REVENUS CONCERNÉS PAR LA MESURE",
+        "V. LES PROCÉDURES PRATIQUES POUR L'OBTENTION DE L'ATTESTATION",
+        "VI. DATE D'ENTRÉE EN VIGUEUR DES NOUVELLES DISPOSITIONS",
+        "ANNEXE : Décret n°2008-1858 du 13 mai 2008"
+      ],
+      "resume": "La note commente l'article 59 de la loi de finances 2008 subordonnant le transfert de revenus par les étrangers à une attestation de régularisation fiscale. Elle détaille les personnes concernées, les revenus visés et les procédures d'obtention de l'attestation ou d'exonération. Le décret n°2008-1858 du 13 mai 2008 fixe les modalités pratiques d'application de l'article 112 du code des droits et procédures fiscaux à compter du 1er janvier 2008.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 10,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 25/2008",
+        "reference": "Texte n° DGI 2008/49",
+        "annee": "NOTE COMMUNE N° 25/2008",
+        "loi_commentee": "loi n°2007-70 du 27 décembre 2007, portant loi de finances pour l’année 2008",
+        "annee_regle": "NOTE COMMUNE N° 25/2008"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-31-4.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2002,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°31/2002",
+      "titre": "NOTE COMMUNE N° 31/2002",
+      "loi_commentee": "loi n°2002-1 du 8 janvier 2002",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "droits_consommation",
+        "timbre",
+        "fiscalite_locale",
+        "retenue_source",
+        "autre"
+      ],
+      "themes": [
+        "régularisation des déclarations fiscales",
+        "exonération des pénalités de retard",
+        "paiement par tranches",
+        "délai de prescription",
+        "exclusions du champ d'application",
+        "date d'entrée en vigueur"
+      ],
+      "plan": [
+        "OBJET",
+        "Dispositions portant assouplissement des conditions de régularisation des déclarations fiscales non déposées",
+        "RÉSUMÉ",
+        "I. CHAMP D’APPLICATION DE LA MESURE",
+        "II. TENEUR DES AVANTAGES PRÉVUS PAR LA MESURE",
+        "III. CONDITIONS REQUISES POUR BÉNÉFICIER DE LA MESURE",
+        "IV. PÉNALITES DE RETARD EXIGIBLES EN CAS DE PAIEMENT TARDIF DES TRANCHES",
+        "V. EXEMPLES D’APPLICATION",
+        "VI. DATE D’ENTRÉE EN VIGUEUR DE LA MESURE",
+        "ANNEXE À LA NOTE COMMUNE N° 31/2002"
+      ],
+      "resume": "La note commente les articles 5 et 6 de la loi n°2002-1 du 8 janvier 2002 portant assouplissement des procédures fiscales. Elle détaille les conditions de régularisation des déclarations fiscales non déposées, les avantages accordés (exonération de pénalités, paiement en huit tranches) et les cas exclus. Elle précise également les pénalités applicables en cas de retard de paiement des tranches et la date d'entrée en vigueur de la mesure.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 2,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 31/2002",
+        "reference": "Texte n° DGI  2002/53",
+        "annee": "NOTE COMMUNE N° 31/2002",
+        "loi_commentee": "loi n°2002-1 du 8 janvier 2002 portant assouplissement des procédures fiscales.",
+        "annee_regle": "NOTE COMMUNE N° 31/2002"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-35.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2007,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°35/2007",
+      "titre": "NOTE COMMUNE N° 35/2007",
+      "loi_commentee": "décret n°2007-1680 du 5 juillet 2007",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "TVA"
+      ],
+      "themes": [
+        "taux de TVA",
+        "téléphone mobile",
+        "biens d'équipement",
+        "décret n°94-1192",
+        "application à partir du 20 juillet 2007"
+      ],
+      "plan": [
+        "Objet de la note",
+        "Classement antérieur du téléphone mobile",
+        "Nouveau taux de TVA applicable",
+        "Décret modificatif n°2007-1680",
+        "Date d'entrée en vigueur",
+        "Annexe : texte du décret n°2007-1680"
+      ],
+      "resume": "La note commune n°35/2007 précise que le téléphone mobile est désormais soumis à la TVA au taux de 18% au lieu de 12%. Ce changement résulte de la suppression des appareils de radiotéléphonie cellulaire de la liste des biens d'équipement bénéficiant d'un régime fiscal privilégié. La mesure s'applique à partir du 20 juillet 2007 en vertu du décret n°2007-1680 du 5 juillet 2007.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 2,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 35/2007",
+        "reference": "Texte n° DGI 2007/73",
+        "annee": "NOTE COMMUNE N° 35/2007",
+        "loi_commentee": "Décret n°2007-1680 du 5 juillet 2007, portant modification du décret n°94-1192 du 30 mai 1994",
+        "annee_regle": "NOTE COMMUNE N° 35/2007"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-37-3.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2002,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°37/2002",
+      "titre": "NOTE COMMUNE N° 37/2002",
+      "loi_commentee": "code des droits et procédures fiscaux",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "TVA",
+        "retenue_source",
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "droits_consommation",
+        "procedures_sanctions"
+      ],
+      "themes": [
+        "sanctions fiscales administratives",
+        "pénalité de retard",
+        "défaut de déclaration",
+        "défaut de retenue à la source",
+        "droit de timbre",
+        "créances fiscales"
+      ],
+      "plan": [
+        "Commentaire des dispositions des articles de 81 à 88 du code des droits et procédures fiscaux relatives aux sanctions fiscales administratives",
+        "Pénalité de retard dans le paiement de tout ou partie de l’impôt",
+        "Pénalité de retard due en cas de défaut de déclaration dans les délais légaux",
+        "Pénalité pour défaut de retenue à la source ou pour retenue insuffisante",
+        "Pénalité pour défaut d’acquittement du droit de timbre ou pour son acquittement d’une manière insuffisante",
+        "Pénalité de retard dans le paiement des créances fiscales constatées dans les écritures du receveur des finances",
+        "Date d’entrée en vigueur des mesures",
+        "Exemples d’illustration"
+      ],
+      "resume": "Cette note commune commente les articles 81 à 88 du code des droits et procédures fiscaux tunisien relatifs aux sanctions fiscales administratives. Elle détaille les pénalités de retard, les défauts de déclaration, de retenue à la source et d'acquittement du droit de timbre, ainsi que les créances fiscales constatées. Les dispositions s'appliquent à partir du 1er janvier 2001 ou 2002 selon les articles concernés.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 36,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 37/2002",
+        "reference": "Texte n° DGI  2002/59",
+        "annee": "NOTE COMMUNE N° 37/2002",
+        "loi_commentee": "Commentaire des dispositions des articles de 81 à 88 du code des droits et procédures fiscaux",
+        "annee_regle": "NOTE COMMUNE N° 37/2002"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-45.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2002,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°45/2002",
+      "titre": "NOTE COMMUNE N° 45/2002",
+      "loi_commentee": "loi n°2001-123 du 28 décembre 2001",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "retenue_source"
+      ],
+      "themes": [
+        "organismes de placement collectif",
+        "SICAV",
+        "fonds communs de placement",
+        "fonds communs de créances",
+        "retenue à la source",
+        "exonération"
+      ],
+      "plan": [
+        "Commentaire des articles 21 à 28 de la loi de finances pour 2002",
+        "Régime fiscal des organismes de placement collectif en valeurs mobilières",
+        "Régime fiscal des fonds communs de créances et des copropriétaires",
+        "Exemples d'illustration"
+      ],
+      "resume": "Cette note commune commente les articles 21 à 28 de la loi de finances pour l'année 2002 concernant le régime fiscal des organismes de placement collectif. Elle détaille le traitement fiscal des SICAV, des fonds communs de placement en valeurs mobilières et des fonds communs de créances, ainsi que de leurs copropriétaires. Elle précise les règles d'exonération, de retenue à la source et d'imputation des retenues.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 17,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 45/2002",
+        "reference": "Texte n° DGI  2002/68",
+        "annee": "NOTE COMMUNE N° 45/2002",
+        "loi_commentee": "loi n°2001-123 du 28 décembre 2001, portant loi de finances pour l’année 2002.",
+        "annee_regle": "NOTE COMMUNE N° 45/2002"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "Note-commune-n-54.pdf",
+      "famille": "NOTE_COMMUNE",
+      "type_document": "note_commune",
+      "annee": 2002,
+      "annee_source": "premiere_page",
+      "reference": "Note commune N°54/2002",
+      "titre": "NOTE COMMUNE N° 54/2002",
+      "loi_commentee": "Convention de non double imposition conclue entre le Gouvernement de la République Tunisienne et le Gouvernement de la République Arabe Syrienne",
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "IRPP",
+        "IS",
+        "conventions_fiscales"
+      ],
+      "themes": [
+        "Convention fiscale Tunisie-Syrie",
+        "Élimination de la double imposition",
+        "Établissement stable",
+        "Dividendes",
+        "Intérêts et redevances",
+        "Revenus immobiliers et gains en capital"
+      ],
+      "plan": [
+        "Informations générales",
+        "Règles d'imposition des différentes catégories de revenus",
+        "Élimination de la double imposition",
+        "Champ d'application de la convention",
+        "Bénéfices des entreprises",
+        "Revenus immobiliers",
+        "Revenus des valeurs mobilières et des capitaux mobiliers",
+        "Services personnels indépendants et dépendants",
+        "Autres revenus",
+        "Modalités pour éviter la double imposition",
+        "Non discrimination",
+        "Échange de renseignements",
+        "Procédure amiable"
+      ],
+      "resume": "Cette note commune commente la convention de non double imposition entre la Tunisie et la Syrie signée le 22 juin 1998 et entrée en vigueur le 1er janvier 2001. Elle détaille les règles d'imposition des revenus (bénéfices, dividendes, intérêts, redevances, salaires, pensions) et les modalités d'élimination de la double imposition par crédit d'impôt réel et fictif. Le document précise également les impôts visés, le champ d'application et les procédures d'échange de renseignements et de règlement amiable des litiges.",
+      "statut_version": "texte_date",
+      "remplacee_par": null,
+      "nb_chunks": 27,
+      "preuves": {
+        "titre": "NOTE COMMUNE N° 54/2002",
+        "reference": "Texte n° DGI  2002/82",
+        "annee": "NOTE COMMUNE N° 54/2002",
+        "loi_commentee": "Commentaire des dispositions de la Convention de non double imposition conclue entre le Gouvernement de la République Tunisienne et le Gouvernement de la République Arabe Syrienne",
+        "annee_regle": "NOTE COMMUNE N° 54/2002"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    },
+    {
+      "fichier": "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf",
+      "famille": "RECUEIL",
+      "type_document": "recueil",
+      "annee": 2025,
+      "annee_source": "nom_fichier",
+      "reference": null,
+      "titre": "RECUEIL DES TEXTES RELATIFS AUX DROITS ET TAXES NON INCORPORES DANS LES CODES FISCAUX",
+      "loi_commentee": null,
+      "pays": "Tunisie",
+      "impots_concernes": [
+        "droits_enregistrement",
+        "timbre",
+        "fiscalite_locale",
+        "droits_consommation",
+        "procedures_sanctions",
+        "conventions_fiscales",
+        "autre"
+      ],
+      "themes": [
+        "droits et taxes non incorporés dans les codes fiscaux",
+        "taxes au profit du budget général de l'État",
+        "taxes au profit des fonds spéciaux du Trésor",
+        "taxes au profit d'organismes nationaux",
+        "taxe de circulation",
+        "droits de chancellerie"
+      ],
+      "plan": [
+        "TITRE PREMIER: TAXES AU PROFIT DU BUDGET GENERAL DE L'ETAT",
+        "CHAPITRE I: Taxes de Circulation",
+        "CHAPITRE II: Taxes sur les formalités administratives",
+        "CHAPITRE III: Autres taxes",
+        "DEUXIEME TITRE: TAXES AU PROFIT DES FONDS SPECIAUX DU TRESOR",
+        "TROISIEME TITRE: TAXES AU PROFIT D'ORGANISMES NATIONAUX"
+      ],
+      "resume": "Ce recueil administratif tunisien, mis à jour au 1er juin 2025, rassemble les textes relatifs aux droits et taxes non incorporés dans les codes fiscaux. Il est structuré en trois titres couvrant les taxes au profit du budget général de l'État, les taxes au profit des fonds spéciaux du Trésor et les taxes au profit d'organismes nationaux. Le document détaille de nombreuses taxes spécifiques, redevances et contributions avec leurs bases légales, tarifs et modalités de perception.",
+      "statut_version": "en_vigueur",
+      "remplacee_par": null,
+      "nb_chunks": 338,
+      "preuves": {
+        "titre": "RECUEIL DES TEXTES RELATIFS AUX DROITS ET TAXES NON INCORPORES DANS LES CODES FISCAUX",
+        "annee": "Mis à jour au 1er Juin 2025",
+        "annee_regle": "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf"
+      },
+      "rejets": [],
+      "conflits": [],
+      "llm_ok": true
+    }
+  ]
+}

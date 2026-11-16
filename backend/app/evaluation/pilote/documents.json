@@ -1,0 +1,182 @@
+{
+  "graine": 42,
+  "nb_documents": 35,
+  "nb_chunks": 2037,
+  "documents": [
+    {
+      "fichier": "11.pdf",
+      "groupe": "golden_v1",
+      "chunks": 20
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2021.pdf",
+      "groupe": "golden_v1",
+      "chunks": 27
+    },
+    {
+      "fichier": "ILE-DE-MAURICE.pdf",
+      "groupe": "golden_v1",
+      "chunks": 26
+    },
+    {
+      "fichier": "Note-Commune-N°16-5.pdf",
+      "groupe": "golden_v1",
+      "chunks": 8
+    },
+    {
+      "fichier": "Note-commune-n-08-2-1.pdf",
+      "groupe": "golden_v1",
+      "chunks": 5
+    },
+    {
+      "fichier": "Note-commune-n-10-1-1.pdf",
+      "groupe": "golden_v1",
+      "chunks": 10
+    },
+    {
+      "fichier": "Note-commune-n-12-2.pdf",
+      "groupe": "golden_v1",
+      "chunks": 6
+    },
+    {
+      "fichier": "Note-commune-n-15-1-1.pdf",
+      "groupe": "golden_v1",
+      "chunks": 37
+    },
+    {
+      "fichier": "Note-commune-n-17-9-1.pdf",
+      "groupe": "golden_v1",
+      "chunks": 5
+    },
+    {
+      "fichier": "Note-commune-n-23-1.pdf",
+      "groupe": "golden_v1",
+      "chunks": 27
+    },
+    {
+      "fichier": "Note-commune-n-45.pdf",
+      "groupe": "golden_v1",
+      "chunks": 17
+    },
+    {
+      "fichier": "Note-commune-n-54.pdf",
+      "groupe": "golden_v1",
+      "chunks": 27
+    },
+    {
+      "fichier": "PORTUGAL.pdf",
+      "groupe": "golden_v1",
+      "chunks": 19
+    },
+    {
+      "fichier": "RECUEIL-DES-TEXTES-RELATIFS-AUX-DROITS-ET-TAXES-NON-INCORPORES-DANS-LES-CODES-FISCAUX-2025.pdf",
+      "groupe": "golden_v1",
+      "chunks": 338
+    },
+    {
+      "fichier": "CODE-DE-LA-FISCALITE-LOCALE-2023-1-1.pdf",
+      "groupe": "golden_v2",
+      "chunks": 104
+    },
+    {
+      "fichier": "CODE-DES-DROITS-ET-PROCEDURES-FISCAUX-2023.pdf",
+      "groupe": "golden_v2",
+      "chunks": 245
+    },
+    {
+      "fichier": "Code-de-la-Fiscalite-Locale-2018.pdf",
+      "groupe": "golden_v2",
+      "chunks": 109
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-Revenu-des-Personnes-Physiques-et-de-limpot-sur-les-Societes-2023.pdf",
+      "groupe": "golden_v2",
+      "chunks": 24
+    },
+    {
+      "fichier": "Code-de-limpot-sur-le-Revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2020.pdf",
+      "groupe": "golden_v2",
+      "chunks": 27
+    },
+    {
+      "fichier": "Code-des-droits-et-procedures-fiscaux-2024.pdf",
+      "groupe": "golden_v2",
+      "chunks": 199
+    },
+    {
+      "fichier": "Code-des-droits-et-procedures-fiscaux-Janvier-2018.pdf",
+      "groupe": "golden_v2",
+      "chunks": 156
+    },
+    {
+      "fichier": "Code_FISCALITE-LOCALE-2025.pdf",
+      "groupe": "golden_v2",
+      "chunks": 111
+    },
+    {
+      "fichier": "Note-Commune-N°10.pdf",
+      "groupe": "golden_v2",
+      "chunks": 8
+    },
+    {
+      "fichier": "Note-Commune-N°13-5.pdf",
+      "groupe": "golden_v2",
+      "chunks": 13
+    },
+    {
+      "fichier": "cdpf-2025.pdf",
+      "groupe": "golden_v2",
+      "chunks": 254
+    },
+    {
+      "fichier": "code-de-la-fiscalite-locale-2020.pdf",
+      "groupe": "golden_v2",
+      "chunks": 111
+    },
+    {
+      "fichier": "code-de-limpot-sur-le-revenu-des-personnes-physiques-et-de-limpot-sur-les-societes-2019.pdf",
+      "groupe": "golden_v2",
+      "chunks": 26
+    },
+    {
+      "fichier": "Note-commune-n-31-4.pdf",
+      "groupe": "penalites",
+      "chunks": 2
+    },
+    {
+      "fichier": "Note-commune-n-37-3.pdf",
+      "groupe": "penalites",
+      "chunks": 36
+    },
+    {
+      "fichier": "Note-Commune-N°03.pdf",
+      "groupe": "bruit",
+      "chunks": 6
+    },
+    {
+      "fichier": "Note-Commune-N°25-1.pdf",
+      "groupe": "bruit",
+      "chunks": 3
+    },
+    {
+      "fichier": "Note-commune-n-05-4.pdf",
+      "groupe": "bruit",
+      "chunks": 7
+    },
+    {
+      "fichier": "Note-commune-n-06-7.pdf",
+      "groupe": "bruit",
+      "chunks": 12
+    },
+    {
+      "fichier": "Note-commune-n-25-3.pdf",
+      "groupe": "bruit",
+      "chunks": 10
+    },
+    {
+      "fichier": "Note-commune-n-35.pdf",
+      "groupe": "bruit",
+      "chunks": 2
+    }
+  ]
+}

@@ -31,6 +31,11 @@ def test_parse_judge_json_tolerates_code_fences() -> None:
 	assert llm_judge.parse_judge_json(raw)["score"] == 4
 
 
+def test_parse_judge_json_ignores_text_after_object() -> None:
+	raw = '{"score": 2, "verdict": "incorrect"}\n\nExplication : la regle citee est perimee {voir art. 81}.'
+	assert llm_judge.parse_judge_json(raw) == {"score": 2, "verdict": "incorrect"}
+
+
 def test_parse_judge_json_rejects_text_without_json() -> None:
 	with pytest.raises(ValueError):
 		llm_judge.parse_judge_json("pas de json")
